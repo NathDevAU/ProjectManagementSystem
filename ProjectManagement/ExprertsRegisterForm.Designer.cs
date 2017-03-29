@@ -38,6 +38,7 @@
             this.OutsideExpert = new System.Windows.Forms.RadioButton();
             this.InsideExpert = new System.Windows.Forms.RadioButton();
             this.CreateExpertBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExpertNameLabel
@@ -53,14 +54,14 @@
             // 
             this.ExpertNameTextBox.Location = new System.Drawing.Point(113, 27);
             this.ExpertNameTextBox.Name = "ExpertNameTextBox";
-            this.ExpertNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ExpertNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertNameTextBox.TabIndex = 1;
             // 
             // ExpertLastNameTextBox
             // 
             this.ExpertLastNameTextBox.Location = new System.Drawing.Point(113, 113);
             this.ExpertLastNameTextBox.Name = "ExpertLastNameTextBox";
-            this.ExpertLastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ExpertLastNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertLastNameTextBox.TabIndex = 3;
             // 
             // ExpertLastNameLabel
@@ -76,7 +77,7 @@
             // 
             this.ExpertMiddleNameTextBox.Location = new System.Drawing.Point(113, 67);
             this.ExpertMiddleNameTextBox.Name = "ExpertMiddleNameTextBox";
-            this.ExpertMiddleNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ExpertMiddleNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertMiddleNameTextBox.TabIndex = 5;
             // 
             // ExpertMiddleNameLabel
@@ -121,18 +122,29 @@
             // 
             // CreateExpertBtn
             // 
-            this.CreateExpertBtn.Location = new System.Drawing.Point(39, 210);
+            this.CreateExpertBtn.Location = new System.Drawing.Point(238, 211);
             this.CreateExpertBtn.Name = "CreateExpertBtn";
-            this.CreateExpertBtn.Size = new System.Drawing.Size(230, 23);
+            this.CreateExpertBtn.Size = new System.Drawing.Size(112, 23);
             this.CreateExpertBtn.TabIndex = 9;
-            this.CreateExpertBtn.Text = "Регистрирай експерта";
+            this.CreateExpertBtn.Text = "Регистрирай";
             this.CreateExpertBtn.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(356, 210);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Затвори";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExprertsRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 246);
+            this.ClientSize = new System.Drawing.Size(457, 246);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CreateExpertBtn);
             this.Controls.Add(this.InsideExpert);
             this.Controls.Add(this.OutsideExpert);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.RadioButton OutsideExpert;
         private System.Windows.Forms.RadioButton InsideExpert;
         private System.Windows.Forms.Button CreateExpertBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainContainer));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +36,9 @@
             this.създайToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.експертToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -61,14 +64,14 @@
             // testFormToolStripMenuItem
             // 
             this.testFormToolStripMenuItem.Name = "testFormToolStripMenuItem";
-            this.testFormToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testFormToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.testFormToolStripMenuItem.Text = "Проект";
             this.testFormToolStripMenuItem.Click += new System.EventHandler(this.testFormToolStripMenuItem_Click);
             // 
             // експертToolStripMenuItem1
             // 
             this.експертToolStripMenuItem1.Name = "експертToolStripMenuItem1";
-            this.експертToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.експертToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.експертToolStripMenuItem1.Text = "Експерт";
             this.експертToolStripMenuItem1.Click += new System.EventHandler(this.експертToolStripMenuItem1_Click);
             // 
@@ -95,19 +98,33 @@
             this.експертToolStripMenuItem.Text = "Експерт";
             this.експертToolStripMenuItem.Click += new System.EventHandler(this.експертToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(517, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 333);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainContainer";
-            this.Text = "Form1";
+            this.Text = "Управление на проекти";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem новПроектToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

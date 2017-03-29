@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class ExprertsRegisterForm : Form
+    public partial class EntryForm : Form
     {
-        public ExprertsRegisterForm()
+        public EntryForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Entrybutton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            MainContainer main = new MainContainer();
+            main.ShowDialog();
             this.Close();
         }
     }
