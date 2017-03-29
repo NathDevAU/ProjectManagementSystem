@@ -19,7 +19,7 @@ namespace ProjectManagement
 
         private void testFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new SearchForm();
+            var form = new SearchProjectForm();
             form.ShowDialog();
         }
 
@@ -32,6 +32,12 @@ namespace ProjectManagement
         private void новПроектToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new CreatingProjectForm();
+            form.ShowDialog();
+        }
+
+        private void експертToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var form = new SearchExpertForm();
             form.ShowDialog();
         }
     }

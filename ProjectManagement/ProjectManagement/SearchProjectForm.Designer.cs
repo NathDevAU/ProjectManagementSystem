@@ -1,6 +1,6 @@
 ﻿namespace ProjectManagement
 {
-    partial class SearchForm
+    partial class SearchProjectForm
     {
         /// <summary>
         /// Required designer variable.

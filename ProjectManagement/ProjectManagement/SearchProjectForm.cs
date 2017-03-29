@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class SearchForm : Form
+    public partial class SearchProjectForm : Form
     {
-        public SearchForm()
+        public SearchProjectForm()
         {
             InitializeComponent();
         }
