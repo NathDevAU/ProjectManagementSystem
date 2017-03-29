@@ -15,6 +15,34 @@ namespace ProjectManagement
         public SearchExpertForm()
         {
             InitializeComponent();
+            var experts = new Experts()
+            {
+                FirstName = "Stoyan",
+                MiddleName = "Dimitrov",
+                LastName = "Ruzmanov",
+                IsExternal = false
+            };
+
+            var data = new List<Experts>();
+            this.expertsBindingSource.DataSource = data;
+            //this.ExpertSearchResultGrid.DataBindings.Add("Text", experts.FirstName, "FirstName");
+            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.MiddleName), experts, nameof(Experts.MiddleName));
+            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.LastName), experts, nameof(Experts.LastName));
+            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.IsExternal), experts, nameof(Experts.IsExternal));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class Experts
+    {
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+
+        public bool IsExternal { get; set; }
     }
 }

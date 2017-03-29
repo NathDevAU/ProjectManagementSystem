@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SearchByLabel = new System.Windows.Forms.Label();
             this.SearchFilterDropDown = new System.Windows.Forms.ComboBox();
             this.SearchExpertTextBox = new System.Windows.Forms.TextBox();
@@ -43,8 +44,14 @@
             this.ExperTypeLabel = new System.Windows.Forms.Label();
             this.ExternalExpertRaidoBtn = new System.Windows.Forms.RadioButton();
             this.InternalExpertRadioBtn = new System.Windows.Forms.RadioButton();
+            this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isExternalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpertSearchResultGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchByLabel
@@ -79,6 +86,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Търсене";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -92,6 +100,7 @@
             // 
             this.ExpertSearchResultGrid.AllowUserToAddRows = false;
             this.ExpertSearchResultGrid.AllowUserToDeleteRows = false;
+            this.ExpertSearchResultGrid.AutoGenerateColumns = false;
             this.ExpertSearchResultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ExpertSearchResultGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FirstName,
@@ -99,7 +108,12 @@
             this.LastName,
             this.IsExternal,
             this.ExpertDetails,
-            this.EditBtn});
+            this.EditBtn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.middleNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.isExternalDataGridViewCheckBoxColumn});
+            this.ExpertSearchResultGrid.DataSource = this.expertsBindingSource;
             this.ExpertSearchResultGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExpertSearchResultGrid.Location = new System.Drawing.Point(0, 0);
             this.ExpertSearchResultGrid.Name = "ExpertSearchResultGrid";
@@ -175,6 +189,38 @@
             this.InternalExpertRadioBtn.Text = "Вътрешен";
             this.InternalExpertRadioBtn.UseVisualStyleBackColor = true;
             // 
+            // expertsBindingSource
+            // 
+            this.expertsBindingSource.DataSource = typeof(ProjectManagement.Experts);
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // middleNameDataGridViewTextBoxColumn
+            // 
+            this.middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
+            this.middleNameDataGridViewTextBoxColumn.HeaderText = "MiddleName";
+            this.middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
+            this.middleNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isExternalDataGridViewCheckBoxColumn
+            // 
+            this.isExternalDataGridViewCheckBoxColumn.DataPropertyName = "IsExternal";
+            this.isExternalDataGridViewCheckBoxColumn.HeaderText = "IsExternal";
+            this.isExternalDataGridViewCheckBoxColumn.Name = "isExternalDataGridViewCheckBoxColumn";
+            this.isExternalDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // SearchExpertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +238,7 @@
             this.Text = "SearchExpertForm";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpertSearchResultGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +261,10 @@
         private System.Windows.Forms.Label ExperTypeLabel;
         private System.Windows.Forms.RadioButton ExternalExpertRaidoBtn;
         private System.Windows.Forms.RadioButton InternalExpertRadioBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isExternalDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource expertsBindingSource;
     }
 }
