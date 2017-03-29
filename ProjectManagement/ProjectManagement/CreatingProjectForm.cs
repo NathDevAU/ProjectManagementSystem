@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ProjectManagement
 {
-    public partial class SearchForm : Form
+    public partial class CreatingProjectForm : Form
     {
-        public SearchForm()
+        public CreatingProjectForm()
         {
             InitializeComponent();
-        }
-
-        private void SearchBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

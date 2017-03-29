@@ -20,15 +20,19 @@ namespace ProjectManagement
         private void testFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new SearchForm();
-            form.MdiParent = this;
-
-            form.Show();
+            form.ShowDialog();
         }
 
         private void експертToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new ExprertsRegisterForm();
-            form.Show();
+            form.ShowDialog();
+        }
+
+        private void новПроектToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new CreatingProjectForm();
+            form.ShowDialog();
         }
     }
 }

@@ -34,6 +34,7 @@
             this.създайToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.експертToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.експертToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,16 +52,17 @@
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testFormToolStripMenuItem});
+            this.testFormToolStripMenuItem,
+            this.експертToolStripMenuItem1});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.testToolStripMenuItem.Text = "Файл";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.testToolStripMenuItem.Text = "Търси";
             // 
             // testFormToolStripMenuItem
             // 
             this.testFormToolStripMenuItem.Name = "testFormToolStripMenuItem";
             this.testFormToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.testFormToolStripMenuItem.Text = "TestForm";
+            this.testFormToolStripMenuItem.Text = "Проект";
             this.testFormToolStripMenuItem.Click += new System.EventHandler(this.testFormToolStripMenuItem_Click);
             // 
             // създайToolStripMenuItem
@@ -77,6 +79,7 @@
             this.новПроектToolStripMenuItem.Name = "новПроектToolStripMenuItem";
             this.новПроектToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.новПроектToolStripMenuItem.Text = "Нов проект";
+            this.новПроектToolStripMenuItem.Click += new System.EventHandler(this.новПроектToolStripMenuItem_Click);
             // 
             // експертToolStripMenuItem
             // 
@@ -84,6 +87,12 @@
             this.експертToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.експертToolStripMenuItem.Text = "Експерт";
             this.експертToolStripMenuItem.Click += new System.EventHandler(this.експертToolStripMenuItem_Click);
+            // 
+            // експертToolStripMenuItem1
+            // 
+            this.експертToolStripMenuItem1.Name = "експертToolStripMenuItem1";
+            this.експертToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.експертToolStripMenuItem1.Text = "Експерт";
             // 
             // MainContainer
             // 
@@ -95,6 +104,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainContainer";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -110,6 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem създайToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem новПроектToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem1;
     }
 }
 
