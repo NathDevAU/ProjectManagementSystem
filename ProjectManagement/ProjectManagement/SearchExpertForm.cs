@@ -23,9 +23,9 @@ namespace ProjectManagement
                 IsExternal = false
             };
 
-            var data = new List<Experts>();
+            var data = experts;
             this.expertsBindingSource.DataSource = data;
-            //this.ExpertSearchResultGrid.DataBindings.Add("Text", experts.FirstName, "FirstName");
+            //this.ExpertSearchResultGrid.DataBindings.Add("FirstName", experts, "FirstName");
             //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.MiddleName), experts, nameof(Experts.MiddleName));
             //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.LastName), experts, nameof(Experts.LastName));
             //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.IsExternal), experts, nameof(Experts.IsExternal));
