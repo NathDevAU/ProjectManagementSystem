@@ -19,5 +19,7 @@ namespace ProjectManagement
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
         }
+
+       
     }
 }

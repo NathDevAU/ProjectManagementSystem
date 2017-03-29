@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatingProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatingProjectForm.Designer.cs">
+      <DependentUpon>CreatingProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExprertsRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExprertsRegisterForm.Designer.cs">
+      <DependentUpon>ExprertsRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     <Compile Include="SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreatingProjectForm.resx">
+      <DependentUpon>CreatingProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExprertsRegisterForm.resx">
+      <DependentUpon>ExprertsRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainContainer.resx">
       <DependentUpon>MainContainer.cs</DependentUpon>
     </EmbeddedResource>

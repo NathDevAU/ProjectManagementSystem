@@ -21,10 +21,14 @@ namespace ProjectManagement
         {
             var form = new SearchForm();
             form.MdiParent = this;
-            
+
             form.Show();
         }
 
-       
+        private void експертToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ExprertsRegisterForm();
+            form.Show();
+        }
     }
 }
