@@ -35,15 +35,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ExpertSearchResultGrid = new System.Windows.Forms.DataGridView();
-            this.ExperTypeLabel = new System.Windows.Forms.Label();
-            this.ExternalExpertRaidoBtn = new System.Windows.Forms.RadioButton();
-            this.InternalExpertRadioBtn = new System.Windows.Forms.RadioButton();
-            this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpertType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ExperTypeLabel = new System.Windows.Forms.Label();
+            this.ExternalExpertRaidoBtn = new System.Windows.Forms.RadioButton();
+            this.InternalExpertRadioBtn = new System.Windows.Forms.RadioButton();
+            this.CloseBtn = new System.Windows.Forms.Button();
+            this.AllExpertTypes = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpertSearchResultGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
@@ -52,32 +54,32 @@
             // SearchByLabel
             // 
             this.SearchByLabel.AutoSize = true;
-            this.SearchByLabel.Location = new System.Drawing.Point(82, 30);
+            this.SearchByLabel.Location = new System.Drawing.Point(19, 18);
             this.SearchByLabel.Name = "SearchByLabel";
-            this.SearchByLabel.Size = new System.Drawing.Size(54, 13);
+            this.SearchByLabel.Size = new System.Drawing.Size(57, 13);
             this.SearchByLabel.TabIndex = 0;
-            this.SearchByLabel.Text = "Търси по";
+            this.SearchByLabel.Text = "Търси по:";
             // 
             // SearchFilterDropDown
             // 
             this.SearchFilterDropDown.FormattingEnabled = true;
-            this.SearchFilterDropDown.Location = new System.Drawing.Point(194, 27);
+            this.SearchFilterDropDown.Location = new System.Drawing.Point(131, 18);
             this.SearchFilterDropDown.Name = "SearchFilterDropDown";
-            this.SearchFilterDropDown.Size = new System.Drawing.Size(121, 21);
+            this.SearchFilterDropDown.Size = new System.Drawing.Size(135, 21);
             this.SearchFilterDropDown.TabIndex = 1;
             // 
             // SearchExpertTextBox
             // 
-            this.SearchExpertTextBox.Location = new System.Drawing.Point(85, 96);
+            this.SearchExpertTextBox.Location = new System.Drawing.Point(282, 19);
             this.SearchExpertTextBox.Name = "SearchExpertTextBox";
-            this.SearchExpertTextBox.Size = new System.Drawing.Size(290, 20);
+            this.SearchExpertTextBox.Size = new System.Drawing.Size(210, 20);
             this.SearchExpertTextBox.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(422, 96);
+            this.button1.Location = new System.Drawing.Point(498, 18);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 23);
+            this.button1.Size = new System.Drawing.Size(73, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Търсене";
             this.button1.UseVisualStyleBackColor = true;
@@ -86,9 +88,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.ExpertSearchResultGrid);
-            this.panel1.Location = new System.Drawing.Point(22, 139);
+            this.panel1.Location = new System.Drawing.Point(22, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(672, 308);
+            this.panel1.Size = new System.Drawing.Size(549, 308);
             this.panel1.TabIndex = 4;
             // 
             // ExpertSearchResultGrid
@@ -108,44 +110,9 @@
             this.ExpertSearchResultGrid.Location = new System.Drawing.Point(0, 0);
             this.ExpertSearchResultGrid.Name = "ExpertSearchResultGrid";
             this.ExpertSearchResultGrid.ReadOnly = true;
-            this.ExpertSearchResultGrid.Size = new System.Drawing.Size(672, 308);
+            this.ExpertSearchResultGrid.Size = new System.Drawing.Size(549, 308);
             this.ExpertSearchResultGrid.TabIndex = 0;
             this.ExpertSearchResultGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExpertSearchResultGrid_CellContentClick);
-            // 
-            // ExperTypeLabel
-            // 
-            this.ExperTypeLabel.AutoSize = true;
-            this.ExperTypeLabel.Location = new System.Drawing.Point(82, 66);
-            this.ExperTypeLabel.Name = "ExperTypeLabel";
-            this.ExperTypeLabel.Size = new System.Drawing.Size(94, 13);
-            this.ExperTypeLabel.TabIndex = 5;
-            this.ExperTypeLabel.Text = "Тип на експерта:";
-            // 
-            // ExternalExpertRaidoBtn
-            // 
-            this.ExternalExpertRaidoBtn.AutoSize = true;
-            this.ExternalExpertRaidoBtn.Location = new System.Drawing.Point(194, 66);
-            this.ExternalExpertRaidoBtn.Name = "ExternalExpertRaidoBtn";
-            this.ExternalExpertRaidoBtn.Size = new System.Drawing.Size(65, 17);
-            this.ExternalExpertRaidoBtn.TabIndex = 6;
-            this.ExternalExpertRaidoBtn.TabStop = true;
-            this.ExternalExpertRaidoBtn.Text = "Външен";
-            this.ExternalExpertRaidoBtn.UseVisualStyleBackColor = true;
-            // 
-            // InternalExpertRadioBtn
-            // 
-            this.InternalExpertRadioBtn.AutoSize = true;
-            this.InternalExpertRadioBtn.Location = new System.Drawing.Point(274, 66);
-            this.InternalExpertRadioBtn.Name = "InternalExpertRadioBtn";
-            this.InternalExpertRadioBtn.Size = new System.Drawing.Size(76, 17);
-            this.InternalExpertRadioBtn.TabIndex = 7;
-            this.InternalExpertRadioBtn.TabStop = true;
-            this.InternalExpertRadioBtn.Text = "Вътрешен";
-            this.InternalExpertRadioBtn.UseVisualStyleBackColor = true;
-            // 
-            // expertsBindingSource
-            // 
-            this.expertsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.Expert);
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -184,11 +151,69 @@
             this.DetailsBtn.Text = "Детайли";
             this.DetailsBtn.UseColumnTextForButtonValue = true;
             // 
+            // expertsBindingSource
+            // 
+            this.expertsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.Expert);
+            // 
+            // ExperTypeLabel
+            // 
+            this.ExperTypeLabel.AutoSize = true;
+            this.ExperTypeLabel.Location = new System.Drawing.Point(19, 59);
+            this.ExperTypeLabel.Name = "ExperTypeLabel";
+            this.ExperTypeLabel.Size = new System.Drawing.Size(94, 13);
+            this.ExperTypeLabel.TabIndex = 5;
+            this.ExperTypeLabel.Text = "Тип на експерта:";
+            // 
+            // ExternalExpertRaidoBtn
+            // 
+            this.ExternalExpertRaidoBtn.AutoSize = true;
+            this.ExternalExpertRaidoBtn.Location = new System.Drawing.Point(282, 57);
+            this.ExternalExpertRaidoBtn.Name = "ExternalExpertRaidoBtn";
+            this.ExternalExpertRaidoBtn.Size = new System.Drawing.Size(65, 17);
+            this.ExternalExpertRaidoBtn.TabIndex = 6;
+            this.ExternalExpertRaidoBtn.TabStop = true;
+            this.ExternalExpertRaidoBtn.Text = "Външен";
+            this.ExternalExpertRaidoBtn.UseVisualStyleBackColor = true;
+            // 
+            // InternalExpertRadioBtn
+            // 
+            this.InternalExpertRadioBtn.AutoSize = true;
+            this.InternalExpertRadioBtn.Location = new System.Drawing.Point(131, 59);
+            this.InternalExpertRadioBtn.Name = "InternalExpertRadioBtn";
+            this.InternalExpertRadioBtn.Size = new System.Drawing.Size(76, 17);
+            this.InternalExpertRadioBtn.TabIndex = 7;
+            this.InternalExpertRadioBtn.TabStop = true;
+            this.InternalExpertRadioBtn.Text = "Вътрешен";
+            this.InternalExpertRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(498, 405);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 8;
+            this.CloseBtn.Text = "Затвори";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // AllExpertTypes
+            // 
+            this.AllExpertTypes.AutoSize = true;
+            this.AllExpertTypes.Location = new System.Drawing.Point(431, 59);
+            this.AllExpertTypes.Name = "AllExpertTypes";
+            this.AllExpertTypes.Size = new System.Drawing.Size(61, 17);
+            this.AllExpertTypes.TabIndex = 9;
+            this.AllExpertTypes.TabStop = true;
+            this.AllExpertTypes.Text = "Всички";
+            this.AllExpertTypes.UseVisualStyleBackColor = true;
+            // 
             // SearchExpertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 459);
+            this.ClientSize = new System.Drawing.Size(583, 438);
+            this.Controls.Add(this.AllExpertTypes);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.InternalExpertRadioBtn);
             this.Controls.Add(this.ExternalExpertRaidoBtn);
             this.Controls.Add(this.ExperTypeLabel);
@@ -198,7 +223,7 @@
             this.Controls.Add(this.SearchFilterDropDown);
             this.Controls.Add(this.SearchByLabel);
             this.Name = "SearchExpertForm";
-            this.Text = "SearchExpertForm";
+            this.Text = "Търсене на експерт";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpertSearchResultGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();
@@ -225,5 +250,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpertType;
         private System.Windows.Forms.DataGridViewButtonColumn DetailsBtn;
+        private System.Windows.Forms.Button CloseBtn;
+        private System.Windows.Forms.RadioButton AllExpertTypes;
     }
 }

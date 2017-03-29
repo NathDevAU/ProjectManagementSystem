@@ -40,6 +40,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.ExpertTypeDropDown = new System.Windows.Forms.ComboBox();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 37);
+            this.label1.Location = new System.Drawing.Point(12, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 71);
+            this.label2.Location = new System.Drawing.Point(12, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 1;
@@ -65,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 106);
+            this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 2;
@@ -74,30 +75,30 @@
             // FirstNameTextBox
             // 
             this.FirstNameTextBox.Enabled = false;
-            this.FirstNameTextBox.Location = new System.Drawing.Point(111, 37);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(95, 37);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.FirstNameTextBox.Size = new System.Drawing.Size(145, 20);
             this.FirstNameTextBox.TabIndex = 3;
             // 
             // LastNameTextBox
             // 
             this.LastNameTextBox.Enabled = false;
-            this.LastNameTextBox.Location = new System.Drawing.Point(111, 106);
+            this.LastNameTextBox.Location = new System.Drawing.Point(95, 106);
             this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LastNameTextBox.Size = new System.Drawing.Size(145, 20);
             this.LastNameTextBox.TabIndex = 4;
             // 
             // MiddleNameTextBox
             // 
             this.MiddleNameTextBox.Enabled = false;
-            this.MiddleNameTextBox.Location = new System.Drawing.Point(111, 71);
+            this.MiddleNameTextBox.Location = new System.Drawing.Point(95, 71);
             this.MiddleNameTextBox.Name = "MiddleNameTextBox";
-            this.MiddleNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.MiddleNameTextBox.Size = new System.Drawing.Size(145, 20);
             this.MiddleNameTextBox.TabIndex = 5;
             // 
             // EditBtn
             // 
-            this.EditBtn.Location = new System.Drawing.Point(31, 192);
+            this.EditBtn.Location = new System.Drawing.Point(84, 192);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(75, 23);
             this.EditBtn.TabIndex = 6;
@@ -107,9 +108,9 @@
             // 
             // ApplyChangesBtn
             // 
-            this.ApplyChangesBtn.Location = new System.Drawing.Point(136, 192);
+            this.ApplyChangesBtn.Location = new System.Drawing.Point(22, 192);
             this.ApplyChangesBtn.Name = "ApplyChangesBtn";
-            this.ApplyChangesBtn.Size = new System.Drawing.Size(75, 23);
+            this.ApplyChangesBtn.Size = new System.Drawing.Size(56, 23);
             this.ApplyChangesBtn.TabIndex = 7;
             this.ApplyChangesBtn.Text = "Запази промените";
             this.ApplyChangesBtn.UseVisualStyleBackColor = true;
@@ -135,7 +136,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 145);
+            this.label4.Location = new System.Drawing.Point(15, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 9;
@@ -148,16 +149,27 @@
             this.ExpertTypeDropDown.Items.AddRange(new object[] {
             "Външен",
             "Вътрешен"});
-            this.ExpertTypeDropDown.Location = new System.Drawing.Point(111, 142);
+            this.ExpertTypeDropDown.Location = new System.Drawing.Point(95, 142);
             this.ExpertTypeDropDown.Name = "ExpertTypeDropDown";
-            this.ExpertTypeDropDown.Size = new System.Drawing.Size(100, 21);
+            this.ExpertTypeDropDown.Size = new System.Drawing.Size(145, 21);
             this.ExpertTypeDropDown.TabIndex = 10;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(165, 192);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 11;
+            this.CloseBtn.Text = "Затвори";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // ExpertDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 347);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.ExpertTypeDropDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
@@ -170,7 +182,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ExpertDetailsForm";
-            this.Text = "ExpertDetailsForm";
+            this.Text = "Детайли за експерт";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -192,5 +204,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox ExpertTypeDropDown;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

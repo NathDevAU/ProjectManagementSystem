@@ -55,5 +55,10 @@ namespace ProjectManagement
                 }
             }
         }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

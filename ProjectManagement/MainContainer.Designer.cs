@@ -36,6 +36,9 @@
             this.създайToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.експертToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.задачаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.снянаНаПотребителToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,7 +48,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem,
-            this.създайToolStripMenuItem});
+            this.създайToolStripMenuItem,
+            this.снянаНаПотребителToolStripMenuItem,
+            this.изходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(517, 24);
@@ -79,7 +84,8 @@
             // 
             this.създайToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новПроектToolStripMenuItem,
-            this.експертToolStripMenuItem});
+            this.експертToolStripMenuItem,
+            this.задачаToolStripMenuItem});
             this.създайToolStripMenuItem.Name = "създайToolStripMenuItem";
             this.създайToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.създайToolStripMenuItem.Text = "Създай";
@@ -97,6 +103,27 @@
             this.експертToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.експертToolStripMenuItem.Text = "Експерт";
             this.експертToolStripMenuItem.Click += new System.EventHandler(this.експертToolStripMenuItem_Click);
+            // 
+            // задачаToolStripMenuItem
+            // 
+            this.задачаToolStripMenuItem.Name = "задачаToolStripMenuItem";
+            this.задачаToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.задачаToolStripMenuItem.Text = "Задача";
+            this.задачаToolStripMenuItem.Click += new System.EventHandler(this.задачаToolStripMenuItem_Click);
+            // 
+            // снянаНаПотребителToolStripMenuItem
+            // 
+            this.снянаНаПотребителToolStripMenuItem.Name = "снянаНаПотребителToolStripMenuItem";
+            this.снянаНаПотребителToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.снянаНаПотребителToolStripMenuItem.Text = "Сняна на потребител";
+            this.снянаНаПотребителToolStripMenuItem.Click += new System.EventHandler(this.снянаНаПотребителToolStripMenuItem_Click);
+            // 
+            // изходToolStripMenuItem
+            // 
+            this.изходToolStripMenuItem.Name = "изходToolStripMenuItem";
+            this.изходToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.изходToolStripMenuItem.Text = "Изход";
+            this.изходToolStripMenuItem.Click += new System.EventHandler(this.изходToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -140,6 +167,9 @@
         private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem експертToolStripMenuItem1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem задачаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem снянаНаПотребителToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem изходToolStripMenuItem;
     }
 }
 

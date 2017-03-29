@@ -52,14 +52,14 @@
             // 
             // ExpertNameTextBox
             // 
-            this.ExpertNameTextBox.Location = new System.Drawing.Point(113, 27);
+            this.ExpertNameTextBox.Location = new System.Drawing.Point(124, 30);
             this.ExpertNameTextBox.Name = "ExpertNameTextBox";
             this.ExpertNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertNameTextBox.TabIndex = 1;
             // 
             // ExpertLastNameTextBox
             // 
-            this.ExpertLastNameTextBox.Location = new System.Drawing.Point(113, 113);
+            this.ExpertLastNameTextBox.Location = new System.Drawing.Point(124, 109);
             this.ExpertLastNameTextBox.Name = "ExpertLastNameTextBox";
             this.ExpertLastNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertLastNameTextBox.TabIndex = 3;
@@ -67,7 +67,7 @@
             // ExpertLastNameLabel
             // 
             this.ExpertLastNameLabel.AutoSize = true;
-            this.ExpertLastNameLabel.Location = new System.Drawing.Point(27, 113);
+            this.ExpertLastNameLabel.Location = new System.Drawing.Point(27, 109);
             this.ExpertLastNameLabel.Name = "ExpertLastNameLabel";
             this.ExpertLastNameLabel.Size = new System.Drawing.Size(56, 13);
             this.ExpertLastNameLabel.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             // ExpertMiddleNameTextBox
             // 
-            this.ExpertMiddleNameTextBox.Location = new System.Drawing.Point(113, 67);
+            this.ExpertMiddleNameTextBox.Location = new System.Drawing.Point(124, 70);
             this.ExpertMiddleNameTextBox.Name = "ExpertMiddleNameTextBox";
             this.ExpertMiddleNameTextBox.Size = new System.Drawing.Size(182, 20);
             this.ExpertMiddleNameTextBox.TabIndex = 5;
@@ -92,7 +92,7 @@
             // ExpertTypeLabel
             // 
             this.ExpertTypeLabel.AutoSize = true;
-            this.ExpertTypeLabel.Location = new System.Drawing.Point(12, 166);
+            this.ExpertTypeLabel.Location = new System.Drawing.Point(27, 152);
             this.ExpertTypeLabel.Name = "ExpertTypeLabel";
             this.ExpertTypeLabel.Size = new System.Drawing.Size(91, 13);
             this.ExpertTypeLabel.TabIndex = 6;
@@ -101,7 +101,7 @@
             // OutsideExpert
             // 
             this.OutsideExpert.AutoSize = true;
-            this.OutsideExpert.Location = new System.Drawing.Point(138, 164);
+            this.OutsideExpert.Location = new System.Drawing.Point(124, 150);
             this.OutsideExpert.Name = "OutsideExpert";
             this.OutsideExpert.Size = new System.Drawing.Size(65, 17);
             this.OutsideExpert.TabIndex = 7;
@@ -112,7 +112,7 @@
             // InsideExpert
             // 
             this.InsideExpert.AutoSize = true;
-            this.InsideExpert.Location = new System.Drawing.Point(219, 164);
+            this.InsideExpert.Location = new System.Drawing.Point(230, 150);
             this.InsideExpert.Name = "InsideExpert";
             this.InsideExpert.Size = new System.Drawing.Size(76, 17);
             this.InsideExpert.TabIndex = 8;
@@ -122,16 +122,16 @@
             // 
             // CreateExpertBtn
             // 
-            this.CreateExpertBtn.Location = new System.Drawing.Point(238, 211);
+            this.CreateExpertBtn.Location = new System.Drawing.Point(124, 212);
             this.CreateExpertBtn.Name = "CreateExpertBtn";
-            this.CreateExpertBtn.Size = new System.Drawing.Size(112, 23);
+            this.CreateExpertBtn.Size = new System.Drawing.Size(88, 23);
             this.CreateExpertBtn.TabIndex = 9;
             this.CreateExpertBtn.Text = "Регистрирай";
             this.CreateExpertBtn.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(356, 210);
+            this.button1.Location = new System.Drawing.Point(231, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 246);
+            this.ClientSize = new System.Drawing.Size(323, 246);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CreateExpertBtn);
             this.Controls.Add(this.InsideExpert);

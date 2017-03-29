@@ -112,6 +112,9 @@
     <EmbeddedResource Include="CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreatingTaskForm.resx">
+      <DependentUpon>CreatingTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchProjectForm.resx">
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskDetailsForm.resx">
+      <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Experts.datasource" />
     <None Include="Properties\Settings.settings">

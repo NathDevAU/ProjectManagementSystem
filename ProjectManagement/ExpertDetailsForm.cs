@@ -45,5 +45,10 @@ namespace ProjectManagement
             this.EditBtn.Visible = true;
             this.ApplyChangesBtn.Visible = false;
         }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

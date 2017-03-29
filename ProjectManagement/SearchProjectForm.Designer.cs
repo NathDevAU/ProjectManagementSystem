@@ -33,7 +33,6 @@
             this.SearchFilterTextBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +41,8 @@
             this.ProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectPayByHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,23 +61,23 @@
             this.SearchFilterDropDown.FormattingEnabled = true;
             this.SearchFilterDropDown.Location = new System.Drawing.Point(75, 22);
             this.SearchFilterDropDown.Name = "SearchFilterDropDown";
-            this.SearchFilterDropDown.Size = new System.Drawing.Size(121, 21);
+            this.SearchFilterDropDown.Size = new System.Drawing.Size(137, 21);
             this.SearchFilterDropDown.TabIndex = 1;
             // 
             // SearchFilterTextBox
             // 
-            this.SearchFilterTextBox.Location = new System.Drawing.Point(245, 25);
+            this.SearchFilterTextBox.Location = new System.Drawing.Point(272, 22);
             this.SearchFilterTextBox.Name = "SearchFilterTextBox";
-            this.SearchFilterTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SearchFilterTextBox.Size = new System.Drawing.Size(236, 20);
             this.SearchFilterTextBox.TabIndex = 2;
             // 
             // SearchBtn
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(377, 25);
+            this.SearchBtn.Location = new System.Drawing.Point(563, 19);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(75, 23);
             this.SearchBtn.TabIndex = 3;
-            this.SearchBtn.Text = "Търси";
+            this.SearchBtn.Text = "Търсене";
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
@@ -96,17 +97,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(949, 268);
+            this.dataGridView1.Size = new System.Drawing.Size(845, 268);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(28, 106);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(949, 268);
-            this.panel1.TabIndex = 5;
             // 
             // ProjectId
             // 
@@ -158,11 +151,30 @@
             this.DetailsBtn.Text = "Детайли";
             this.DetailsBtn.UseColumnTextForButtonValue = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(28, 70);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(845, 268);
+            this.panel1.TabIndex = 5;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(798, 344);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 6;
+            this.CloseBtn.Text = "Затвори";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
             // SearchProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 454);
+            this.ClientSize = new System.Drawing.Size(896, 378);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.SearchFilterTextBox);
@@ -193,5 +205,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectPayByHour;
         private System.Windows.Forms.DataGridViewButtonColumn DetailsBtn;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

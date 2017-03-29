@@ -40,5 +40,42 @@ namespace ProjectManagement
             var form = new SearchExpertForm();
             form.ShowDialog();
         }
+
+        private void задачаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new CreatingTaskForm();
+            form.ShowDialog();
+        }
+
+        private void проектToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ProjectDetailsForm();
+            form.ShowDialog();
+        }
+
+        private void експертToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void задачаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var form = new TaskDetailsForm();
+            form.ShowDialog();
+        }
+
+
+        private void снянаНаПотребителToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+var form = new EntryForm();
+            this.Close();
+            form.ShowDialog();
+            
+        }
+
+        private void изходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

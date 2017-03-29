@@ -29,11 +29,21 @@
         private void InitializeComponent()
         {
             this.TasksGrpB = new System.Windows.Forms.GroupBox();
+            this.AddTaskBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TaskCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeLeftCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DelayCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailsBtnCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.HoursCountTb = new System.Windows.Forms.MaskedTextBox();
+            this.RegisterNewClientBtn = new System.Windows.Forms.Button();
+            this.ProjectClientComboBox = new System.Windows.Forms.ComboBox();
+            this.ProjectClientLabel = new System.Windows.Forms.Label();
+            this.EditDetailsBtn = new System.Windows.Forms.Button();
             this.CurrencyLabel = new System.Windows.Forms.Label();
             this.CostSoFarTb = new System.Windows.Forms.TextBox();
-            this.HoursCountTb = new System.Windows.Forms.TextBox();
             this.TaskCountTb = new System.Windows.Forms.TextBox();
             this.CurrentProjectCostLabel = new System.Windows.Forms.Label();
             this.HoursCountLabel = new System.Windows.Forms.Label();
@@ -53,15 +63,7 @@
             this.ProjectNameLabel = new System.Windows.Forms.Label();
             this.ProjectDescriptionLabel = new System.Windows.Forms.Label();
             this.ProjectIdLabel = new System.Windows.Forms.Label();
-            this.EditDetailsBtn = new System.Windows.Forms.Button();
-            this.AddTaskBtn = new System.Windows.Forms.Button();
-            this.RegisterNewClientBtn = new System.Windows.Forms.Button();
-            this.ProjectClientComboBox = new System.Windows.Forms.ComboBox();
-            this.ProjectClientLabel = new System.Windows.Forms.Label();
-            this.TaskCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeLeftCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DelayCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailsBtnCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.TasksGrpB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,6 +71,7 @@
             // 
             // TasksGrpB
             // 
+            this.TasksGrpB.Controls.Add(this.CloseBtn);
             this.TasksGrpB.Controls.Add(this.AddTaskBtn);
             this.TasksGrpB.Controls.Add(this.dataGridView1);
             this.TasksGrpB.Location = new System.Drawing.Point(438, 12);
@@ -77,6 +80,16 @@
             this.TasksGrpB.TabIndex = 44;
             this.TasksGrpB.TabStop = false;
             this.TasksGrpB.Text = "Задачи";
+            // 
+            // AddTaskBtn
+            // 
+            this.AddTaskBtn.Location = new System.Drawing.Point(6, 470);
+            this.AddTaskBtn.Name = "AddTaskBtn";
+            this.AddTaskBtn.Size = new System.Drawing.Size(182, 23);
+            this.AddTaskBtn.TabIndex = 69;
+            this.AddTaskBtn.Text = "Добавяне на нова задача";
+            this.AddTaskBtn.UseVisualStyleBackColor = true;
+            this.AddTaskBtn.Click += new System.EventHandler(this.AddTaskBtn_Click_1);
             // 
             // dataGridView1
             // 
@@ -91,17 +104,44 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(446, 438);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // TaskCol
+            // 
+            this.TaskCol.HeaderText = "Задача";
+            this.TaskCol.Name = "TaskCol";
+            this.TaskCol.ReadOnly = true;
+            // 
+            // TimeLeftCol
+            // 
+            this.TimeLeftCol.HeaderText = "Оставащо време";
+            this.TimeLeftCol.Name = "TimeLeftCol";
+            this.TimeLeftCol.ReadOnly = true;
+            // 
+            // DelayCol
+            // 
+            this.DelayCol.HeaderText = "Закъснение";
+            this.DelayCol.Name = "DelayCol";
+            this.DelayCol.ReadOnly = true;
+            // 
+            // DetailsBtnCol
+            // 
+            this.DetailsBtnCol.HeaderText = "Детайли";
+            this.DetailsBtnCol.Name = "DetailsBtnCol";
+            this.DetailsBtnCol.ReadOnly = true;
+            this.DetailsBtnCol.Text = "Детайли";
+            this.DetailsBtnCol.UseColumnTextForButtonValue = true;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.SaveBtn);
+            this.panel1.Controls.Add(this.HoursCountTb);
             this.panel1.Controls.Add(this.RegisterNewClientBtn);
             this.panel1.Controls.Add(this.ProjectClientComboBox);
             this.panel1.Controls.Add(this.ProjectClientLabel);
             this.panel1.Controls.Add(this.EditDetailsBtn);
             this.panel1.Controls.Add(this.CurrencyLabel);
             this.panel1.Controls.Add(this.CostSoFarTb);
-            this.panel1.Controls.Add(this.HoursCountTb);
             this.panel1.Controls.Add(this.TaskCountTb);
             this.panel1.Controls.Add(this.CurrentProjectCostLabel);
             this.panel1.Controls.Add(this.HoursCountLabel);
@@ -126,10 +166,71 @@
             this.panel1.Size = new System.Drawing.Size(420, 496);
             this.panel1.TabIndex = 45;
             // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(135, 470);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(133, 23);
+            this.SaveBtn.TabIndex = 73;
+            this.SaveBtn.Text = "Запазване";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Visible = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // HoursCountTb
+            // 
+            this.HoursCountTb.Enabled = false;
+            this.HoursCountTb.Location = new System.Drawing.Point(135, 414);
+            this.HoursCountTb.Mask = "00:00";
+            this.HoursCountTb.Name = "HoursCountTb";
+            this.HoursCountTb.Size = new System.Drawing.Size(185, 20);
+            this.HoursCountTb.TabIndex = 72;
+            this.HoursCountTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.HoursCountTb.ValidatingType = typeof(System.DateTime);
+            // 
+            // RegisterNewClientBtn
+            // 
+            this.RegisterNewClientBtn.Enabled = false;
+            this.RegisterNewClientBtn.Location = new System.Drawing.Point(328, 238);
+            this.RegisterNewClientBtn.Name = "RegisterNewClientBtn";
+            this.RegisterNewClientBtn.Size = new System.Drawing.Size(89, 47);
+            this.RegisterNewClientBtn.TabIndex = 71;
+            this.RegisterNewClientBtn.Text = "Регистране на нов клиент";
+            this.RegisterNewClientBtn.UseVisualStyleBackColor = true;
+            this.RegisterNewClientBtn.Visible = false;
+            // 
+            // ProjectClientComboBox
+            // 
+            this.ProjectClientComboBox.Enabled = false;
+            this.ProjectClientComboBox.FormattingEnabled = true;
+            this.ProjectClientComboBox.Location = new System.Drawing.Point(135, 240);
+            this.ProjectClientComboBox.Name = "ProjectClientComboBox";
+            this.ProjectClientComboBox.Size = new System.Drawing.Size(187, 21);
+            this.ProjectClientComboBox.TabIndex = 70;
+            // 
+            // ProjectClientLabel
+            // 
+            this.ProjectClientLabel.AutoSize = true;
+            this.ProjectClientLabel.Location = new System.Drawing.Point(3, 240);
+            this.ProjectClientLabel.Name = "ProjectClientLabel";
+            this.ProjectClientLabel.Size = new System.Drawing.Size(102, 13);
+            this.ProjectClientLabel.TabIndex = 69;
+            this.ProjectClientLabel.Text = "Клиент на проекта";
+            // 
+            // EditDetailsBtn
+            // 
+            this.EditDetailsBtn.Location = new System.Drawing.Point(274, 470);
+            this.EditDetailsBtn.Name = "EditDetailsBtn";
+            this.EditDetailsBtn.Size = new System.Drawing.Size(143, 23);
+            this.EditDetailsBtn.TabIndex = 68;
+            this.EditDetailsBtn.Text = "Редактиране на проекта";
+            this.EditDetailsBtn.UseVisualStyleBackColor = true;
+            this.EditDetailsBtn.Click += new System.EventHandler(this.EditDetailsBtn_Click);
+            // 
             // CurrencyLabel
             // 
             this.CurrencyLabel.AutoSize = true;
-            this.CurrencyLabel.Location = new System.Drawing.Point(242, 447);
+            this.CurrencyLabel.Location = new System.Drawing.Point(325, 448);
             this.CurrencyLabel.Name = "CurrencyLabel";
             this.CurrencyLabel.Size = new System.Drawing.Size(22, 13);
             this.CurrencyLabel.TabIndex = 67;
@@ -140,24 +241,18 @@
             this.CostSoFarTb.Enabled = false;
             this.CostSoFarTb.Location = new System.Drawing.Point(135, 441);
             this.CostSoFarTb.Name = "CostSoFarTb";
-            this.CostSoFarTb.Size = new System.Drawing.Size(100, 20);
+            this.CostSoFarTb.Size = new System.Drawing.Size(184, 20);
             this.CostSoFarTb.TabIndex = 66;
-            // 
-            // HoursCountTb
-            // 
-            this.HoursCountTb.Enabled = false;
-            this.HoursCountTb.Location = new System.Drawing.Point(135, 414);
-            this.HoursCountTb.Name = "HoursCountTb";
-            this.HoursCountTb.Size = new System.Drawing.Size(100, 20);
-            this.HoursCountTb.TabIndex = 65;
+            this.CostSoFarTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TaskCountTb
             // 
             this.TaskCountTb.Enabled = false;
             this.TaskCountTb.Location = new System.Drawing.Point(135, 382);
             this.TaskCountTb.Name = "TaskCountTb";
-            this.TaskCountTb.Size = new System.Drawing.Size(100, 20);
+            this.TaskCountTb.Size = new System.Drawing.Size(185, 20);
             this.TaskCountTb.TabIndex = 64;
+            this.TaskCountTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // CurrentProjectCostLabel
             // 
@@ -188,9 +283,9 @@
             // 
             // ChangeStatusBtn
             // 
-            this.ChangeStatusBtn.Location = new System.Drawing.Point(336, 79);
+            this.ChangeStatusBtn.Location = new System.Drawing.Point(328, 79);
             this.ChangeStatusBtn.Name = "ChangeStatusBtn";
-            this.ChangeStatusBtn.Size = new System.Drawing.Size(81, 23);
+            this.ChangeStatusBtn.Size = new System.Drawing.Size(89, 23);
             this.ChangeStatusBtn.TabIndex = 60;
             this.ChangeStatusBtn.Text = "Промени";
             this.ChangeStatusBtn.UseVisualStyleBackColor = true;
@@ -206,7 +301,7 @@
             "Приключил"});
             this.StatusDdl.Location = new System.Drawing.Point(135, 79);
             this.StatusDdl.Name = "StatusDdl";
-            this.StatusDdl.Size = new System.Drawing.Size(195, 21);
+            this.StatusDdl.Size = new System.Drawing.Size(187, 21);
             this.StatusDdl.TabIndex = 59;
             // 
             // StatusLabel
@@ -223,7 +318,7 @@
             this.PayPerHourTextBox.Enabled = false;
             this.PayPerHourTextBox.Location = new System.Drawing.Point(135, 350);
             this.PayPerHourTextBox.Name = "PayPerHourTextBox";
-            this.PayPerHourTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PayPerHourTextBox.Size = new System.Drawing.Size(185, 20);
             this.PayPerHourTextBox.TabIndex = 56;
             // 
             // ProjectDescriptionTextBox
@@ -240,7 +335,7 @@
             this.ProjectEndDatePicker.Enabled = false;
             this.ProjectEndDatePicker.Location = new System.Drawing.Point(135, 322);
             this.ProjectEndDatePicker.Name = "ProjectEndDatePicker";
-            this.ProjectEndDatePicker.Size = new System.Drawing.Size(157, 20);
+            this.ProjectEndDatePicker.Size = new System.Drawing.Size(185, 20);
             this.ProjectEndDatePicker.TabIndex = 54;
             // 
             // ProjectStartDateDatePicker
@@ -248,7 +343,7 @@
             this.ProjectStartDateDatePicker.Enabled = false;
             this.ProjectStartDateDatePicker.Location = new System.Drawing.Point(135, 293);
             this.ProjectStartDateDatePicker.Name = "ProjectStartDateDatePicker";
-            this.ProjectStartDateDatePicker.Size = new System.Drawing.Size(157, 20);
+            this.ProjectStartDateDatePicker.Size = new System.Drawing.Size(185, 20);
             this.ProjectStartDateDatePicker.TabIndex = 53;
             // 
             // ProjectNameTextBox
@@ -256,7 +351,7 @@
             this.ProjectNameTextBox.Enabled = false;
             this.ProjectNameTextBox.Location = new System.Drawing.Point(135, 45);
             this.ProjectNameTextBox.Name = "ProjectNameTextBox";
-            this.ProjectNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ProjectNameTextBox.Size = new System.Drawing.Size(187, 20);
             this.ProjectNameTextBox.TabIndex = 52;
             // 
             // ProjectIdTextBox
@@ -264,7 +359,7 @@
             this.ProjectIdTextBox.Enabled = false;
             this.ProjectIdTextBox.Location = new System.Drawing.Point(135, 14);
             this.ProjectIdTextBox.Name = "ProjectIdTextBox";
-            this.ProjectIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ProjectIdTextBox.Size = new System.Drawing.Size(187, 20);
             this.ProjectIdTextBox.TabIndex = 51;
             // 
             // PayPerHourLabel
@@ -321,79 +416,15 @@
             this.ProjectIdLabel.TabIndex = 44;
             this.ProjectIdLabel.Text = "Код на проекта";
             // 
-            // EditDetailsBtn
+            // CloseBtn
             // 
-            this.EditDetailsBtn.Location = new System.Drawing.Point(235, 470);
-            this.EditDetailsBtn.Name = "EditDetailsBtn";
-            this.EditDetailsBtn.Size = new System.Drawing.Size(182, 23);
-            this.EditDetailsBtn.TabIndex = 68;
-            this.EditDetailsBtn.Text = "Редактиране на проекта";
-            this.EditDetailsBtn.UseVisualStyleBackColor = true;
-            this.EditDetailsBtn.Click += new System.EventHandler(this.EditDetailsBtn_Click);
-            // 
-            // AddTaskBtn
-            // 
-            this.AddTaskBtn.Location = new System.Drawing.Point(270, 470);
-            this.AddTaskBtn.Name = "AddTaskBtn";
-            this.AddTaskBtn.Size = new System.Drawing.Size(182, 23);
-            this.AddTaskBtn.TabIndex = 69;
-            this.AddTaskBtn.Text = "Добавяне на нова задача";
-            this.AddTaskBtn.UseVisualStyleBackColor = true;
-            this.AddTaskBtn.Click += new System.EventHandler(this.AddTaskBtn_Click);
-            // 
-            // RegisterNewClientBtn
-            // 
-            this.RegisterNewClientBtn.Enabled = false;
-            this.RegisterNewClientBtn.Location = new System.Drawing.Point(328, 238);
-            this.RegisterNewClientBtn.Name = "RegisterNewClientBtn";
-            this.RegisterNewClientBtn.Size = new System.Drawing.Size(89, 47);
-            this.RegisterNewClientBtn.TabIndex = 71;
-            this.RegisterNewClientBtn.Text = "Регистрация на нов клиент";
-            this.RegisterNewClientBtn.UseVisualStyleBackColor = true;
-            // 
-            // ProjectClientComboBox
-            // 
-            this.ProjectClientComboBox.Enabled = false;
-            this.ProjectClientComboBox.FormattingEnabled = true;
-            this.ProjectClientComboBox.Location = new System.Drawing.Point(135, 240);
-            this.ProjectClientComboBox.Name = "ProjectClientComboBox";
-            this.ProjectClientComboBox.Size = new System.Drawing.Size(187, 21);
-            this.ProjectClientComboBox.TabIndex = 70;
-            // 
-            // ProjectClientLabel
-            // 
-            this.ProjectClientLabel.AutoSize = true;
-            this.ProjectClientLabel.Location = new System.Drawing.Point(3, 240);
-            this.ProjectClientLabel.Name = "ProjectClientLabel";
-            this.ProjectClientLabel.Size = new System.Drawing.Size(102, 13);
-            this.ProjectClientLabel.TabIndex = 69;
-            this.ProjectClientLabel.Text = "Клиент на проекта";
-            // 
-            // TaskCol
-            // 
-            this.TaskCol.HeaderText = "Задача";
-            this.TaskCol.Name = "TaskCol";
-            this.TaskCol.ReadOnly = true;
-            // 
-            // TimeLeftCol
-            // 
-            this.TimeLeftCol.HeaderText = "Оставащо време";
-            this.TimeLeftCol.Name = "TimeLeftCol";
-            this.TimeLeftCol.ReadOnly = true;
-            // 
-            // DelayCol
-            // 
-            this.DelayCol.HeaderText = "Закъснение";
-            this.DelayCol.Name = "DelayCol";
-            this.DelayCol.ReadOnly = true;
-            // 
-            // DetailsBtnCol
-            // 
-            this.DetailsBtnCol.HeaderText = "Детайли";
-            this.DetailsBtnCol.Name = "DetailsBtnCol";
-            this.DetailsBtnCol.ReadOnly = true;
-            this.DetailsBtnCol.Text = "Детайли";
-            this.DetailsBtnCol.UseColumnTextForButtonValue = true;
+            this.CloseBtn.Location = new System.Drawing.Point(275, 470);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(177, 23);
+            this.CloseBtn.TabIndex = 70;
+            this.CloseBtn.Text = "Затвори Формата";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // ProjectDetailsForm
             // 
@@ -403,7 +434,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TasksGrpB);
             this.Name = "ProjectDetailsForm";
-            this.Text = "Детайли";
+            this.Text = "Детайли на проект";
             this.TasksGrpB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -419,7 +450,6 @@
         private System.Windows.Forms.Button EditDetailsBtn;
         private System.Windows.Forms.Label CurrencyLabel;
         private System.Windows.Forms.TextBox CostSoFarTb;
-        private System.Windows.Forms.TextBox HoursCountTb;
         private System.Windows.Forms.TextBox TaskCountTb;
         private System.Windows.Forms.Label CurrentProjectCostLabel;
         private System.Windows.Forms.Label HoursCountLabel;
@@ -447,5 +477,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeLeftCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DelayCol;
         private System.Windows.Forms.DataGridViewButtonColumn DetailsBtnCol;
+        private System.Windows.Forms.MaskedTextBox HoursCountTb;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

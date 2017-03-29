@@ -45,12 +45,13 @@
             this.PayPerHourTextBox = new System.Windows.Forms.TextBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.CurrencyLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ProjectIdLabel
             // 
             this.ProjectIdLabel.AutoSize = true;
-            this.ProjectIdLabel.Location = new System.Drawing.Point(27, 25);
+            this.ProjectIdLabel.Location = new System.Drawing.Point(27, 22);
             this.ProjectIdLabel.Name = "ProjectIdLabel";
             this.ProjectIdLabel.Size = new System.Drawing.Size(85, 13);
             this.ProjectIdLabel.TabIndex = 0;
@@ -59,7 +60,7 @@
             // ProjectDescriptionLabel
             // 
             this.ProjectDescriptionLabel.AutoSize = true;
-            this.ProjectDescriptionLabel.Location = new System.Drawing.Point(27, 78);
+            this.ProjectDescriptionLabel.Location = new System.Drawing.Point(27, 98);
             this.ProjectDescriptionLabel.Name = "ProjectDescriptionLabel";
             this.ProjectDescriptionLabel.Size = new System.Drawing.Size(116, 13);
             this.ProjectDescriptionLabel.TabIndex = 1;
@@ -68,7 +69,7 @@
             // ProjectClientLabel
             // 
             this.ProjectClientLabel.AutoSize = true;
-            this.ProjectClientLabel.Location = new System.Drawing.Point(27, 174);
+            this.ProjectClientLabel.Location = new System.Drawing.Point(27, 191);
             this.ProjectClientLabel.Name = "ProjectClientLabel";
             this.ProjectClientLabel.Size = new System.Drawing.Size(102, 13);
             this.ProjectClientLabel.TabIndex = 2;
@@ -77,7 +78,7 @@
             // ProjectNameLabel
             // 
             this.ProjectNameLabel.AutoSize = true;
-            this.ProjectNameLabel.Location = new System.Drawing.Point(295, 25);
+            this.ProjectNameLabel.Location = new System.Drawing.Point(27, 58);
             this.ProjectNameLabel.Name = "ProjectNameLabel";
             this.ProjectNameLabel.Size = new System.Drawing.Size(88, 13);
             this.ProjectNameLabel.TabIndex = 3;
@@ -86,7 +87,7 @@
             // ProjectEndDateLabel
             // 
             this.ProjectEndDateLabel.AutoSize = true;
-            this.ProjectEndDateLabel.Location = new System.Drawing.Point(392, 239);
+            this.ProjectEndDateLabel.Location = new System.Drawing.Point(361, 289);
             this.ProjectEndDateLabel.Name = "ProjectEndDateLabel";
             this.ProjectEndDateLabel.Size = new System.Drawing.Size(129, 13);
             this.ProjectEndDateLabel.TabIndex = 4;
@@ -95,7 +96,7 @@
             // ProjectStartDateLabel
             // 
             this.ProjectStartDateLabel.AutoSize = true;
-            this.ProjectStartDateLabel.Location = new System.Drawing.Point(27, 239);
+            this.ProjectStartDateLabel.Location = new System.Drawing.Point(27, 289);
             this.ProjectStartDateLabel.Name = "ProjectStartDateLabel";
             this.ProjectStartDateLabel.Size = new System.Drawing.Size(135, 13);
             this.ProjectStartDateLabel.TabIndex = 5;
@@ -104,7 +105,7 @@
             // PayPerHourLabel
             // 
             this.PayPerHourLabel.AutoSize = true;
-            this.PayPerHourLabel.Location = new System.Drawing.Point(46, 294);
+            this.PayPerHourLabel.Location = new System.Drawing.Point(27, 246);
             this.PayPerHourLabel.Name = "PayPerHourLabel";
             this.PayPerHourLabel.Size = new System.Drawing.Size(83, 13);
             this.PayPerHourLabel.TabIndex = 6;
@@ -114,74 +115,75 @@
             // 
             this.ProjectIdTextBox.Location = new System.Drawing.Point(168, 22);
             this.ProjectIdTextBox.Name = "ProjectIdTextBox";
-            this.ProjectIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ProjectIdTextBox.Size = new System.Drawing.Size(207, 20);
             this.ProjectIdTextBox.TabIndex = 7;
             // 
             // ProjectNameTextBox
             // 
-            this.ProjectNameTextBox.Location = new System.Drawing.Point(413, 25);
+            this.ProjectNameTextBox.Location = new System.Drawing.Point(168, 58);
             this.ProjectNameTextBox.Name = "ProjectNameTextBox";
             this.ProjectNameTextBox.Size = new System.Drawing.Size(207, 20);
             this.ProjectNameTextBox.TabIndex = 11;
             // 
             // ProjectStartDateDatePicker
             // 
-            this.ProjectStartDateDatePicker.Location = new System.Drawing.Point(190, 233);
+            this.ProjectStartDateDatePicker.Location = new System.Drawing.Point(168, 283);
             this.ProjectStartDateDatePicker.Name = "ProjectStartDateDatePicker";
             this.ProjectStartDateDatePicker.Size = new System.Drawing.Size(172, 20);
             this.ProjectStartDateDatePicker.TabIndex = 12;
             // 
             // ProjectEndDatePicker
             // 
-            this.ProjectEndDatePicker.Location = new System.Drawing.Point(545, 232);
+            this.ProjectEndDatePicker.Location = new System.Drawing.Point(496, 283);
             this.ProjectEndDatePicker.Name = "ProjectEndDatePicker";
             this.ProjectEndDatePicker.Size = new System.Drawing.Size(154, 20);
             this.ProjectEndDatePicker.TabIndex = 13;
             // 
             // ProjectDescriptionTextBox
             // 
-            this.ProjectDescriptionTextBox.Location = new System.Drawing.Point(168, 75);
+            this.ProjectDescriptionTextBox.Location = new System.Drawing.Point(168, 95);
             this.ProjectDescriptionTextBox.Multiline = true;
             this.ProjectDescriptionTextBox.Name = "ProjectDescriptionTextBox";
-            this.ProjectDescriptionTextBox.Size = new System.Drawing.Size(452, 78);
+            this.ProjectDescriptionTextBox.Size = new System.Drawing.Size(375, 78);
             this.ProjectDescriptionTextBox.TabIndex = 14;
             // 
             // ProjectClientComboBox
             // 
             this.ProjectClientComboBox.FormattingEnabled = true;
-            this.ProjectClientComboBox.Location = new System.Drawing.Point(168, 174);
+            this.ProjectClientComboBox.Location = new System.Drawing.Point(168, 191);
             this.ProjectClientComboBox.Name = "ProjectClientComboBox";
-            this.ProjectClientComboBox.Size = new System.Drawing.Size(215, 21);
+            this.ProjectClientComboBox.Size = new System.Drawing.Size(212, 21);
             this.ProjectClientComboBox.TabIndex = 15;
             // 
             // RegisterNewClientBtn
             // 
-            this.RegisterNewClientBtn.Location = new System.Drawing.Point(428, 174);
+            this.RegisterNewClientBtn.Location = new System.Drawing.Point(386, 189);
             this.RegisterNewClientBtn.Name = "RegisterNewClientBtn";
-            this.RegisterNewClientBtn.Size = new System.Drawing.Size(192, 23);
+            this.RegisterNewClientBtn.Size = new System.Drawing.Size(157, 23);
             this.RegisterNewClientBtn.TabIndex = 16;
             this.RegisterNewClientBtn.Text = "Регистрация на нов клиент";
             this.RegisterNewClientBtn.UseVisualStyleBackColor = true;
             // 
             // PayPerHourTextBox
             // 
-            this.PayPerHourTextBox.Location = new System.Drawing.Point(190, 291);
+            this.PayPerHourTextBox.Location = new System.Drawing.Point(168, 246);
             this.PayPerHourTextBox.Name = "PayPerHourTextBox";
             this.PayPerHourTextBox.Size = new System.Drawing.Size(100, 20);
             this.PayPerHourTextBox.TabIndex = 17;
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(545, 294);
+            this.buttonCreate.Location = new System.Drawing.Point(494, 357);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 18;
             this.buttonCreate.Text = "Създай";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(626, 294);
+            this.buttonClose.Location = new System.Drawing.Point(575, 357);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 19;
@@ -189,11 +191,21 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // CurrencyLabel
+            // 
+            this.CurrencyLabel.AutoSize = true;
+            this.CurrencyLabel.Location = new System.Drawing.Point(274, 253);
+            this.CurrencyLabel.Name = "CurrencyLabel";
+            this.CurrencyLabel.Size = new System.Drawing.Size(22, 13);
+            this.CurrencyLabel.TabIndex = 20;
+            this.CurrencyLabel.Text = "лв.";
+            // 
             // CreatingProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 375);
+            this.ClientSize = new System.Drawing.Size(707, 392);
+            this.Controls.Add(this.CurrencyLabel);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.PayPerHourTextBox);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.TextBox PayPerHourTextBox;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label CurrencyLabel;
     }
 }
