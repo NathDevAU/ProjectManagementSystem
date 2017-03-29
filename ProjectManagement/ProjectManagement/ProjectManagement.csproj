@@ -52,6 +52,12 @@
     <Compile Include="CreatingProjectForm.Designer.cs">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpertDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertDetailsForm.Designer.cs">
+      <DependentUpon>ExpertDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExprertsRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +84,12 @@
     <Compile Include="SearchProjectForm.Designer.cs">
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Expert.cs" />
     <EmbeddedResource Include="CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpertDetailsForm.resx">
+      <DependentUpon>ExpertDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExprertsRegisterForm.resx">
       <DependentUpon>ExprertsRegisterForm.cs</DependentUpon>
@@ -103,6 +113,7 @@
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Experts.datasource" />
+    <None Include="Properties\DataSources\ProjectManagement.ViewModels.Expert.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,6 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
