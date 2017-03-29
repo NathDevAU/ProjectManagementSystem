@@ -58,6 +58,12 @@
     <Compile Include="CreatingTaskForm.Designer.cs">
       <DependentUpon>CreatingTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpertDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertDetailsForm.Designer.cs">
+      <DependentUpon>ExpertDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExprertsRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +102,12 @@
     <Compile Include="TaskDetailsForm.Designer.cs">
       <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Expert.cs" />
     <EmbeddedResource Include="CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpertDetailsForm.resx">
+      <DependentUpon>ExpertDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExprertsRegisterForm.resx">
       <DependentUpon>ExprertsRegisterForm.cs</DependentUpon>

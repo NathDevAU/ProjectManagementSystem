@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagement.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,34 +16,44 @@ namespace ProjectManagement
         public SearchExpertForm()
         {
             InitializeComponent();
-            var experts = new Experts()
+            var experts = new Expert()
             {
                 FirstName = "Stoyan",
                 MiddleName = "Dimitrov",
                 LastName = "Ruzmanov",
-                IsExternal = false
+                ExpertType = "Външен"
             };
 
-            var data = new List<Experts>();
-            this.expertsBindingSource.DataSource = data;
-            //this.ExpertSearchResultGrid.DataBindings.Add("Text", experts.FirstName, "FirstName");
-            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.MiddleName), experts, nameof(Experts.MiddleName));
-            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.LastName), experts, nameof(Experts.LastName));
-            //this.ExpertSearchResultGrid.DataBindings.Add(nameof(Experts.IsExternal), experts, nameof(Experts.IsExternal));
+            this.expertsBindingSource.DataSource = experts;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
-    }
 
-    public class Experts
-    {
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
+        private void ExpertSearchResultGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
 
-        public bool IsExternal { get; set; }
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 4)
+                {
+                    DataGridViewRow row = this.ExpertSearchResultGrid.Rows[e.RowIndex];
+                    var selectedExpert = new Expert()
+                    {
+                        FirstName = row.Cells[0].Value.ToString(),
+                        LastName = row.Cells[1].Value.ToString(),
+                        MiddleName = row.Cells[2].Value.ToString(),
+                        ExpertType = "Външен"
+                    };
+
+                    var detailsForm = new ExpertDetailsForm(selectedExpert);
+                    detailsForm.ShowDialog();
+                }
+            }
+        }
     }
 }
