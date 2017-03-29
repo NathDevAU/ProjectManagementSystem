@@ -33,6 +33,7 @@
             this.SearchFilterTextBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +42,6 @@
             this.ProjectStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectPayByHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.EditBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,14 +91,22 @@
             this.ProjectEndDate,
             this.ProjectStatus,
             this.ProjectPayByHour,
-            this.DetailsBtn,
-            this.EditBtn});
+            this.DetailsBtn});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(949, 268);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(28, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(949, 268);
+            this.panel1.TabIndex = 5;
             // 
             // ProjectId
             // 
@@ -151,25 +158,7 @@
             this.DetailsBtn.Text = "Детайли";
             this.DetailsBtn.UseColumnTextForButtonValue = true;
             // 
-            // EditBtn
-            // 
-            this.EditBtn.HeaderText = "Редактирай";
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.ReadOnly = true;
-            this.EditBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EditBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.EditBtn.Text = "Редактирай";
-            this.EditBtn.UseColumnTextForButtonValue = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(28, 106);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(949, 268);
-            this.panel1.TabIndex = 5;
-            // 
-            // SearchForm
+            // SearchProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +168,7 @@
             this.Controls.Add(this.SearchFilterTextBox);
             this.Controls.Add(this.SearchFilterDropDown);
             this.Controls.Add(this.SearchFilterLabel);
-            this.Name = "SearchForm";
+            this.Name = "SearchProjectForm";
             this.Text = "Търсене на проект";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -204,6 +193,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectPayByHour;
         private System.Windows.Forms.DataGridViewButtonColumn DetailsBtn;
-        private System.Windows.Forms.DataGridViewButtonColumn EditBtn;
     }
 }
