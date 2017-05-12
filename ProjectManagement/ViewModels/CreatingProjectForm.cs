@@ -48,6 +48,11 @@ namespace ProjectManagement
                 MessageBox.Show("Вече съществува проект с този код!");
                 return;
             }
+            if (context.PROJECTS.Any(o => o.PROJECT_NAME == ProjectNameTextBox.Text))
+            {
+                MessageBox.Show("Вече съществува проект с този име!");
+                return;
+            }
             var project = new PROJECT();
             project.PROJECT_ID = projectId;
             project.PROJECT_NAME = ProjectNameTextBox.Text;

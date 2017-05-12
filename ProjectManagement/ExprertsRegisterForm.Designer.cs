@@ -128,6 +128,7 @@
             this.CreateExpertBtn.TabIndex = 9;
             this.CreateExpertBtn.Text = "Регистрирай";
             this.CreateExpertBtn.UseVisualStyleBackColor = true;
+            this.CreateExpertBtn.Click += new System.EventHandler(this.CreateExpertBtn_Click);
             // 
             // button1
             // 
