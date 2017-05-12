@@ -163,6 +163,7 @@
             this.RegisterNewClientBtn.TabIndex = 16;
             this.RegisterNewClientBtn.Text = "Регистрация на нов клиент";
             this.RegisterNewClientBtn.UseVisualStyleBackColor = true;
+            this.RegisterNewClientBtn.Click += new System.EventHandler(this.RegisterNewClientBtn_Click);
             // 
             // PayPerHourTextBox
             // 

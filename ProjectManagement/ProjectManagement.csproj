@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,10 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatingProjectForm.cs">
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="ViewModels\CreatingProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreatingProjectForm.Designer.cs">
+    <Compile Include="ViewModels\CreatingProjectForm.Designer.cs">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CreatingTaskForm.cs">
@@ -64,6 +76,7 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\EXPERT.cs" />
     <Compile Include="ExpertDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,13 +95,17 @@
     <Compile Include="MainContainer.Designer.cs">
       <DependentUpon>MainContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PmContext.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Models\PROJECT.cs" />
     <Compile Include="ProjectDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProjectDetailsForm.Designer.cs">
       <DependentUpon>ProjectDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PROJECT_STATUS.cs" />
+    <Compile Include="Models\PROJECT_TASKS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchExpertForm.cs">
       <SubType>Form</SubType>
@@ -102,14 +119,16 @@
     <Compile Include="SearchProjectForm.Designer.cs">
       <DependentUpon>SearchProjectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="TaskDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskDetailsForm.Designer.cs">
       <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\TASK_STATUS.cs" />
     <Compile Include="ViewModels\Expert.cs" />
-    <EmbeddedResource Include="CreatingProjectForm.resx">
+    <EmbeddedResource Include="ViewModels\CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatingTaskForm.resx">
@@ -148,6 +167,7 @@
     <EmbeddedResource Include="TaskDetailsForm.resx">
       <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Experts.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -162,6 +182,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
