@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectManagement
@@ -57,7 +50,7 @@ namespace ProjectManagement
         }
         private bool IsValidInput(TextBox tb)
         {
-            string tbName = tb.Name == "quantityTb" ? "количество" : "ед.цена";
+            string tbName = "";
             switch (tb.Name)
             {
                 case "ExpertNameTextBox": tbName = "име"; break;
@@ -69,7 +62,7 @@ namespace ProjectManagement
 
             if (tb.Text == "")
             {
-                MessageBox.Show($"Моля, попълнете стойност в поле {tbName}!");
+                MessageBox.Show($"Моля, попълнете полето {tbName}!");
                 return false;
             }
             return true;

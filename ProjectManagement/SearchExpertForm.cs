@@ -21,7 +21,7 @@ namespace ProjectManagement
             this.ExpertSearchResultGrid.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             Expression<Func<EXPERT, bool>> expertTypeSearchCriteria = this.GetExpertTypeSearchCriteria();
             Expression<Func<EXPERT, bool>> expertNameSearchCriteria = this.GetSearchByNameCriteria();

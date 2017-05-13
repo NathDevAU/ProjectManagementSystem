@@ -50,9 +50,7 @@ namespace ProjectManagement
                                   .ToList();
 
             this.ProjectsGV.Visible = true;
-            this.ProjectsGV.DataSource = gridData;
-
-          
+            this.projectsBindingSource.DataSource = gridData;
         }
 
         private Expression<Func<PROJECT, bool>> GetSearchCriteria()
@@ -60,15 +58,8 @@ namespace ProjectManagement
             Expression<Func<PROJECT, bool>> searchCriteria = (PROJECT project) => true;
 
             var enteredCriteria = this.SearchFilterTextBox.Text;
-          
-            var selectedCriteriaIndex = this.SearchFilterDropDown.SelectedIndex;
-            //0 Код на проект
-            //1 Наименование на проект
-            //2 Клиент
-            //3 Начало на проект
-            //4 Край на проекта
-            //5 Статус на проект
 
+            var selectedCriteriaIndex = this.SearchFilterDropDown.SelectedIndex;
             switch (selectedCriteriaIndex)
             {
                 case 0:
@@ -87,7 +78,7 @@ namespace ProjectManagement
                     searchCriteria = (PROJECT project) => project.PROJECT_END == dateTimePicker.Value.Date;
                     break;
                 case 5:
-                    searchCriteria = (PROJECT project) => project.PROJECT_STATUS == ProjectStatusCb.SelectedIndex+1;
+                    searchCriteria = (PROJECT project) => project.PROJECT_STATUS == ProjectStatusCb.SelectedIndex + 1;
                     break;
             }
 
@@ -113,13 +104,9 @@ namespace ProjectManagement
 
         private void SearchFilterDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // Код на проект
-            //Наименование на проект
-            //Клиент
-            //Начало на проект
-            //Край на проекта
-            //Статус на проект
+            SearchFilterTextBox.Clear();
+            dateTimePicker.Value = DateTime.Today;
+            ProjectStatusCb.SelectedIndex = -1;
 
             switch (SearchFilterDropDown.SelectedIndex)
             {

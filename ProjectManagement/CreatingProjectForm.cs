@@ -24,21 +24,25 @@ namespace ProjectManagement
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (!IsValidInput(ProjectIdTextBox) ||
+                !IsValidInput(PayPerHourTextBox) ||
                 !IsNotNull(ProjectNameTextBox) ||
                 !IsNotNull(ProjectDescriptionTextBox) ||
-                !IsValidSelection(ProjectClientComboBox) ||
-                ProjectStartDateDatePicker.Value.Date < DateTime.Now.Date ||
-                ProjectEndDatePicker.Value.Date < DateTime.Now.Date ||
-                ProjectEndDatePicker.Value < ProjectStartDateDatePicker.Value ||
-                !IsValidInput(PayPerHourTextBox)
+                !IsValidSelection(ProjectClientComboBox)
                 )
             {
-                MessageBox.Show("Грешка");
+                // MessageBox.Show("Грешка");
                 return;
             }
+            if (ProjectStartDateDatePicker.Value.Date < DateTime.Now.Date ||
+                ProjectEndDatePicker.Value.Date < DateTime.Now.Date ||
+                ProjectEndDatePicker.Value < ProjectStartDateDatePicker.Value)
+            {
+                MessageBox.Show("Невалидна дата!");
+                return;
+            }
+
+
             var projectId = decimal.Parse(ProjectIdTextBox.Text);
-
-
             if (context.PROJECTS.Any(o => o.PROJECT_ID == projectId))
             {
                 MessageBox.Show("Вече съществува проект с този код!");
@@ -67,9 +71,11 @@ namespace ProjectManagement
 
         private bool IsNotNull(TextBox tb)
         {
+            string tbName = tb.Name == "ProjectNameTextBox" ? "име на проекта" : "описание на проекта";
+
             if (tb.Text == "")
             {
-                MessageBox.Show($"Моля, попълнете празното поле!");
+                MessageBox.Show($"Моля, попълнете {tbName}!");
                 return false;
             }
 
@@ -77,7 +83,7 @@ namespace ProjectManagement
         }
         private bool IsValidInput(TextBox tb)
         {
-            //   string tbName = tb.Name == "quantityTb" ? "количество" : "ед.цена";
+               string tbName = tb.Name == "ProjectIdTextBox" ? "код на проекта" : "часова ставка";
 
             //if (tb.Text == "")
             //{
@@ -88,13 +94,13 @@ namespace ProjectManagement
 
             if (IsNumber(tb.Text) == false)
             {
-                MessageBox.Show($"Моля, въведете валидно число!");
+                MessageBox.Show($"Моля, въведете валидно число в поле {tbName}!");
                 return false;
             }
 
             else if (IsNumber(tb.Text) == true && Convert.ToInt32(tb.Text) < 0)
             {
-                MessageBox.Show($"Моля, попълнете Положителна стойност!");
+                MessageBox.Show($"Моля, попълнете Положителна стойност в поле {tbName}!");
                 return false;
             }
 
@@ -106,7 +112,7 @@ namespace ProjectManagement
             // string cbName = cb.Name == "itemCb" ? "артикул" : "валута";
             if (cb.Text == "")
             {
-                MessageBox.Show($"Моля, изберете стойност!");
+                MessageBox.Show($"Моля, изберете клиент!");
                 return false;
             }
             return true;
@@ -122,6 +128,7 @@ namespace ProjectManagement
         private void RegisterNewClientBtn_Click(object sender, EventArgs e)
         {
             ProjectClientComboBox.Items.Insert(0, ProjectClientComboBox.Text);
+            ProjectClientComboBox.SelectedIndex = 0;
         }
     }
 }

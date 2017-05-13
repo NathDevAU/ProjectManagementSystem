@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SearchFilterLabel = new System.Windows.Forms.Label();
             this.SearchFilterDropDown = new System.Windows.Forms.ComboBox();
             this.SearchFilterTextBox = new System.Windows.Forms.TextBox();
@@ -35,11 +36,20 @@
             this.ProjectsGV = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CloseBtn = new System.Windows.Forms.Button();
-            this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ProjectStatusCb = new System.Windows.Forms.ComboBox();
+            this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payPerHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchFilterLabel
@@ -53,6 +63,7 @@
             // 
             // SearchFilterDropDown
             // 
+            this.SearchFilterDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SearchFilterDropDown.FormattingEnabled = true;
             this.SearchFilterDropDown.Items.AddRange(new object[] {
             "Код на проект",
@@ -86,9 +97,20 @@
             // 
             // ProjectsGV
             // 
+            this.ProjectsGV.AllowUserToAddRows = false;
+            this.ProjectsGV.AllowUserToDeleteRows = false;
+            this.ProjectsGV.AutoGenerateColumns = false;
             this.ProjectsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProjectsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.clientDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.endDateDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.payPerHDataGridViewTextBoxColumn,
             this.DetailsBtn});
+            this.ProjectsGV.DataSource = this.projectsBindingSource;
             this.ProjectsGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProjectsGV.Location = new System.Drawing.Point(0, 0);
             this.ProjectsGV.Name = "ProjectsGV";
@@ -115,14 +137,6 @@
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // DetailsBtn
-            // 
-            this.DetailsBtn.HeaderText = "Детайли";
-            this.DetailsBtn.Name = "DetailsBtn";
-            this.DetailsBtn.ReadOnly = true;
-            this.DetailsBtn.Text = "Детайли";
-            this.DetailsBtn.UseColumnTextForButtonValue = true;
-            // 
             // dateTimePicker
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(272, 22);
@@ -132,6 +146,7 @@
             // 
             // ProjectStatusCb
             // 
+            this.ProjectStatusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProjectStatusCb.FormattingEnabled = true;
             this.ProjectStatusCb.Items.AddRange(new object[] {
             "Нов",
@@ -142,6 +157,67 @@
             this.ProjectStatusCb.Name = "ProjectStatusCb";
             this.ProjectStatusCb.Size = new System.Drawing.Size(236, 21);
             this.ProjectStatusCb.TabIndex = 8;
+            // 
+            // DetailsBtn
+            // 
+            this.DetailsBtn.HeaderText = "Детайли";
+            this.DetailsBtn.Name = "DetailsBtn";
+            this.DetailsBtn.ReadOnly = true;
+            this.DetailsBtn.Text = "Детайли";
+            this.DetailsBtn.UseColumnTextForButtonValue = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Код на проекта";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Име на проекта";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clientDataGridViewTextBoxColumn
+            // 
+            this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
+            this.clientDataGridViewTextBoxColumn.HeaderText = "Клиент";
+            this.clientDataGridViewTextBoxColumn.Name = "clientDataGridViewTextBoxColumn";
+            this.clientDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "Начална дата";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            this.startDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.HeaderText = "Крайна дата";
+            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            this.endDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // payPerHDataGridViewTextBoxColumn
+            // 
+            this.payPerHDataGridViewTextBoxColumn.DataPropertyName = "PayPerH";
+            this.payPerHDataGridViewTextBoxColumn.HeaderText = "Часова ставка";
+            this.payPerHDataGridViewTextBoxColumn.Name = "payPerHDataGridViewTextBoxColumn";
+            this.payPerHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.ProjectVM);
             // 
             // SearchProjectForm
             // 
@@ -161,6 +237,7 @@
             this.Load += new System.EventHandler(this.SearchProjectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,8 +252,16 @@
         private System.Windows.Forms.DataGridView ProjectsGV;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button CloseBtn;
-        private System.Windows.Forms.DataGridViewButtonColumn DetailsBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox ProjectStatusCb;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payPerHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DetailsBtn;
     }
 }

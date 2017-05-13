@@ -26,7 +26,7 @@ namespace ProjectManagement
             this.currentExpertId = expert.Id;
             this.FirstNameTextBox.Text = expert.FirstName;
             this.MiddleNameTextBox.Text = expert.MiddleName;
-            this.LastNameTextBox.Text = expert.LastName;
+            this.Text = expert.LastName;
         }
 
         private void BindExpertTypesDropDown(ExpertVM expert)
@@ -69,6 +69,12 @@ namespace ProjectManagement
 
         private void ApplyChangesBtn_Click(object sender, EventArgs e)
         {
+            if (!IsValidInput(FirstNameTextBox) 
+                || !IsValidInput(MiddleNameTextBox)
+                || !IsValidInput(LastNameTextBox))
+            {
+                return;
+            }
             this.UpdateCurrentExpert();
 
             this.ToggleEditingOnInputs();
@@ -105,9 +111,39 @@ namespace ProjectManagement
             }
         }
 
+        private bool IsValidInput(TextBox tb)
+        {
+            string tbName = "";
+            switch (tb.Name)
+            {
+                case "FirstNameTextBox": tbName = "име"; break;
+                case "MiddleNameTextBox": tbName = "презиме"; break;
+                case "LastNameTextBox": tbName = "фамилия"; break;
+                default:
+                    break;
+            }
+
+            if (tb.Text == "")
+            {
+                MessageBox.Show($"Моля, попълнете полето {tbName}!");
+                return false;
+            }
+            return true;
+        }
+
         private void CloseBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name.Equals("SearchExpertForm"))
+                {
+                    Button searchButton = (Button)(f.Controls
+                                            .Find("button1", true)
+                                            .FirstOrDefault());
+                    searchButton.PerformClick();
+                    this.Close();
+                }
+            }
         }
     }
 }
