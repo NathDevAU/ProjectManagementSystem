@@ -114,9 +114,9 @@ create table EXPERTS (
    EXPRET_ID            numeric              not null IDENTITY(1,1),
    EXPERT_TYPE          char(1)              not null
       constraint CKC_EXPERT_TYPE_EXPERTS check (EXPERT_TYPE in ('I','E')),
-   EXPERT_NAME          varchar(50)          null,
-   EXPERT_SURNAME       varchar(50)          null,
-   EXPERT_LASTNAME      varchar(50)          null,
+   EXPERT_NAME          nvarchar(50)          null,
+   EXPERT_SURNAME       nvarchar(50)          null,
+   EXPERT_LASTNAME      nvarchar(50)          null,
    constraint PK_EXPERTS primary key (EXPRET_ID)
 )
 go
@@ -126,9 +126,9 @@ go
 /*==============================================================*/
 create table PROJECTS (
    PROJECT_ID           numeric              not null,
-   PROJECT_NAME         varchar(100)         not null,
-   PROJECT_DESCRIPTION  varchar(1000)        null,
-   PROJECT_CLIENT       varchar(100)         not null,
+   PROJECT_NAME         nvarchar(100)         not null,
+   PROJECT_DESCRIPTION  nvarchar(1000)        null,
+   PROJECT_CLIENT       nvarchar(100)         not null,
    PROJECT_BEGIN        date                 not null,
    PROJECT_END          date                 not null,
    PROJECT_STATUS       numeric              not null,
@@ -150,7 +150,7 @@ go
 /*==============================================================*/
 create table PROJECT_STATUS (
    PSTATUS_ID           numeric              identity,
-   PSTATUS_NAME         varchar(20)          not null,
+   PSTATUS_NAME         nvarchar(20)          not null,
    constraint PK_PROJECT_STATUS primary key (PSTATUS_ID)
 )
 go
@@ -170,9 +170,9 @@ create table PROJECT_TASKS (
    TASK_ID              numeric              not null IDENTITY(1,1),
    PROJECT_ID           numeric              not null,
    EXPRET_ID            numeric              not null,
-   TASK_NAME            varchar(50)          not null,
-   TASK_DESCRIPTION     varchar(400)         null,
-   TAS_DELIVERABLES     varchar(400)         null,
+   TASK_NAME            nvarchar(50)          not null,
+   TASK_DESCRIPTION     nvarchar(400)         null,
+   TAS_DELIVERABLES     nvarchar(400)         null,
    TASK_BEGIN           date                 not null,
    TASK_END             date                 not null,
    TASK_PRIORITY        char(1)              not null
@@ -198,7 +198,7 @@ go
 /*==============================================================*/
 create table TASK_STATUS (
    STATUS_ID            numeric              identity,
-   STATUS_NAME          varchar(20)          not null,
+   STATUS_NAME          nvarchar(20)          not null,
    constraint PK_TASK_STATUS primary key (STATUS_ID)
 )
 go
