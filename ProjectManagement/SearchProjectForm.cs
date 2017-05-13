@@ -14,12 +14,15 @@ namespace ProjectManagement
 {
     public partial class SearchProjectForm : Form
     {
+        private readonly PmContext context;
+
         public SearchProjectForm()
         {
+            this.context = new PmContext();
+
             InitializeComponent();
         }
 
-        PmContext context = new PmContext();
 
         private void SearchProjectForm_Load(object sender, EventArgs e)
         {
@@ -34,22 +37,19 @@ namespace ProjectManagement
             {
                 case 0:
                     gridData = context.PROJECTS
-                               .Where(x => x.PROJECT_ID.ToString().Contains(SearchFilterTextBox.Text))
-                               .Include(x => x.PROJECT_STATUS1)
-                               .Select(x => new ProjectVM()
-                               {
-                                   Id = x.PROJECT_ID,
-                                   Name = x.PROJECT_NAME,
-                                   Client = x.PROJECT_CLIENT,
-                                   StartDate = x.PROJECT_BEGIN,
-                                   EndDate = x.PROJECT_END,
-                                   Status = x.PROJECT_STATUS1.PSTATUS_NAME,
-                                   PayPerH = x.PROJECT_PAY_PER_HOUR,
-                               })
-                               .ToList();
-
-                    
-
+                                 .Where(x => x.PROJECT_ID.ToString().Contains(SearchFilterTextBox.Text))
+                                 .Include(x => x.PROJECT_STATUS1)
+                                 .Select(x => new ProjectVM()
+                                 {
+                                     Id = x.PROJECT_ID,
+                                     Name = x.PROJECT_NAME,
+                                     Client = x.PROJECT_CLIENT,
+                                     StartDate = x.PROJECT_BEGIN,
+                                     EndDate = x.PROJECT_END,
+                                     Status = x.PROJECT_STATUS1.PSTATUS_NAME,
+                                     PayPerH = x.PROJECT_PAY_PER_HOUR,
+                                 })
+                                 .ToList();
 
                     break;
                 case 1: break;
@@ -64,11 +64,6 @@ namespace ProjectManagement
             }
 
             ProjectsGV.DataSource = gridData;
-           // ProjectsGV.DataBind(); TODO: DataBind does not exist in winforms.
-
-
-
-
 
         }
 
@@ -88,6 +83,5 @@ namespace ProjectManagement
         {
             this.Close();
         }
-
     }
 }

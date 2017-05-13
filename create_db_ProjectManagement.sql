@@ -3,6 +3,10 @@
 /* Created on:     2017-02-15 16:57:15                          */
 /*==============================================================*/
 
+Create database ProjectManagementSystem
+go
+use ProjectManagementSystem
+go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
@@ -107,7 +111,7 @@ go
 /* Table: EXPERTS                                               */
 /*==============================================================*/
 create table EXPERTS (
-   EXPRET_ID            numeric              not null,
+   EXPRET_ID            numeric              not null IDENTITY(1,1),
    EXPERT_TYPE          char(1)              not null
       constraint CKC_EXPERT_TYPE_EXPERTS check (EXPERT_TYPE in ('I','E')),
    EXPERT_NAME          varchar(50)          null,
@@ -163,7 +167,7 @@ go
 /* Table: PROJECT_TASKS                                         */
 /*==============================================================*/
 create table PROJECT_TASKS (
-   TASK_ID              numeric              not null,
+   TASK_ID              numeric              not null IDENTITY(1,1),
    PROJECT_ID           numeric              not null,
    EXPRET_ID            numeric              not null,
    TASK_NAME            varchar(50)          not null,
@@ -227,3 +231,8 @@ alter table PROJECT_TASKS
       references TASK_STATUS (STATUS_ID)
 go
 
+INSERT into TASK_STATUS 
+VALUES ('Планирана'), ('Очаква одобрение'), ('Одобрена'), ('В изпълнение'), ('Отказана'), ('Изпълнена');
+
+Insert into PROJECT_STATUS
+Values ('Нов'), ('В изпълнение'), ('Прекратен'), ('Замразен')
