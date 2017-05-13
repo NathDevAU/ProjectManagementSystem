@@ -1,15 +1,10 @@
-﻿using ProjectManagement.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectManagement.ViewModels;
 
 namespace ProjectManagement
 {
@@ -28,14 +23,10 @@ namespace ProjectManagement
             this.ProjectsGV.Visible = false;
             this.dateTimePicker.Visible = false;
             this.ProjectStatusCb.Visible = false;
-
         }
-
 
         private void SearchProjectForm_Load(object sender, EventArgs e)
         {
-
-
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -66,17 +57,10 @@ namespace ProjectManagement
 
         private Expression<Func<PROJECT, bool>> GetSearchCriteria()
         {
-
             Expression<Func<PROJECT, bool>> searchCriteria = (PROJECT project) => true;
 
             var enteredCriteria = this.SearchFilterTextBox.Text;
-
-            if (string.IsNullOrEmpty(enteredCriteria))
-            {
-                // if no filter is entered list all projects
-                return searchCriteria;
-            }
-
+          
             var selectedCriteriaIndex = this.SearchFilterDropDown.SelectedIndex;
             //0 Код на проект
             //1 Наименование на проект
@@ -97,18 +81,17 @@ namespace ProjectManagement
                     searchCriteria = (PROJECT project) => project.PROJECT_CLIENT.Contains(enteredCriteria);
                     break;
                 case 3:
-                    searchCriteria = (PROJECT project) => project.PROJECT_BEGIN == dateTimePicker.Value;
+                    searchCriteria = (PROJECT project) => project.PROJECT_BEGIN == dateTimePicker.Value.Date;
                     break;
                 case 4:
-                    searchCriteria = (PROJECT project) => project.PROJECT_END == dateTimePicker.Value;
+                    searchCriteria = (PROJECT project) => project.PROJECT_END == dateTimePicker.Value.Date;
                     break;
                 case 5:
                     searchCriteria = (PROJECT project) => project.PROJECT_STATUS == ProjectStatusCb.SelectedIndex+1;
                     break;
             }
+
             return searchCriteria;
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

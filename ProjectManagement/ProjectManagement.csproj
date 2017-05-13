@@ -57,7 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\ExpertType.cs" />
     <Compile Include="CreatingProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>

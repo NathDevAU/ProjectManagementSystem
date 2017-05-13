@@ -106,10 +106,11 @@ namespace ProjectManagement
                     DataGridViewRow row = this.ExpertSearchResultGrid.Rows[e.RowIndex];
                     var selectedExpert = new ExpertVM()
                     {
-                        FirstName = row.Cells[0].Value.ToString(),
-                        LastName = row.Cells[1].Value.ToString(),
-                        MiddleName = row.Cells[2].Value.ToString(),
-                        ExpertType = "Външен"
+                        FirstName = row.Cells["ExpertFirstName"].Value.ToString(),
+                        MiddleName = row.Cells["ExpertMiddleName"].Value.ToString(),
+                        LastName = row.Cells["ExpertLastName"].Value.ToString(),
+                        ExpertType = row.Cells["ExpertType"].Value.ToString(),
+                        Id = decimal.Parse(row.Cells["ExpertId"].Value.ToString())
                     };
 
                     var detailsForm = new ExpertDetailsForm(selectedExpert);

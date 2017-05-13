@@ -1,27 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ProjectManagement.Utils;
 
 namespace ProjectManagement
 {
     public partial class CreatingProjectForm : Form
     {
+        private readonly PmContext context;
 
-        PmContext context = new PmContext();
-        
         public CreatingProjectForm()
         {
             InitializeComponent();
-        }
 
-    
+            this.context = new PmContext();
+        }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -63,16 +56,14 @@ namespace ProjectManagement
             project.PROJECT_CLIENT = ProjectClientComboBox.SelectedItem.ToString(); //TODO: FIX
             project.PROJECT_BEGIN = ProjectStartDateDatePicker.Value;
             project.PROJECT_END = ProjectEndDatePicker.Value;
-            project.PROJECT_STATUS = Constants.projectStatusNewId;
+            project.PROJECT_STATUS = Constants.ProjectStatusNewId;
             project.PROJECT_PAY_PER_HOUR = decimal.Parse(PayPerHourTextBox.Text);
 
             context.PROJECTS.Add(project);
             context.SaveChanges();
 
             MessageBox.Show("Проектът е създаден.");
-
         }
-
 
         private bool IsNotNull(TextBox tb)
         {
@@ -81,6 +72,7 @@ namespace ProjectManagement
                 MessageBox.Show($"Моля, попълнете празното поле!");
                 return false;
             }
+
             return true;
         }
         private bool IsValidInput(TextBox tb)
@@ -131,7 +123,5 @@ namespace ProjectManagement
         {
             ProjectClientComboBox.Items.Insert(0, ProjectClientComboBox.Text);
         }
-
-        
     }
 }

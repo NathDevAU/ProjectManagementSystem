@@ -144,11 +144,9 @@
             // 
             // ExpertTypeDropDown
             // 
+            this.ExpertTypeDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ExpertTypeDropDown.Enabled = false;
             this.ExpertTypeDropDown.FormattingEnabled = true;
-            this.ExpertTypeDropDown.Items.AddRange(new object[] {
-            "Външен",
-            "Вътрешен"});
             this.ExpertTypeDropDown.Location = new System.Drawing.Point(95, 142);
             this.ExpertTypeDropDown.Name = "ExpertTypeDropDown";
             this.ExpertTypeDropDown.Size = new System.Drawing.Size(145, 21);

@@ -16,7 +16,7 @@
         {
             get
             {
-                if(this.expertType == "E")
+                if (this.expertType == "E" || this.expertType == "Външен")
                 {
                     return "Външен";
                 }
