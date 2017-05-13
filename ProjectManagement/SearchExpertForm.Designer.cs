@@ -153,7 +153,7 @@
             // 
             // expertsBindingSource
             // 
-            this.expertsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.Expert);
+            this.expertsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.ExpertVM);
             // 
             // ExperTypeLabel
             // 

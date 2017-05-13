@@ -16,7 +16,7 @@ namespace ProjectManagement
         public SearchExpertForm()
         {
             InitializeComponent();
-            var experts = new Expert()
+            var experts = new ExpertVM()
             {
                 FirstName = "Stoyan",
                 MiddleName = "Dimitrov",
@@ -42,7 +42,7 @@ namespace ProjectManagement
                 if (e.ColumnIndex == 4)
                 {
                     DataGridViewRow row = this.ExpertSearchResultGrid.Rows[e.RowIndex];
-                    var selectedExpert = new Expert()
+                    var selectedExpert = new ExpertVM()
                     {
                         FirstName = row.Cells[0].Value.ToString(),
                         LastName = row.Cells[1].Value.ToString(),

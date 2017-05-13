@@ -15,10 +15,13 @@ namespace ProjectManagement
     {
 
         PmContext context = new PmContext();
+        
         public CreatingProjectForm()
         {
             InitializeComponent();
         }
+
+    
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -128,5 +131,7 @@ namespace ProjectManagement
         {
             ProjectClientComboBox.Items.Insert(0, ProjectClientComboBox.Text);
         }
+
+        
     }
 }

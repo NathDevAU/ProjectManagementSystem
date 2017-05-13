@@ -32,7 +32,7 @@
             this.SearchFilterDropDown = new System.Windows.Forms.ComboBox();
             this.SearchFilterTextBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ProjectsGV = new System.Windows.Forms.DataGridView();
             this.ProjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CloseBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,13 @@
             // SearchFilterDropDown
             // 
             this.SearchFilterDropDown.FormattingEnabled = true;
+            this.SearchFilterDropDown.Items.AddRange(new object[] {
+            "Код на проект",
+            "Наименование на проект",
+            "Клиент",
+            "Начало на проект",
+            "Край на проекта",
+            "Статус на проект"});
             this.SearchFilterDropDown.Location = new System.Drawing.Point(75, 22);
             this.SearchFilterDropDown.Name = "SearchFilterDropDown";
             this.SearchFilterDropDown.Size = new System.Drawing.Size(137, 21);
@@ -81,10 +88,10 @@
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // dataGridView1
+            // ProjectsGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProjectsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProjectsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProjectId,
             this.ProjectName,
             this.ProjectClient,
@@ -93,13 +100,13 @@
             this.ProjectStatus,
             this.ProjectPayByHour,
             this.DetailsBtn});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(845, 268);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.ProjectsGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectsGV.Location = new System.Drawing.Point(0, 0);
+            this.ProjectsGV.Name = "ProjectsGV";
+            this.ProjectsGV.ReadOnly = true;
+            this.ProjectsGV.Size = new System.Drawing.Size(845, 268);
+            this.ProjectsGV.TabIndex = 4;
+            this.ProjectsGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ProjectId
             // 
@@ -153,7 +160,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.ProjectsGV);
             this.panel1.Location = new System.Drawing.Point(28, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(845, 268);
@@ -182,7 +189,8 @@
             this.Controls.Add(this.SearchFilterLabel);
             this.Name = "SearchProjectForm";
             this.Text = "Търсене на проект";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.SearchProjectForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,7 +203,7 @@
         private System.Windows.Forms.ComboBox SearchFilterDropDown;
         private System.Windows.Forms.TextBox SearchFilterTextBox;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ProjectsGV;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;

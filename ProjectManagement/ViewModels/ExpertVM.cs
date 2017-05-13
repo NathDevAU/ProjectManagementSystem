@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagement.ViewModels
 {
-    public class Expert
+    public class ExpertVM
     {
         public int Id { get; set; }
 

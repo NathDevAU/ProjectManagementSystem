@@ -58,10 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Constants.cs" />
-    <Compile Include="ViewModels\CreatingProjectForm.cs">
+    <Compile Include="CreatingProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewModels\CreatingProjectForm.Designer.cs">
+    <Compile Include="CreatingProjectForm.Designer.cs">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CreatingTaskForm.cs">
@@ -127,8 +127,9 @@
       <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\TASK_STATUS.cs" />
-    <Compile Include="ViewModels\Expert.cs" />
-    <EmbeddedResource Include="ViewModels\CreatingProjectForm.resx">
+    <Compile Include="ViewModels\ExpertVM.cs" />
+    <Compile Include="ViewModels\ProjectVM.cs" />
+    <EmbeddedResource Include="CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatingTaskForm.resx">

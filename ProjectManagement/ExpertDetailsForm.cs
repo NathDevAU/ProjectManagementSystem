@@ -13,7 +13,7 @@ namespace ProjectManagement
 {
     public partial class ExpertDetailsForm : Form
     {
-        public ExpertDetailsForm(Expert expert)
+        public ExpertDetailsForm(ExpertVM expert)
         {
             InitializeComponent();
             this.FirstNameTextBox.Text = expert.FirstName;
