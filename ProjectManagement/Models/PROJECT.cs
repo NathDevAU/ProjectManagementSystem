@@ -17,6 +17,7 @@ namespace ProjectManagement
 
         [Key]
         [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal PROJECT_ID { get; set; }
 
         [Required]

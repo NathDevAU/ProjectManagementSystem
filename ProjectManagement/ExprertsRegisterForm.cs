@@ -25,28 +25,13 @@ namespace ProjectManagement
 
         private void CreateExpertBtn_Click(object sender, EventArgs e)
         {
-            //var ids = new List<decimal>();
-            //decimal currentId = 0M;
-            //foreach (var exp in context.EXPERTS)
-            //{
-            //    ids.Add(exp.EXPRET_ID);
-            //}
-            //if (!ids.Any())
-            //{
-            //    currentId = 1;
-            //}
-            //else
-            //{
-            //    currentId = (ids.Max()) + 1M;
-            //}
-
+         
             if (!IsValidInput(ExpertNameTextBox) || !IsValidInput(ExpertMiddleNameTextBox) || !IsValidInput(ExpertLastNameTextBox))
             {
                 return;
             }
 
             var expert = new EXPERT();
-          //  expert.EXPRET_ID = currentId;
             expert.EXPERT_NAME = ExpertNameTextBox.Text;
             expert.EXPERT_SURNAME = ExpertMiddleNameTextBox.Text;
             expert.EXPERT_LASTNAME = ExpertLastNameTextBox.Text;

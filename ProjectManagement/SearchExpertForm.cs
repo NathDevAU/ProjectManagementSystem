@@ -1,35 +1,97 @@
-﻿using ProjectManagement.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using System.Windows.Forms;
+using ProjectManagement.ViewModels;
 
 namespace ProjectManagement
 {
     public partial class SearchExpertForm : Form
     {
+        private readonly PmContext dbContext;
+
         public SearchExpertForm()
         {
             InitializeComponent();
-            var experts = new ExpertVM()
-            {
-                FirstName = "Stoyan",
-                MiddleName = "Dimitrov",
-                LastName = "Ruzmanov",
-                ExpertType = "Външен"
-            };
+            this.dbContext = new PmContext();
 
-            this.expertsBindingSource.DataSource = experts;
+            //Set default values to controls
+            this.SearchFilterDropDown.SelectedIndex = 0;
+            this.ExpertSearchResultGrid.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Expression<Func<EXPERT, bool>> expertTypeSearchCriteria = this.GetExpertTypeSearchCriteria();
+            Expression<Func<EXPERT, bool>> expertNameSearchCriteria = this.GetSearchByNameCriteria();
 
+            var experts = this.dbContext.EXPERTS
+               .Where(expertTypeSearchCriteria)
+               .Where(expertNameSearchCriteria)
+               .Select(x => new ExpertVM()
+               {
+                   FirstName = x.EXPERT_NAME,
+                   MiddleName = x.EXPERT_SURNAME,
+                   LastName = x.EXPERT_LASTNAME,
+                   ExpertType = x.EXPERT_TYPE,
+                   Id = x.EXPRET_ID
+               })
+               .ToList();
+
+            this.ExpertSearchResultGrid.Visible = true;
+            this.expertsBindingSource.DataSource = experts;
+        }
+
+        private Expression<Func<EXPERT, bool>> GetSearchByNameCriteria()
+        {
+            Expression<Func<EXPERT, bool>> expertNameSearchCriteria
+             = (EXPERT expert) => true;
+
+            var enteredExperedName = this.SearchExpertTextBox.Text;
+
+            if (string.IsNullOrEmpty(enteredExperedName))
+            {
+                // if no name is entered list all users
+                return expertNameSearchCriteria;
+            }
+
+            var selectedNameCriteriaIndex = this.SearchFilterDropDown.SelectedIndex;
+
+            switch (selectedNameCriteriaIndex)
+            {
+                case 0:
+                    expertNameSearchCriteria = (EXPERT expert) => expert.EXPERT_NAME.Contains(enteredExperedName);
+                    break;
+                case 1:
+                    expertNameSearchCriteria = (EXPERT expert) => expert.EXPERT_SURNAME.Contains(enteredExperedName);
+                    break;
+                case 2:
+                    expertNameSearchCriteria = (EXPERT expert) => expert.EXPERT_LASTNAME.Contains(enteredExperedName);
+                    break;
+            }
+
+            return expertNameSearchCriteria;
+        }
+
+        private Expression<Func<EXPERT, bool>> GetExpertTypeSearchCriteria()
+        {
+            // Any expert type is selected
+            Expression<Func<EXPERT, bool>> expertTypeSearchCriteria =
+                 (EXPERT ex) => true;
+
+            if (this.InternalExpertRadioBtn.Checked)
+            {
+                expertTypeSearchCriteria =
+                    (EXPERT expert) => expert.EXPERT_TYPE == "I";
+            }
+            else if (this.ExternalExpertRaidoBtn.Checked)
+            {
+                expertTypeSearchCriteria =
+                    (EXPERT expert) => expert.EXPERT_TYPE == "E";
+            }
+
+            return expertTypeSearchCriteria;
         }
 
         private void ExpertSearchResultGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)

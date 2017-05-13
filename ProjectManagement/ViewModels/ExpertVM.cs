@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjectManagement.ViewModels
+﻿namespace ProjectManagement.ViewModels
 {
     public class ExpertVM
     {
-        public int Id { get; set; }
+        private string expertType;
+
+        public decimal Id { get; set; }
 
         public string FirstName { get; set; }
 
@@ -16,6 +12,22 @@ namespace ProjectManagement.ViewModels
 
         public string LastName { get; set; }
 
-        public string ExpertType { get; set; }
+        public string ExpertType
+        {
+            get
+            {
+                if(this.expertType == "E")
+                {
+                    return "Външен";
+                }
+
+                return "Вътрешен";
+            }
+
+            set
+            {
+                this.expertType = value;
+            }
+        }
     }
 }

@@ -62,7 +62,12 @@
             // 
             // SearchFilterDropDown
             // 
+            this.SearchFilterDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SearchFilterDropDown.FormattingEnabled = true;
+            this.SearchFilterDropDown.Items.AddRange(new object[] {
+            "Име",
+            "Презиме",
+            "Фамилия"});
             this.SearchFilterDropDown.Location = new System.Drawing.Point(131, 18);
             this.SearchFilterDropDown.Name = "SearchFilterDropDown";
             this.SearchFilterDropDown.Size = new System.Drawing.Size(135, 21);
@@ -199,6 +204,7 @@
             // AllExpertTypes
             // 
             this.AllExpertTypes.AutoSize = true;
+            this.AllExpertTypes.Checked = true;
             this.AllExpertTypes.Location = new System.Drawing.Point(431, 59);
             this.AllExpertTypes.Name = "AllExpertTypes";
             this.AllExpertTypes.Size = new System.Drawing.Size(61, 17);
