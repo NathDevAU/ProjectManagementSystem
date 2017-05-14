@@ -20,12 +20,15 @@ namespace ProjectManagement
 
         [Required]
         [StringLength(50)]
+        [Column(TypeName = "NVARCHAR")]
         public string TASK_NAME { get; set; }
 
         [StringLength(400)]
+        [Column(TypeName = "NVARCHAR")]
         public string TASK_DESCRIPTION { get; set; }
 
         [StringLength(400)]
+        [Column(TypeName = "NVARCHAR")]
         public string TAS_DELIVERABLES { get; set; }
 
         [Column(TypeName = "date")]
@@ -36,6 +39,7 @@ namespace ProjectManagement
 
         [Required]
         [StringLength(1)]
+        [Column(TypeName = "NVARCHAR")]
         public string TASK_PRIORITY { get; set; }
 
         [Column(TypeName = "numeric")]

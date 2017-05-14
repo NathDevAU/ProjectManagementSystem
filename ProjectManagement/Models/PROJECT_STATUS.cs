@@ -21,6 +21,7 @@ namespace ProjectManagement
 
         [Required]
         [StringLength(20)]
+        [Column(TypeName = "NVARCHAR")]
         public string PSTATUS_NAME { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

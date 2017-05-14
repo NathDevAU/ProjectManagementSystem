@@ -21,13 +21,16 @@ namespace ProjectManagement
 
         [Required]
         [StringLength(100)]
+        [Column(TypeName = "NVARCHAR")]
         public string PROJECT_NAME { get; set; }
 
         [StringLength(1000)]
+        [Column(TypeName = "NVARCHAR")]
         public string PROJECT_DESCRIPTION { get; set; }
 
         [Required]
         [StringLength(100)]
+        [Column(TypeName = "NVARCHAR")]
         public string PROJECT_CLIENT { get; set; }
 
         [Column(TypeName = "date")]
