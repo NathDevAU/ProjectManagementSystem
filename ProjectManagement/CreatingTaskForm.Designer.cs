@@ -46,6 +46,10 @@
             this.task_Project_TB = new System.Windows.Forms.TextBox();
             this.task_Result_RTB = new System.Windows.Forms.RichTextBox();
             this.task_comment_RTB = new System.Windows.Forms.RichTextBox();
+            this.ExpertLabel = new System.Windows.Forms.Label();
+            this.ExpertsCb = new System.Windows.Forms.ComboBox();
+            this.RegisterExpertBtn = new System.Windows.Forms.Button();
+            this.Populate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // task_name
@@ -67,7 +71,7 @@
             // task_result
             // 
             this.task_result.AutoSize = true;
-            this.task_result.Location = new System.Drawing.Point(29, 220);
+            this.task_result.Location = new System.Drawing.Point(29, 239);
             this.task_result.Name = "task_result";
             this.task_result.Size = new System.Drawing.Size(184, 13);
             this.task_result.TabIndex = 2;
@@ -76,7 +80,7 @@
             // task_description
             // 
             this.task_description.AutoSize = true;
-            this.task_description.Location = new System.Drawing.Point(29, 125);
+            this.task_description.Location = new System.Drawing.Point(29, 144);
             this.task_description.Name = "task_description";
             this.task_description.Size = new System.Drawing.Size(110, 13);
             this.task_description.TabIndex = 3;
@@ -85,7 +89,7 @@
             // task_begin
             // 
             this.task_begin.AutoSize = true;
-            this.task_begin.Location = new System.Drawing.Point(25, 415);
+            this.task_begin.Location = new System.Drawing.Point(25, 434);
             this.task_begin.Name = "task_begin";
             this.task_begin.Size = new System.Drawing.Size(97, 13);
             this.task_begin.TabIndex = 4;
@@ -102,7 +106,7 @@
             // 
             // taskStartDate
             // 
-            this.taskStartDate.Location = new System.Drawing.Point(28, 440);
+            this.taskStartDate.Location = new System.Drawing.Point(28, 459);
             this.taskStartDate.Name = "taskStartDate";
             this.taskStartDate.Size = new System.Drawing.Size(172, 20);
             this.taskStartDate.TabIndex = 17;
@@ -110,7 +114,7 @@
             // task_end
             // 
             this.task_end.AutoSize = true;
-            this.task_end.Location = new System.Drawing.Point(431, 415);
+            this.task_end.Location = new System.Drawing.Point(431, 434);
             this.task_end.Name = "task_end";
             this.task_end.Size = new System.Drawing.Size(85, 13);
             this.task_end.TabIndex = 18;
@@ -118,13 +122,14 @@
             // 
             // taskEndDate
             // 
-            this.taskEndDate.Location = new System.Drawing.Point(344, 440);
+            this.taskEndDate.Location = new System.Drawing.Point(344, 459);
             this.taskEndDate.Name = "taskEndDate";
             this.taskEndDate.Size = new System.Drawing.Size(172, 20);
             this.taskEndDate.TabIndex = 19;
             // 
             // task_Priority_CB
             // 
+            this.task_Priority_CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.task_Priority_CB.FormattingEnabled = true;
             this.task_Priority_CB.Items.AddRange(new object[] {
             "Висок",
@@ -134,12 +139,11 @@
             this.task_Priority_CB.Name = "task_Priority_CB";
             this.task_Priority_CB.Size = new System.Drawing.Size(215, 21);
             this.task_Priority_CB.TabIndex = 20;
-            this.task_Priority_CB.SelectedIndexChanged += new System.EventHandler(this.ExpertTypeDropDown_SelectedIndexChanged);
             // 
             // task_comment
             // 
             this.task_comment.AutoSize = true;
-            this.task_comment.Location = new System.Drawing.Point(29, 319);
+            this.task_comment.Location = new System.Drawing.Point(29, 338);
             this.task_comment.Name = "task_comment";
             this.task_comment.Size = new System.Drawing.Size(57, 13);
             this.task_comment.TabIndex = 28;
@@ -147,7 +151,7 @@
             // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(371, 626);
+            this.Create.Location = new System.Drawing.Point(371, 499);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(64, 28);
             this.Create.TabIndex = 30;
@@ -157,7 +161,7 @@
             // 
             // Close
             // 
-            this.Close.Location = new System.Drawing.Point(452, 626);
+            this.Close.Location = new System.Drawing.Point(452, 499);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(64, 28);
             this.Close.TabIndex = 31;
@@ -167,9 +171,9 @@
             // 
             // task_Description_RTB
             // 
-            this.task_Description_RTB.Location = new System.Drawing.Point(227, 122);
+            this.task_Description_RTB.Location = new System.Drawing.Point(227, 141);
             this.task_Description_RTB.Name = "task_Description_RTB";
-            this.task_Description_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_Description_RTB.Size = new System.Drawing.Size(304, 83);
             this.task_Description_RTB.TabIndex = 34;
             this.task_Description_RTB.Text = "";
             // 
@@ -192,25 +196,68 @@
             // 
             // task_Result_RTB
             // 
-            this.task_Result_RTB.Location = new System.Drawing.Point(227, 220);
+            this.task_Result_RTB.Location = new System.Drawing.Point(227, 239);
             this.task_Result_RTB.Name = "task_Result_RTB";
-            this.task_Result_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_Result_RTB.Size = new System.Drawing.Size(304, 83);
             this.task_Result_RTB.TabIndex = 37;
             this.task_Result_RTB.Text = "";
             // 
             // task_comment_RTB
             // 
-            this.task_comment_RTB.Location = new System.Drawing.Point(227, 319);
+            this.task_comment_RTB.Location = new System.Drawing.Point(227, 338);
             this.task_comment_RTB.Name = "task_comment_RTB";
-            this.task_comment_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_comment_RTB.Size = new System.Drawing.Size(304, 83);
             this.task_comment_RTB.TabIndex = 38;
             this.task_comment_RTB.Text = "";
+            // 
+            // ExpertLabel
+            // 
+            this.ExpertLabel.AutoSize = true;
+            this.ExpertLabel.Location = new System.Drawing.Point(29, 108);
+            this.ExpertLabel.Name = "ExpertLabel";
+            this.ExpertLabel.Size = new System.Drawing.Size(69, 13);
+            this.ExpertLabel.TabIndex = 39;
+            this.ExpertLabel.Text = "Изпълнител";
+            // 
+            // ExpertsCb
+            // 
+            this.ExpertsCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ExpertsCb.FormattingEnabled = true;
+            this.ExpertsCb.Location = new System.Drawing.Point(227, 108);
+            this.ExpertsCb.Name = "ExpertsCb";
+            this.ExpertsCb.Size = new System.Drawing.Size(215, 21);
+            this.ExpertsCb.TabIndex = 40;
+            // 
+            // RegisterExpertBtn
+            // 
+            this.RegisterExpertBtn.Location = new System.Drawing.Point(452, 108);
+            this.RegisterExpertBtn.Name = "RegisterExpertBtn";
+            this.RegisterExpertBtn.Size = new System.Drawing.Size(79, 21);
+            this.RegisterExpertBtn.TabIndex = 41;
+            this.RegisterExpertBtn.Text = "Нов експерт";
+            this.RegisterExpertBtn.UseVisualStyleBackColor = true;
+            this.RegisterExpertBtn.Click += new System.EventHandler(this.RegisterExpertBtn_Click);
+            // 
+            // Populate
+            // 
+            this.Populate.Location = new System.Drawing.Point(534, 517);
+            this.Populate.Name = "Populate";
+            this.Populate.Size = new System.Drawing.Size(10, 10);
+            this.Populate.TabIndex = 42;
+            this.Populate.Text = "Populate";
+            this.Populate.UseVisualStyleBackColor = true;
+            this.Populate.Visible = false;
+            this.Populate.Click += new System.EventHandler(this.Populate_Click);
             // 
             // CreatingTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 656);
+            this.ClientSize = new System.Drawing.Size(543, 535);
+            this.Controls.Add(this.Populate);
+            this.Controls.Add(this.RegisterExpertBtn);
+            this.Controls.Add(this.ExpertsCb);
+            this.Controls.Add(this.ExpertLabel);
             this.Controls.Add(this.task_comment_RTB);
             this.Controls.Add(this.task_Result_RTB);
             this.Controls.Add(this.task_Project_TB);
@@ -257,5 +304,9 @@
         private System.Windows.Forms.TextBox task_Project_TB;
         private System.Windows.Forms.RichTextBox task_Result_RTB;
         private System.Windows.Forms.RichTextBox task_comment_RTB;
+        private System.Windows.Forms.Label ExpertLabel;
+        private System.Windows.Forms.ComboBox ExpertsCb;
+        private System.Windows.Forms.Button RegisterExpertBtn;
+        private System.Windows.Forms.Button Populate;
     }
 }

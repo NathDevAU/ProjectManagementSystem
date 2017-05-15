@@ -38,7 +38,7 @@
             this.OutsideExpert = new System.Windows.Forms.RadioButton();
             this.InsideExpert = new System.Windows.Forms.RadioButton();
             this.CreateExpertBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExpertNameLabel
@@ -130,22 +130,22 @@
             this.CreateExpertBtn.UseVisualStyleBackColor = true;
             this.CreateExpertBtn.Click += new System.EventHandler(this.CreateExpertBtn_Click);
             // 
-            // button1
+            // CloseBtn
             // 
-            this.button1.Location = new System.Drawing.Point(231, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Затвори";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CloseBtn.Location = new System.Drawing.Point(231, 212);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 10;
+            this.CloseBtn.Text = "Затвори";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // ExprertsRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 246);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.CreateExpertBtn);
             this.Controls.Add(this.InsideExpert);
             this.Controls.Add(this.OutsideExpert);
@@ -175,6 +175,6 @@
         private System.Windows.Forms.RadioButton OutsideExpert;
         private System.Windows.Forms.RadioButton InsideExpert;
         private System.Windows.Forms.Button CreateExpertBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }

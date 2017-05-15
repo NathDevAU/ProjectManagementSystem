@@ -27,15 +27,8 @@ namespace ProjectManagement
 
 
 
-        private void ExpertTypeDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Close_Click(object sender, EventArgs e)
         {
@@ -45,6 +38,9 @@ namespace ProjectManagement
         private void CreatingTaskForm_Load(object sender, EventArgs e)
         {
             task_Project_TB.Text = currentProject.PROJECT_NAME;
+            task_comment_RTB.Text = "такова нещо в базата няма!";
+
+            Populate_Click(sender, e);
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -68,6 +64,7 @@ namespace ProjectManagement
                 MessageBox.Show("Вече съществува задача с това име!");
                 return;
             }
+
             var task = new PROJECT_TASKS();
 
             task.TASK_NAME = task_Name_TB.Text;
@@ -75,11 +72,11 @@ namespace ProjectManagement
             {
                 task.TASK_PRIORITY = "H";
             }
-           else if (task_Priority_CB.SelectedIndex == Priority.MediumPriorityIndex)
+            else if (task_Priority_CB.SelectedIndex == Priority.MediumPriorityIndex)
             {
                 task.TASK_PRIORITY = "M";
             }
-           else if (task_Priority_CB.SelectedIndex == Priority.LowPriorityIndex)
+            else if (task_Priority_CB.SelectedIndex == Priority.LowPriorityIndex)
             {
                 task.TASK_PRIORITY = "L";
             }
@@ -87,6 +84,8 @@ namespace ProjectManagement
             task.TAS_DELIVERABLES = task_Result_RTB.Text;
             task.TASK_BEGIN = taskStartDate.Value;
             task.TASK_END = taskEndDate.Value;
+            task.TASK_STATUS = Utils.TaskStatus.TaskStatusPlannedId;
+            task.TASK_READY = 0;
 
             context.PROJECT_TASKS.Add(task);
             context.SaveChanges();
@@ -111,6 +110,36 @@ namespace ProjectManagement
             }
 
             return true;
+        }
+
+        private void RegisterExpertBtn_Click(object sender, EventArgs e)
+        {
+            var registerForm = new ExprertsRegisterForm();
+            registerForm.ShowDialog();
+
+        }
+
+        public void Populate_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, decimal> cbData = new Dictionary<string, decimal>();
+
+            var experts = context.EXPERTS.ToList();
+            foreach (var expert in experts)
+            {
+                cbData.Add(
+                 string.Concat(
+                     expert.EXPERT_NAME, " ",
+                     expert.EXPERT_SURNAME, " ",
+                     expert.EXPERT_LASTNAME),
+                 expert.EXPRET_ID);
+            }
+
+
+            this.ExpertsCb.DataSource = new BindingSource(cbData, null);
+            this.ExpertsCb.DisplayMember = "Key";
+            this.ExpertsCb.ValueMember = "Value";
+            ExpertsCb.Refresh();
+            cbData.Clear();
         }
     }
 }
