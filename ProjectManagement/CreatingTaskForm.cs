@@ -85,7 +85,19 @@ namespace ProjectManagement
             task.TASK_BEGIN = taskStartDate.Value;
             task.TASK_END = taskEndDate.Value;
             task.TASK_STATUS = Utils.TaskStatus.TaskStatusPlannedId;
+            task.TASK_STATUS1 = context.TASK_STATUS.Find(Utils.TaskStatus.TaskStatusPlannedId);
             task.TASK_READY = 0;
+            task.PROJECT_ID = currentProject.PROJECT_ID; 
+            var expertId=decimal.Parse(ExpertsCb.SelectedValue.ToString());
+            task.EXPRET_ID = expertId;
+            task.PROJECT = currentProject;
+            task.EXPERT = context.EXPERTS.Find(expertId);
+            task.TASK_READY = 0;
+            task.TASK_HOURS = 0;
+
+            ////FIX!! ne bachka i s nego i bez nego
+            decimal count = context.PROJECT_TASKS.Count() + 1 ;
+            task.TASK_ID = count;
 
             context.PROJECT_TASKS.Add(task);
             context.SaveChanges();
