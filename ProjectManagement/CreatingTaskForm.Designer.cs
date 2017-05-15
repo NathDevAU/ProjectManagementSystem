@@ -28,151 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ProjectStartDateDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.ExpertTypeDropDown = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.task_name = new System.Windows.Forms.Label();
+            this.task_Name_TB = new System.Windows.Forms.TextBox();
+            this.task_result = new System.Windows.Forms.Label();
+            this.task_description = new System.Windows.Forms.Label();
+            this.task_begin = new System.Windows.Forms.Label();
+            this.task_priority = new System.Windows.Forms.Label();
+            this.taskStartDate = new System.Windows.Forms.DateTimePicker();
+            this.task_end = new System.Windows.Forms.Label();
+            this.taskEndDate = new System.Windows.Forms.DateTimePicker();
+            this.task_Priority_CB = new System.Windows.Forms.ComboBox();
+            this.task_comment = new System.Windows.Forms.Label();
+            this.Create = new System.Windows.Forms.Button();
+            this.Close = new System.Windows.Forms.Button();
+            this.task_Description_RTB = new System.Windows.Forms.RichTextBox();
             this.TaskForProjectLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.task_Project_TB = new System.Windows.Forms.TextBox();
+            this.task_Result_RTB = new System.Windows.Forms.RichTextBox();
+            this.task_comment_RTB = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // task_name
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Наименование на задача";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.task_name.AutoSize = true;
+            this.task_name.Location = new System.Drawing.Point(29, 23);
+            this.task_name.Name = "task_name";
+            this.task_name.Size = new System.Drawing.Size(136, 13);
+            this.task_name.TabIndex = 0;
+            this.task_name.Text = "Наименование на задача";
             // 
-            // textBox1
+            // task_Name_TB
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 20);
-            this.textBox1.TabIndex = 1;
+            this.task_Name_TB.Location = new System.Drawing.Point(227, 23);
+            this.task_Name_TB.Name = "task_Name_TB";
+            this.task_Name_TB.Size = new System.Drawing.Size(215, 20);
+            this.task_Name_TB.TabIndex = 1;
             // 
-            // label2
+            // task_result
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 220);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Резултат от изпълнение на задача";
+            this.task_result.AutoSize = true;
+            this.task_result.Location = new System.Drawing.Point(29, 220);
+            this.task_result.Name = "task_result";
+            this.task_result.Size = new System.Drawing.Size(184, 13);
+            this.task_result.TabIndex = 2;
+            this.task_result.Text = "Резултат от изпълнение на задача";
             // 
-            // label3
+            // task_description
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Описание на задача";
+            this.task_description.AutoSize = true;
+            this.task_description.Location = new System.Drawing.Point(29, 125);
+            this.task_description.Name = "task_description";
+            this.task_description.Size = new System.Drawing.Size(110, 13);
+            this.task_description.TabIndex = 3;
+            this.task_description.Text = "Описание на задача";
             // 
-            // label4
+            // task_begin
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 415);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Начало на задача";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.task_begin.AutoSize = true;
+            this.task_begin.Location = new System.Drawing.Point(25, 415);
+            this.task_begin.Name = "task_begin";
+            this.task_begin.Size = new System.Drawing.Size(97, 13);
+            this.task_begin.TabIndex = 4;
+            this.task_begin.Text = "Начало на задача";
             // 
-            // label5
+            // task_priority
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Приоритет на задача";
+            this.task_priority.AutoSize = true;
+            this.task_priority.Location = new System.Drawing.Point(29, 80);
+            this.task_priority.Name = "task_priority";
+            this.task_priority.Size = new System.Drawing.Size(114, 13);
+            this.task_priority.TabIndex = 5;
+            this.task_priority.Text = "Приоритет на задача";
             // 
-            // ProjectStartDateDatePicker
+            // taskStartDate
             // 
-            this.ProjectStartDateDatePicker.Location = new System.Drawing.Point(28, 440);
-            this.ProjectStartDateDatePicker.Name = "ProjectStartDateDatePicker";
-            this.ProjectStartDateDatePicker.Size = new System.Drawing.Size(172, 20);
-            this.ProjectStartDateDatePicker.TabIndex = 17;
+            this.taskStartDate.Location = new System.Drawing.Point(28, 440);
+            this.taskStartDate.Name = "taskStartDate";
+            this.taskStartDate.Size = new System.Drawing.Size(172, 20);
+            this.taskStartDate.TabIndex = 17;
             // 
-            // label6
+            // task_end
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(431, 415);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Край на задача";
+            this.task_end.AutoSize = true;
+            this.task_end.Location = new System.Drawing.Point(431, 415);
+            this.task_end.Name = "task_end";
+            this.task_end.Size = new System.Drawing.Size(85, 13);
+            this.task_end.TabIndex = 18;
+            this.task_end.Text = "Край на задача";
             // 
-            // dateTimePicker1
+            // taskEndDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(344, 440);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(172, 20);
-            this.dateTimePicker1.TabIndex = 19;
+            this.taskEndDate.Location = new System.Drawing.Point(344, 440);
+            this.taskEndDate.Name = "taskEndDate";
+            this.taskEndDate.Size = new System.Drawing.Size(172, 20);
+            this.taskEndDate.TabIndex = 19;
             // 
-            // ExpertTypeDropDown
+            // task_Priority_CB
             // 
-            this.ExpertTypeDropDown.FormattingEnabled = true;
-            this.ExpertTypeDropDown.Items.AddRange(new object[] {
+            this.task_Priority_CB.FormattingEnabled = true;
+            this.task_Priority_CB.Items.AddRange(new object[] {
             "Висок",
             "Среден",
             "Нисък"});
-            this.ExpertTypeDropDown.Location = new System.Drawing.Point(227, 80);
-            this.ExpertTypeDropDown.Name = "ExpertTypeDropDown";
-            this.ExpertTypeDropDown.Size = new System.Drawing.Size(215, 21);
-            this.ExpertTypeDropDown.TabIndex = 20;
-            this.ExpertTypeDropDown.SelectedIndexChanged += new System.EventHandler(this.ExpertTypeDropDown_SelectedIndexChanged);
+            this.task_Priority_CB.Location = new System.Drawing.Point(227, 80);
+            this.task_Priority_CB.Name = "task_Priority_CB";
+            this.task_Priority_CB.Size = new System.Drawing.Size(215, 21);
+            this.task_Priority_CB.TabIndex = 20;
+            this.task_Priority_CB.SelectedIndexChanged += new System.EventHandler(this.ExpertTypeDropDown_SelectedIndexChanged);
             // 
-            // label10
+            // task_comment
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(29, 319);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Коментар";
+            this.task_comment.AutoSize = true;
+            this.task_comment.Location = new System.Drawing.Point(29, 319);
+            this.task_comment.Name = "task_comment";
+            this.task_comment.Size = new System.Drawing.Size(57, 13);
+            this.task_comment.TabIndex = 28;
+            this.task_comment.Text = "Коментар";
             // 
-            // button1
+            // Create
             // 
-            this.button1.Location = new System.Drawing.Point(371, 626);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 28);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Създай";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Create.Location = new System.Drawing.Point(371, 626);
+            this.Create.Name = "Create";
+            this.Create.Size = new System.Drawing.Size(64, 28);
+            this.Create.TabIndex = 30;
+            this.Create.Text = "Създай";
+            this.Create.UseVisualStyleBackColor = true;
+            this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
-            // button2
+            // Close
             // 
-            this.button2.Location = new System.Drawing.Point(452, 626);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 28);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Затвори";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Close.Location = new System.Drawing.Point(452, 626);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(64, 28);
+            this.Close.TabIndex = 31;
+            this.Close.Text = "Затвори";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
-            // richTextBox3
+            // task_Description_RTB
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(227, 122);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(289, 83);
-            this.richTextBox3.TabIndex = 34;
-            this.richTextBox3.Text = "";
+            this.task_Description_RTB.Location = new System.Drawing.Point(227, 122);
+            this.task_Description_RTB.Name = "task_Description_RTB";
+            this.task_Description_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_Description_RTB.TabIndex = 34;
+            this.task_Description_RTB.Text = "";
             // 
             // TaskForProjectLabel
             // 
@@ -183,53 +182,53 @@
             this.TaskForProjectLabel.TabIndex = 35;
             this.TaskForProjectLabel.Text = "Към проект";
             // 
-            // textBox2
+            // task_Project_TB
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(227, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 20);
-            this.textBox2.TabIndex = 36;
+            this.task_Project_TB.Enabled = false;
+            this.task_Project_TB.Location = new System.Drawing.Point(227, 52);
+            this.task_Project_TB.Name = "task_Project_TB";
+            this.task_Project_TB.Size = new System.Drawing.Size(215, 20);
+            this.task_Project_TB.TabIndex = 36;
             // 
-            // richTextBox1
+            // task_Result_RTB
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(227, 220);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(289, 83);
-            this.richTextBox1.TabIndex = 37;
-            this.richTextBox1.Text = "";
+            this.task_Result_RTB.Location = new System.Drawing.Point(227, 220);
+            this.task_Result_RTB.Name = "task_Result_RTB";
+            this.task_Result_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_Result_RTB.TabIndex = 37;
+            this.task_Result_RTB.Text = "";
             // 
-            // richTextBox2
+            // task_comment_RTB
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(227, 319);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(289, 83);
-            this.richTextBox2.TabIndex = 38;
-            this.richTextBox2.Text = "";
+            this.task_comment_RTB.Location = new System.Drawing.Point(227, 319);
+            this.task_comment_RTB.Name = "task_comment_RTB";
+            this.task_comment_RTB.Size = new System.Drawing.Size(289, 83);
+            this.task_comment_RTB.TabIndex = 38;
+            this.task_comment_RTB.Text = "";
             // 
             // CreatingTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 656);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.task_comment_RTB);
+            this.Controls.Add(this.task_Result_RTB);
+            this.Controls.Add(this.task_Project_TB);
             this.Controls.Add(this.TaskForProjectLabel);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.ExpertTypeDropDown);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.ProjectStartDateDatePicker);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.task_Description_RTB);
+            this.Controls.Add(this.Close);
+            this.Controls.Add(this.Create);
+            this.Controls.Add(this.task_comment);
+            this.Controls.Add(this.task_Priority_CB);
+            this.Controls.Add(this.taskEndDate);
+            this.Controls.Add(this.task_end);
+            this.Controls.Add(this.taskStartDate);
+            this.Controls.Add(this.task_priority);
+            this.Controls.Add(this.task_begin);
+            this.Controls.Add(this.task_description);
+            this.Controls.Add(this.task_result);
+            this.Controls.Add(this.task_Name_TB);
+            this.Controls.Add(this.task_name);
             this.Name = "CreatingTaskForm";
             this.Text = "Създаване на задача";
             this.Load += new System.EventHandler(this.CreatingTaskForm_Load);
@@ -240,23 +239,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker ProjectStartDateDatePicker;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox ExpertTypeDropDown;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Label task_name;
+        private System.Windows.Forms.TextBox task_Name_TB;
+        private System.Windows.Forms.Label task_result;
+        private System.Windows.Forms.Label task_description;
+        private System.Windows.Forms.Label task_begin;
+        private System.Windows.Forms.Label task_priority;
+        private System.Windows.Forms.DateTimePicker taskStartDate;
+        private System.Windows.Forms.Label task_end;
+        private System.Windows.Forms.DateTimePicker taskEndDate;
+        private System.Windows.Forms.ComboBox task_Priority_CB;
+        private System.Windows.Forms.Label task_comment;
+        private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.RichTextBox task_Description_RTB;
         private System.Windows.Forms.Label TaskForProjectLabel;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TextBox task_Project_TB;
+        private System.Windows.Forms.RichTextBox task_Result_RTB;
+        private System.Windows.Forms.RichTextBox task_comment_RTB;
     }
 }

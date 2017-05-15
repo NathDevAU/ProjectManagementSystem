@@ -108,7 +108,8 @@ namespace ProjectManagement
 
         private void AddTaskBtn_Click_1(object sender, EventArgs e)
         {
-            var form = new CreatingTaskForm();
+            var form = new CreatingTaskForm(currentProject.PROJECT_ID);
+
             form.ShowDialog();
         }
 

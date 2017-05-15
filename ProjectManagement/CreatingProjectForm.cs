@@ -50,7 +50,7 @@ namespace ProjectManagement
             }
             if (context.PROJECTS.Any(o => o.PROJECT_NAME == ProjectNameTextBox.Text))
             {
-                MessageBox.Show("Вече съществува проект с този име!");
+                MessageBox.Show("Вече съществува проект с това име!");
                 return;
             }
             var project = new PROJECT();

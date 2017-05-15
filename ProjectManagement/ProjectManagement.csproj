@@ -128,6 +128,7 @@
       <DependentUpon>TaskDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\TASK_STATUS.cs" />
+    <Compile Include="Utils\Priority.cs" />
     <Compile Include="ViewModels\ExpertVM.cs" />
     <Compile Include="ViewModels\ProjectVM.cs" />
     <EmbeddedResource Include="CreatingProjectForm.resx">
