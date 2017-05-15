@@ -2,12 +2,22 @@
 {
     public static class Constants
     {
+
         public const int ProjectStatusNewId = 1;
+        public const int ProjectStatusOngoingId = 2;
+        public const int ProjectStatusCanceledId = 3;
+        public const int ProjectStatusFrozenId = 4;
+        public const int ProjectStatusFinishedId = 10002;
+
+
+
+
+
 
         public const int ByProjectIdIndex = 0;
         public const int ByProjectNameIndex = 1;
         public const int ByProjectClientIndex = 2;
-        public const int ByProjectStartDateIndex =3 ;
+        public const int ByProjectStartDateIndex = 3;
         public const int ByProjectEndDateIndex = 4;
         public const int ByProjectStatusIndex = 5;
 

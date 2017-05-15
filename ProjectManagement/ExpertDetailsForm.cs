@@ -26,7 +26,7 @@ namespace ProjectManagement
             this.currentExpertId = expert.Id;
             this.FirstNameTextBox.Text = expert.FirstName;
             this.MiddleNameTextBox.Text = expert.MiddleName;
-            this.Text = expert.LastName;
+            this.LastNameTextBox.Text = expert.LastName;
         }
 
         private void BindExpertTypesDropDown(ExpertVM expert)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.TasksGrpB = new System.Windows.Forms.GroupBox();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.AddTaskBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TaskCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +64,6 @@
             this.ProjectNameLabel = new System.Windows.Forms.Label();
             this.ProjectDescriptionLabel = new System.Windows.Forms.Label();
             this.ProjectIdLabel = new System.Windows.Forms.Label();
-            this.CloseBtn = new System.Windows.Forms.Button();
             this.TasksGrpB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,6 +80,16 @@
             this.TasksGrpB.TabIndex = 44;
             this.TasksGrpB.TabStop = false;
             this.TasksGrpB.Text = "Задачи";
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(275, 470);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(177, 23);
+            this.CloseBtn.TabIndex = 70;
+            this.CloseBtn.Text = "Затвори Формата";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // AddTaskBtn
             // 
@@ -289,15 +299,17 @@
             this.ChangeStatusBtn.TabIndex = 60;
             this.ChangeStatusBtn.Text = "Промени";
             this.ChangeStatusBtn.UseVisualStyleBackColor = true;
+            this.ChangeStatusBtn.Click += new System.EventHandler(this.ChangeStatusBtn_Click);
             // 
             // StatusDdl
             // 
+            this.StatusDdl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StatusDdl.FormattingEnabled = true;
             this.StatusDdl.Items.AddRange(new object[] {
             "Нов",
             "В изпълнение",
+            "Замразен",
             "Прекратен",
-            "Замръзен",
             "Приключил"});
             this.StatusDdl.Location = new System.Drawing.Point(135, 79);
             this.StatusDdl.Name = "StatusDdl";
@@ -416,16 +428,6 @@
             this.ProjectIdLabel.TabIndex = 44;
             this.ProjectIdLabel.Text = "Код на проекта";
             // 
-            // CloseBtn
-            // 
-            this.CloseBtn.Location = new System.Drawing.Point(275, 470);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(177, 23);
-            this.CloseBtn.TabIndex = 70;
-            this.CloseBtn.Text = "Затвори Формата";
-            this.CloseBtn.UseVisualStyleBackColor = true;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
             // ProjectDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,6 +437,7 @@
             this.Controls.Add(this.TasksGrpB);
             this.Name = "ProjectDetailsForm";
             this.Text = "Детайли на проект";
+            this.Load += new System.EventHandler(this.ProjectDetailsForm_Load);
             this.TasksGrpB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

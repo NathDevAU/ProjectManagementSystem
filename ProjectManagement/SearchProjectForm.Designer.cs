@@ -34,11 +34,6 @@
             this.SearchFilterTextBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.ProjectsGV = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CloseBtn = new System.Windows.Forms.Button();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.ProjectStatusCb = new System.Windows.Forms.ComboBox();
-            this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +41,15 @@
             this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payPerHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailsBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseBtn = new System.Windows.Forms.Button();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ProjectStatusCb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SearchFilterLabel
@@ -117,54 +117,7 @@
             this.ProjectsGV.ReadOnly = true;
             this.ProjectsGV.Size = new System.Drawing.Size(845, 268);
             this.ProjectsGV.TabIndex = 4;
-            this.ProjectsGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ProjectsGV);
-            this.panel1.Location = new System.Drawing.Point(28, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(845, 268);
-            this.panel1.TabIndex = 5;
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.Location = new System.Drawing.Point(798, 344);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
-            this.CloseBtn.TabIndex = 6;
-            this.CloseBtn.Text = "Затвори";
-            this.CloseBtn.UseVisualStyleBackColor = true;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(272, 22);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(236, 20);
-            this.dateTimePicker.TabIndex = 7;
-            // 
-            // ProjectStatusCb
-            // 
-            this.ProjectStatusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProjectStatusCb.FormattingEnabled = true;
-            this.ProjectStatusCb.Items.AddRange(new object[] {
-            "Нов",
-            "В изпълнение",
-            "Замразен",
-            "Прекратен"});
-            this.ProjectStatusCb.Location = new System.Drawing.Point(272, 22);
-            this.ProjectStatusCb.Name = "ProjectStatusCb";
-            this.ProjectStatusCb.Size = new System.Drawing.Size(236, 21);
-            this.ProjectStatusCb.TabIndex = 8;
-            // 
-            // DetailsBtn
-            // 
-            this.DetailsBtn.HeaderText = "Детайли";
-            this.DetailsBtn.Name = "DetailsBtn";
-            this.DetailsBtn.ReadOnly = true;
-            this.DetailsBtn.Text = "Детайли";
-            this.DetailsBtn.UseColumnTextForButtonValue = true;
+            this.ProjectsGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProjectGV_CellContentClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -215,9 +168,57 @@
             this.payPerHDataGridViewTextBoxColumn.Name = "payPerHDataGridViewTextBoxColumn";
             this.payPerHDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // DetailsBtn
+            // 
+            this.DetailsBtn.HeaderText = "Детайли";
+            this.DetailsBtn.Name = "DetailsBtn";
+            this.DetailsBtn.ReadOnly = true;
+            this.DetailsBtn.Text = "Детайли";
+            this.DetailsBtn.UseColumnTextForButtonValue = true;
+            // 
             // projectsBindingSource
             // 
             this.projectsBindingSource.DataSource = typeof(ProjectManagement.ViewModels.ProjectVM);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ProjectsGV);
+            this.panel1.Location = new System.Drawing.Point(28, 70);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(845, 268);
+            this.panel1.TabIndex = 5;
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Location = new System.Drawing.Point(798, 344);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.TabIndex = 6;
+            this.CloseBtn.Text = "Затвори";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(272, 22);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(236, 20);
+            this.dateTimePicker.TabIndex = 7;
+            // 
+            // ProjectStatusCb
+            // 
+            this.ProjectStatusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProjectStatusCb.FormattingEnabled = true;
+            this.ProjectStatusCb.Items.AddRange(new object[] {
+            "Нов",
+            "В изпълнение",
+            "Замразен",
+            "Прекратен",
+            "Приключил"});
+            this.ProjectStatusCb.Location = new System.Drawing.Point(272, 22);
+            this.ProjectStatusCb.Name = "ProjectStatusCb";
+            this.ProjectStatusCb.Size = new System.Drawing.Size(236, 21);
+            this.ProjectStatusCb.TabIndex = 8;
             // 
             // SearchProjectForm
             // 
@@ -236,8 +237,8 @@
             this.Text = "Търсене на проект";
             this.Load += new System.EventHandler(this.SearchProjectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

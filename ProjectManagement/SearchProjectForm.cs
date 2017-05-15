@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 using ProjectManagement.ViewModels;
+using ProjectManagement.Utils;
 
 namespace ProjectManagement
 {
@@ -78,23 +79,33 @@ namespace ProjectManagement
                     searchCriteria = (PROJECT project) => project.PROJECT_END == dateTimePicker.Value.Date;
                     break;
                 case 5:
-                    searchCriteria = (PROJECT project) => project.PROJECT_STATUS == ProjectStatusCb.SelectedIndex + 1;
+                    searchCriteria = (PROJECT project) => project.PROJECT_STATUS ==
+                                                     (ProjectStatusCb.SelectedIndex == 4 ?
+                                                     Constants.ProjectStatusFinishedId : ProjectStatusCb.SelectedIndex + 1);
                     break;
             }
 
             return searchCriteria;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ProjectGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                var form = new ProjectDetailsForm();
-                form.ShowDialog();
+                if (e.ColumnIndex == 7)
+                {
+                    DataGridViewRow row = this.ProjectsGV.Rows[e.RowIndex];
+                    var selectedProjectId = row.Cells[0].Value.ToString();
+                    var detailsForm = new ProjectDetailsForm(selectedProjectId);
+                    detailsForm.ShowDialog();
+                }
             }
+
+
+
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)

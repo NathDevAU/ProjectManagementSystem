@@ -129,6 +129,7 @@ namespace ProjectManagement
         {
             ProjectClientComboBox.Items.Insert(0, ProjectClientComboBox.Text);
             ProjectClientComboBox.SelectedIndex = 0;
+            MessageBox.Show("Регистрацията е успешна!");
         }
     }
 }

@@ -1,25 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectManagement
 {
     public partial class ProjectDetailsForm : Form
     {
-        public ProjectDetailsForm()
+        private readonly PmContext context;
+        private readonly decimal currentId;
+        private PROJECT currentProject;
+        public ProjectDetailsForm(string id)
         {
+            if (id == null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            this.context = new PmContext();
             InitializeComponent();
+            currentId = decimal.Parse(id);
+            currentProject = context.PROJECTS.Find(currentId);
+            StatusDdl.Enabled = false;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public ProjectDetailsForm()
         {
+        }
 
+        private void ProjectDetailsForm_Load(object sender, EventArgs e)
+        {
+            ProjectIdTextBox.Text = currentProject.PROJECT_ID.ToString();
+            ProjectNameTextBox.Text = currentProject.PROJECT_NAME;
+            ProjectDescriptionTextBox.Text = currentProject.PROJECT_DESCRIPTION;
+            StatusDdl.SelectedItem = currentProject.PROJECT_STATUS1.PSTATUS_NAME;
+            ProjectClientComboBox.SelectedValue = currentProject.PROJECT_CLIENT;
+            ProjectStartDateDatePicker.Value = currentProject.PROJECT_BEGIN.Date;
+            ProjectEndDatePicker.Value = currentProject.PROJECT_END.Date;
+            PayPerHourTextBox.Text = currentProject.PROJECT_PAY_PER_HOUR.ToString();
+            TaskCountTb.Text = currentProject.PROJECT_TASKS.Count.ToString();
+            HoursCountTb.Text = "99:99"; //TODO: sum of each task hours
+            CostSoFarTb.Text = "NotImplemented"; //TODO : project cost formula?
+
+
+
+
+
+            
         }
 
         private void EditDetailsBtn_Click(object sender, EventArgs e)
@@ -85,6 +110,11 @@ namespace ProjectManagement
         {
             var form = new CreatingTaskForm();
             form.ShowDialog();
+        }
+
+        private void ChangeStatusBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
