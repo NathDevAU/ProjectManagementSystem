@@ -132,6 +132,7 @@
     <Compile Include="Utils\TaskStatus.cs" />
     <Compile Include="ViewModels\ExpertVM.cs" />
     <Compile Include="ViewModels\ProjectVM.cs" />
+    <Compile Include="ViewModels\TaskVM.cs" />
     <EmbeddedResource Include="CreatingProjectForm.resx">
       <DependentUpon>CreatingProjectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +175,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Experts.datasource" />
     <None Include="Properties\DataSources\ProjectManagement.ViewModels.ProjectVM.datasource" />
+    <None Include="Properties\DataSources\ProjectManagement.ViewModels.TaskVM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

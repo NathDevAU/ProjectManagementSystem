@@ -1,12 +1,7 @@
 ﻿using ProjectManagement.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectManagement
@@ -25,11 +20,6 @@ namespace ProjectManagement
             currentProject = context.PROJECTS.Find(currentId);
         }
 
-
-
-
-
-
         private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,7 +30,7 @@ namespace ProjectManagement
             task_Project_TB.Text = currentProject.PROJECT_NAME;
             task_comment_RTB.Text = "такова нещо в базата няма!";
 
-            Populate_Click(sender, e);
+            PopulateExpertCb();
         }
 
         private void Create_Click(object sender, EventArgs e)
@@ -84,23 +74,28 @@ namespace ProjectManagement
             task.TAS_DELIVERABLES = task_Result_RTB.Text;
             task.TASK_BEGIN = taskStartDate.Value;
             task.TASK_END = taskEndDate.Value;
-            task.TASK_STATUS = Utils.TaskStatus.TaskStatusPlannedId;
-            task.TASK_STATUS1 = context.TASK_STATUS.Find(Utils.TaskStatus.TaskStatusPlannedId);
+            task.TASK_STATUS = TaskStatus.TaskStatusPlannedId;
             task.TASK_READY = 0;
-            task.PROJECT_ID = currentProject.PROJECT_ID; 
-            var expertId=decimal.Parse(ExpertsCb.SelectedValue.ToString());
+            task.PROJECT_ID = currentProject.PROJECT_ID;
+            var expertId = decimal.Parse(ExpertsCb.SelectedValue.ToString());
             task.EXPRET_ID = expertId;
-            task.PROJECT = currentProject;
-            task.EXPERT = context.EXPERTS.Find(expertId);
             task.TASK_READY = 0;
             task.TASK_HOURS = 0;
 
-            ////FIX!! ne bachka i s nego i bez nego
-            decimal count = context.PROJECT_TASKS.Count() + 1 ;
-            task.TASK_ID = count;
-
             context.PROJECT_TASKS.Add(task);
             context.SaveChanges();
+            MessageBox.Show($"Задачата е добавена успешно!");
+
+
+
+            ProjectDetailsForm form = Application.OpenForms.OfType<ProjectDetailsForm>().FirstOrDefault();
+            if (form != null)
+            {
+                form.PopulateTasksGV();
+                this.Close();
+            }
+
+
         }
 
         private bool IsValidSelection(ComboBox task_CB)
@@ -131,7 +126,7 @@ namespace ProjectManagement
 
         }
 
-        public void Populate_Click(object sender, EventArgs e)
+        public void PopulateExpertCb()
         {
             Dictionary<string, decimal> cbData = new Dictionary<string, decimal>();
 

@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TasksGrpB = new System.Windows.Forms.GroupBox();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.AddTaskBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TaskCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeLeftCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DelayCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailsBtnCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TasksGV = new System.Windows.Forms.DataGridView();
+            this.taskVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.HoursCountTb = new System.Windows.Forms.MaskedTextBox();
@@ -64,8 +62,14 @@
             this.ProjectNameLabel = new System.Windows.Forms.Label();
             this.ProjectDescriptionLabel = new System.Windows.Forms.Label();
             this.ProjectIdLabel = new System.Windows.Forms.Label();
+            this.taskIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeRemainingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailsBtnCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TasksGrpB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TasksGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskVMBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +77,7 @@
             // 
             this.TasksGrpB.Controls.Add(this.CloseBtn);
             this.TasksGrpB.Controls.Add(this.AddTaskBtn);
-            this.TasksGrpB.Controls.Add(this.dataGridView1);
+            this.TasksGrpB.Controls.Add(this.TasksGV);
             this.TasksGrpB.Location = new System.Drawing.Point(438, 12);
             this.TasksGrpB.Name = "TasksGrpB";
             this.TasksGrpB.Size = new System.Drawing.Size(458, 496);
@@ -99,48 +103,29 @@
             this.AddTaskBtn.TabIndex = 69;
             this.AddTaskBtn.Text = "Добавяне на нова задача";
             this.AddTaskBtn.UseVisualStyleBackColor = true;
-            this.AddTaskBtn.Click += new System.EventHandler(this.AddTaskBtn_Click_1);
+            this.AddTaskBtn.Click += new System.EventHandler(this.AddTaskBtn_Click);
             // 
-            // dataGridView1
+            // TasksGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TaskCol,
-            this.TimeLeftCol,
-            this.DelayCol,
+            this.TasksGV.AutoGenerateColumns = false;
+            this.TasksGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TasksGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.taskIdDataGridViewTextBoxColumn,
+            this.taskNameDataGridViewTextBoxColumn,
+            this.timeRemainingDataGridViewTextBoxColumn,
+            this.delayDataGridViewTextBoxColumn,
             this.DetailsBtnCol});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(446, 438);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.TasksGV.DataSource = this.taskVMBindingSource;
+            this.TasksGV.Location = new System.Drawing.Point(6, 14);
+            this.TasksGV.Name = "TasksGV";
+            this.TasksGV.ReadOnly = true;
+            this.TasksGV.Size = new System.Drawing.Size(446, 438);
+            this.TasksGV.TabIndex = 0;
+            this.TasksGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TasksGV_CellContentClick);
             // 
-            // TaskCol
+            // taskVMBindingSource
             // 
-            this.TaskCol.HeaderText = "Задача";
-            this.TaskCol.Name = "TaskCol";
-            this.TaskCol.ReadOnly = true;
-            // 
-            // TimeLeftCol
-            // 
-            this.TimeLeftCol.HeaderText = "Оставащо време";
-            this.TimeLeftCol.Name = "TimeLeftCol";
-            this.TimeLeftCol.ReadOnly = true;
-            // 
-            // DelayCol
-            // 
-            this.DelayCol.HeaderText = "Закъснение";
-            this.DelayCol.Name = "DelayCol";
-            this.DelayCol.ReadOnly = true;
-            // 
-            // DetailsBtnCol
-            // 
-            this.DetailsBtnCol.HeaderText = "Детайли";
-            this.DetailsBtnCol.Name = "DetailsBtnCol";
-            this.DetailsBtnCol.ReadOnly = true;
-            this.DetailsBtnCol.Text = "Детайли";
-            this.DetailsBtnCol.UseColumnTextForButtonValue = true;
+            this.taskVMBindingSource.DataSource = typeof(ProjectManagement.ViewModels.TaskVM);
             // 
             // panel1
             // 
@@ -428,6 +413,43 @@
             this.ProjectIdLabel.TabIndex = 44;
             this.ProjectIdLabel.Text = "Код на проекта";
             // 
+            // taskIdDataGridViewTextBoxColumn
+            // 
+            this.taskIdDataGridViewTextBoxColumn.DataPropertyName = "TaskId";
+            this.taskIdDataGridViewTextBoxColumn.HeaderText = "TaskId";
+            this.taskIdDataGridViewTextBoxColumn.Name = "taskIdDataGridViewTextBoxColumn";
+            this.taskIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taskIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taskNameDataGridViewTextBoxColumn
+            // 
+            this.taskNameDataGridViewTextBoxColumn.DataPropertyName = "TaskName";
+            this.taskNameDataGridViewTextBoxColumn.HeaderText = "Задача";
+            this.taskNameDataGridViewTextBoxColumn.Name = "taskNameDataGridViewTextBoxColumn";
+            this.taskNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // timeRemainingDataGridViewTextBoxColumn
+            // 
+            this.timeRemainingDataGridViewTextBoxColumn.DataPropertyName = "TimeRemaining";
+            this.timeRemainingDataGridViewTextBoxColumn.HeaderText = "Оставащо време";
+            this.timeRemainingDataGridViewTextBoxColumn.Name = "timeRemainingDataGridViewTextBoxColumn";
+            this.timeRemainingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // delayDataGridViewTextBoxColumn
+            // 
+            this.delayDataGridViewTextBoxColumn.DataPropertyName = "Delay";
+            this.delayDataGridViewTextBoxColumn.HeaderText = "Закъснение";
+            this.delayDataGridViewTextBoxColumn.Name = "delayDataGridViewTextBoxColumn";
+            this.delayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DetailsBtnCol
+            // 
+            this.DetailsBtnCol.HeaderText = "Детайли";
+            this.DetailsBtnCol.Name = "DetailsBtnCol";
+            this.DetailsBtnCol.ReadOnly = true;
+            this.DetailsBtnCol.Text = "Детайли";
+            this.DetailsBtnCol.UseColumnTextForButtonValue = true;
+            // 
             // ProjectDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,7 +461,8 @@
             this.Text = "Детайли на проект";
             this.Load += new System.EventHandler(this.ProjectDetailsForm_Load);
             this.TasksGrpB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TasksGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskVMBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -448,7 +471,7 @@
 
         #endregion
         private System.Windows.Forms.GroupBox TasksGrpB;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TasksGV;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button EditDetailsBtn;
         private System.Windows.Forms.Label CurrencyLabel;
@@ -476,12 +499,14 @@
         private System.Windows.Forms.Button RegisterNewClientBtn;
         private System.Windows.Forms.ComboBox ProjectClientComboBox;
         private System.Windows.Forms.Label ProjectClientLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TaskCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeLeftCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DelayCol;
-        private System.Windows.Forms.DataGridViewButtonColumn DetailsBtnCol;
         private System.Windows.Forms.MaskedTextBox HoursCountTb;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button CloseBtn;
+        private System.Windows.Forms.BindingSource taskVMBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeRemainingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn delayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DetailsBtnCol;
     }
 }

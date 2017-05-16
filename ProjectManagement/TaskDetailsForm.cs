@@ -12,9 +12,18 @@ namespace ProjectManagement
 {
     public partial class TaskDetailsForm : Form
     {
-        public TaskDetailsForm()
+        private string selectedTaskId;
+
+        public TaskDetailsForm(string selectedTaskId)
         {
+            this.selectedTaskId = selectedTaskId;
             InitializeComponent();
+
+        }
+
+        private void TaskDetailsForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void EditTasks_Click(object sender, EventArgs e)
@@ -68,5 +77,7 @@ namespace ProjectManagement
         {
             this.Close();
         }
+
+   
     }
 }

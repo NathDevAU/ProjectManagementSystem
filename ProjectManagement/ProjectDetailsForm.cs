@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectManagement.ViewModels;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjectManagement
@@ -6,7 +8,7 @@ namespace ProjectManagement
     public partial class ProjectDetailsForm : Form
     {
         private readonly PmContext context;
-        private readonly decimal currentId;
+        private readonly decimal currentProjectId;
         private PROJECT currentProject;
         public ProjectDetailsForm(string id)
         {
@@ -17,8 +19,8 @@ namespace ProjectManagement
 
             this.context = new PmContext();
             InitializeComponent();
-            currentId = decimal.Parse(id);
-            currentProject = context.PROJECTS.Find(currentId);
+            currentProjectId = decimal.Parse(id);
+            currentProject = context.PROJECTS.Find(currentProjectId);
             StatusDdl.Enabled = false;
         }
 
@@ -27,6 +29,21 @@ namespace ProjectManagement
         }
 
         private void ProjectDetailsForm_Load(object sender, EventArgs e)
+        {
+            PopulateControls();
+
+            PopulateTasksGV();
+
+
+
+
+
+
+
+
+        }
+
+        private void PopulateControls()
         {
             ProjectIdTextBox.Text = currentProject.PROJECT_ID.ToString();
             ProjectNameTextBox.Text = currentProject.PROJECT_NAME;
@@ -39,13 +56,27 @@ namespace ProjectManagement
             TaskCountTb.Text = currentProject.PROJECT_TASKS.Count.ToString();
             HoursCountTb.Text = "99:99"; //TODO: sum of each task hours
             CostSoFarTb.Text = "NotImplemented"; //TODO : project cost formula?
-
-
-
-
-
-            
         }
+
+        public void PopulateTasksGV()
+        {
+
+            var gridData = context.PROJECT_TASKS
+                                  .Where(x => x.PROJECT_ID == currentProjectId)
+                                  .Select(x => new TaskVM()
+                                  {
+                                      TaskName = x.TASK_NAME,
+                                      EndDate = x.TASK_END,
+                                      TaskId = x.TASK_ID
+                                  })
+                                  .ToList();
+
+            this.taskVMBindingSource.DataSource = gridData;
+            TasksGV.DataSource = this.taskVMBindingSource;
+
+        }
+
+
 
         private void EditDetailsBtn_Click(object sender, EventArgs e)
         {
@@ -71,6 +102,9 @@ namespace ProjectManagement
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            //TODO: SAVE CHANGES
+
+
             RegisterNewClientBtn.Visible = false;
             ProjectIdTextBox.Enabled = false;
             ProjectNameTextBox.Enabled = false;
@@ -88,25 +122,13 @@ namespace ProjectManagement
             EditDetailsBtn.Visible = true;
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
-            {
-                var form = new TaskDetailsForm();
-                form.ShowDialog();
-            }
-        }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void AddTaskBtn_Click_1(object sender, EventArgs e)
+        private void AddTaskBtn_Click(object sender, EventArgs e)
         {
             var form = new CreatingTaskForm(currentProject.PROJECT_ID);
 
@@ -115,7 +137,24 @@ namespace ProjectManagement
 
         private void ChangeStatusBtn_Click(object sender, EventArgs e)
         {
+            //IMPLEMENT LOGIC
+        }
 
+        private void TasksGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 4)
+                {
+                    DataGridViewRow row = this.TasksGV.Rows[e.RowIndex];
+                    var selectedTaskId = row.Cells[0].Value.ToString();
+                    var detailsForm = new TaskDetailsForm(selectedTaskId);
+                    detailsForm.ShowDialog();
+                }
+            }
         }
     }
 }

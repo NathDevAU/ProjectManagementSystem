@@ -47,17 +47,6 @@ namespace ProjectManagement
             form.ShowDialog();
         }
 
-        private void експертToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void задачаToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            var form = new TaskDetailsForm();
-            form.ShowDialog();
-        }
-
 
         private void снянаНаПотребителToolStripMenuItem_Click(object sender, EventArgs e)
         {

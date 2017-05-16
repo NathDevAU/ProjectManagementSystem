@@ -358,6 +358,7 @@
             this.Controls.Add(this.TaskNameLabel);
             this.Name = "TaskDetailsForm";
             this.Text = "Детайли на задача";
+            this.Load += new System.EventHandler(this.TaskDetailsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

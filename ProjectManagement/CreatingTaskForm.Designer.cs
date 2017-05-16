@@ -49,7 +49,6 @@
             this.ExpertLabel = new System.Windows.Forms.Label();
             this.ExpertsCb = new System.Windows.Forms.ComboBox();
             this.RegisterExpertBtn = new System.Windows.Forms.Button();
-            this.Populate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // task_name
@@ -171,7 +170,7 @@
             // 
             // task_Description_RTB
             // 
-            this.task_Description_RTB.Location = new System.Drawing.Point(227, 141);
+            this.task_Description_RTB.Location = new System.Drawing.Point(227, 142);
             this.task_Description_RTB.Name = "task_Description_RTB";
             this.task_Description_RTB.Size = new System.Drawing.Size(304, 83);
             this.task_Description_RTB.TabIndex = 34;
@@ -238,23 +237,11 @@
             this.RegisterExpertBtn.UseVisualStyleBackColor = true;
             this.RegisterExpertBtn.Click += new System.EventHandler(this.RegisterExpertBtn_Click);
             // 
-            // Populate
-            // 
-            this.Populate.Location = new System.Drawing.Point(534, 517);
-            this.Populate.Name = "Populate";
-            this.Populate.Size = new System.Drawing.Size(10, 10);
-            this.Populate.TabIndex = 42;
-            this.Populate.Text = "Populate";
-            this.Populate.UseVisualStyleBackColor = true;
-            this.Populate.Visible = false;
-            this.Populate.Click += new System.EventHandler(this.Populate_Click);
-            // 
             // CreatingTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 535);
-            this.Controls.Add(this.Populate);
             this.Controls.Add(this.RegisterExpertBtn);
             this.Controls.Add(this.ExpertsCb);
             this.Controls.Add(this.ExpertLabel);
@@ -307,6 +294,5 @@
         private System.Windows.Forms.Label ExpertLabel;
         private System.Windows.Forms.ComboBox ExpertsCb;
         private System.Windows.Forms.Button RegisterExpertBtn;
-        private System.Windows.Forms.Button Populate;
     }
 }

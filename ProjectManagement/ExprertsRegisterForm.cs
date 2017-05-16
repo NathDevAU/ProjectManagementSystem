@@ -53,7 +53,7 @@ namespace ProjectManagement
                     CreatingTaskForm form = Application.OpenForms.OfType<CreatingTaskForm>().FirstOrDefault();
                     if (form != null)
                     {
-                        form.Populate_Click(sender, e);
+                        form.PopulateExpertCb();
                         var cb = (ComboBox)form.Controls.Find("ExpertsCb", true).FirstOrDefault();
                         cb.SelectedValue = expert.EXPRET_ID;
                         this.Close();
