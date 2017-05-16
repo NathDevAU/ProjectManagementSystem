@@ -44,6 +44,12 @@ namespace ProjectManagement
             context.SaveChanges();
             MessageBox.Show("Експертът е регистриран успешно.");
 
+            ExpertNameTextBox.Clear();
+            ExpertMiddleNameTextBox.Clear();
+            ExpertLastNameTextBox.Clear();
+            InsideExpert.Checked = false;
+            OutsideExpert.Checked = false;
+
 
             //if form is open from Create Tast Form:
             foreach (Form f in Application.OpenForms)

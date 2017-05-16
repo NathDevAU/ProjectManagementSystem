@@ -46,6 +46,7 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.CurrencyLabel = new System.Windows.Forms.Label();
+            this.NewClientTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ProjectIdLabel
@@ -149,6 +150,7 @@
             // 
             // ProjectClientComboBox
             // 
+            this.ProjectClientComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProjectClientComboBox.FormattingEnabled = true;
             this.ProjectClientComboBox.Location = new System.Drawing.Point(168, 191);
             this.ProjectClientComboBox.Name = "ProjectClientComboBox";
@@ -201,11 +203,19 @@
             this.CurrencyLabel.TabIndex = 20;
             this.CurrencyLabel.Text = "лв.";
             // 
+            // NewClientTb
+            // 
+            this.NewClientTb.Location = new System.Drawing.Point(168, 192);
+            this.NewClientTb.Name = "NewClientTb";
+            this.NewClientTb.Size = new System.Drawing.Size(212, 20);
+            this.NewClientTb.TabIndex = 21;
+            // 
             // CreatingProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 392);
+            this.Controls.Add(this.NewClientTb);
             this.Controls.Add(this.CurrencyLabel);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonCreate);
@@ -251,5 +261,6 @@
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label CurrencyLabel;
+        private System.Windows.Forms.TextBox NewClientTb;
     }
 }

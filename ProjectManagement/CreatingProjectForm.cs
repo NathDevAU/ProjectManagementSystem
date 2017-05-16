@@ -14,6 +14,7 @@ namespace ProjectManagement
             InitializeComponent();
 
             this.context = new PmContext();
+            NewClientTb.Visible = false;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -67,6 +68,14 @@ namespace ProjectManagement
             context.SaveChanges();
 
             MessageBox.Show("Проектът е създаден.");
+
+            ProjectIdTextBox.Clear();
+            ProjectNameTextBox.Clear();
+            ProjectDescriptionTextBox.Clear();
+            ProjectClientComboBox.SelectedIndex = -1;
+            ProjectStartDateDatePicker.Value = DateTime.Now.Date;
+            ProjectEndDatePicker.Value = DateTime.Now.Date;
+            PayPerHourTextBox.Clear();
         }
 
         private bool IsNotNull(TextBox tb)
@@ -83,7 +92,7 @@ namespace ProjectManagement
         }
         private bool IsValidInput(TextBox tb)
         {
-               string tbName = tb.Name == "ProjectIdTextBox" ? "код на проекта" : "часова ставка";
+            string tbName = tb.Name == "ProjectIdTextBox" ? "код на проекта" : "часова ставка";
 
             //if (tb.Text == "")
             //{
@@ -127,9 +136,27 @@ namespace ProjectManagement
 
         private void RegisterNewClientBtn_Click(object sender, EventArgs e)
         {
-            ProjectClientComboBox.Items.Insert(0, ProjectClientComboBox.Text);
-            ProjectClientComboBox.SelectedIndex = 0;
-            MessageBox.Show("Регистрацията е успешна!");
+            if (RegisterNewClientBtn.Text == "Регистрация на нов клиент")
+            {
+                ProjectClientComboBox.Visible = false;
+                NewClientTb.Clear();
+                NewClientTb.Visible = true;
+                
+                RegisterNewClientBtn.Text = "Запази клиент";
+
+            }
+            else
+            {
+                ProjectClientComboBox.Items.Insert(0, NewClientTb.Text);
+                ProjectClientComboBox.SelectedIndex = 0;
+                MessageBox.Show("Регистрацията е успешна!");
+                ProjectClientComboBox.Visible = true;
+                NewClientTb.Visible = false;
+                RegisterNewClientBtn.Text = "Регистрация на нов клиент";
+
+
+
+            }
         }
     }
 }
