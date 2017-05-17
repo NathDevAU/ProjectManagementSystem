@@ -1,5 +1,6 @@
 ﻿using ProjectManagement.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace ProjectManagement
             currentProjectId = decimal.Parse(id);
             currentProject = context.PROJECTS.Find(currentProjectId);
             StatusDdl.Enabled = false;
+            ProjectClientComboBox.SelectedValue = currentProject.CLIENT.CLIENT_ID;
+
         }
 
         public ProjectDetailsForm()
@@ -33,14 +36,20 @@ namespace ProjectManagement
             PopulateControls();
 
             PopulateTasksGV();
+            PopulateClientsCb();
+        }
 
+        private void PopulateClientsCb()
+        {
+            var clients = new Dictionary<decimal, string>();
 
-
-
-
-
-
-
+            foreach (var cl in context.CLIENT)
+            {
+                clients.Add(cl.CLIENT_ID, cl.CLIENT_NAME);
+            }
+            this.ProjectClientComboBox.DataSource = new BindingSource(clients, null);
+            this.ProjectClientComboBox.DisplayMember = "Value";
+            this.ProjectClientComboBox.ValueMember = "Key";
         }
 
         private void PopulateControls()
@@ -48,8 +57,8 @@ namespace ProjectManagement
             ProjectIdTextBox.Text = currentProject.PROJECT_ID.ToString();
             ProjectNameTextBox.Text = currentProject.PROJECT_NAME;
             ProjectDescriptionTextBox.Text = currentProject.PROJECT_DESCRIPTION;
+            ProjectClientComboBox.SelectedValue = currentProject.CLIENT.CLIENT_ID;
             StatusDdl.SelectedItem = currentProject.PROJECT_STATUS1.PSTATUS_NAME;
-            ProjectClientComboBox.SelectedValue = currentProject.PROJECT_CLIENT;
             ProjectStartDateDatePicker.Value = currentProject.PROJECT_BEGIN.Date;
             ProjectEndDatePicker.Value = currentProject.PROJECT_END.Date;
             PayPerHourTextBox.Text = currentProject.PROJECT_PAY_PER_HOUR.ToString();

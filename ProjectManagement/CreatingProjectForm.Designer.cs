@@ -47,6 +47,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.CurrencyLabel = new System.Windows.Forms.Label();
             this.NewClientTb = new System.Windows.Forms.TextBox();
+            this.CancelRegisterClient = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ProjectIdLabel
@@ -210,11 +211,22 @@
             this.NewClientTb.Size = new System.Drawing.Size(212, 20);
             this.NewClientTb.TabIndex = 21;
             // 
+            // CancelRegisterClient
+            // 
+            this.CancelRegisterClient.Location = new System.Drawing.Point(549, 189);
+            this.CancelRegisterClient.Name = "CancelRegisterClient";
+            this.CancelRegisterClient.Size = new System.Drawing.Size(46, 23);
+            this.CancelRegisterClient.TabIndex = 22;
+            this.CancelRegisterClient.Text = "Отказ";
+            this.CancelRegisterClient.UseVisualStyleBackColor = true;
+            this.CancelRegisterClient.Click += new System.EventHandler(this.CancelRegisterClient_Click);
+            // 
             // CreatingProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 392);
+            this.Controls.Add(this.CancelRegisterClient);
             this.Controls.Add(this.NewClientTb);
             this.Controls.Add(this.CurrencyLabel);
             this.Controls.Add(this.buttonClose);
@@ -236,6 +248,7 @@
             this.Controls.Add(this.ProjectIdLabel);
             this.Name = "CreatingProjectForm";
             this.Text = "Създаване на нов проект";
+            this.Load += new System.EventHandler(this.CreatingProjectForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,5 +275,6 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label CurrencyLabel;
         private System.Windows.Forms.TextBox NewClientTb;
+        private System.Windows.Forms.Button CancelRegisterClient;
     }
 }

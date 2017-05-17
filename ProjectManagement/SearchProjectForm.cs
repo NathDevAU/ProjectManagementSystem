@@ -38,11 +38,12 @@ namespace ProjectManagement
             var gridData = context.PROJECTS
                                   .Where(searchCriteria)
                                   .Include(x => x.PROJECT_STATUS1)
+                                  .Include(x=>x.CLIENT)
                                   .Select(x => new ProjectVM()
                                   {
                                       Id = x.PROJECT_ID,
                                       Name = x.PROJECT_NAME,
-                                      Client = x.PROJECT_CLIENT,
+                                      Client = x.CLIENT.CLIENT_NAME,
                                       StartDate = x.PROJECT_BEGIN,
                                       EndDate = x.PROJECT_END,
                                       Status = x.PROJECT_STATUS1.PSTATUS_NAME,
@@ -70,7 +71,7 @@ namespace ProjectManagement
                     searchCriteria = (PROJECT project) => project.PROJECT_NAME.Contains(enteredCriteria);
                     break;
                 case 2:
-                    searchCriteria = (PROJECT project) => project.PROJECT_CLIENT.Contains(enteredCriteria);
+                   searchCriteria = (PROJECT project) => project.CLIENT.CLIENT_NAME.Contains(enteredCriteria);
                     break;
                 case 3:
                     searchCriteria = (PROJECT project) => project.PROJECT_BEGIN == dateTimePicker.Value.Date;

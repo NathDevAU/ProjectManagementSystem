@@ -4,6 +4,7 @@ namespace ProjectManagement
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Models;
 
     public partial class PmContext : DbContext
     {
@@ -18,6 +19,8 @@ namespace ProjectManagement
         public virtual DbSet<PROJECT> PROJECTS { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TASK_STATUS> TASK_STATUS { get; set; }
+        public virtual DbSet<CLIENT> CLIENT { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -115,10 +118,6 @@ namespace ProjectManagement
                 .IsUnicode(false);
 
             modelBuilder.Entity<PROJECT>()
-                .Property(e => e.PROJECT_CLIENT)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PROJECT>()
                 .Property(e => e.PROJECT_STATUS)
                 .HasPrecision(18, 0);
 
@@ -143,6 +142,20 @@ namespace ProjectManagement
                 .HasMany(e => e.PROJECT_TASKS)
                 .WithRequired(e => e.TASK_STATUS1)
                 .HasForeignKey(e => e.TASK_STATUS)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CLIENT>()
+            .Property(e => e.CLIENT_ID)
+            .HasPrecision(18, 0);
+
+            modelBuilder.Entity<CLIENT>()
+                .Property(e => e.CLIENT_NAME)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CLIENT>()
+                .HasMany(e => e.PROJECTS)
+                .WithRequired(e => e.CLIENT)
+                .HasForeignKey(e => e.CLIENT_ID)
                 .WillCascadeOnDelete(false);
         }
     }

@@ -1,5 +1,6 @@
 namespace ProjectManagement
 {
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -28,11 +29,6 @@ namespace ProjectManagement
         [Column(TypeName = "NVARCHAR")]
         public string PROJECT_DESCRIPTION { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        [Column(TypeName = "NVARCHAR")]
-        public string PROJECT_CLIENT { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime PROJECT_BEGIN { get; set; }
 
@@ -44,6 +40,14 @@ namespace ProjectManagement
 
         [Column(TypeName = "numeric")]
         public decimal? PROJECT_PAY_PER_HOUR { get; set; }
+        
+        //
+        [Column(TypeName = "numeric")]
+        public decimal CLIENT_ID { get; set; }
+        public virtual CLIENT CLIENT { get; set; }
+        //
+
+
 
         public virtual PROJECT_STATUS PROJECT_STATUS1 { get; set; }
 

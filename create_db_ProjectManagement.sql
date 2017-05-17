@@ -240,3 +240,43 @@ Values (N'Нов'), (N'В изпълнение'), (N'Прекратен'), (N'З
 --!!!Execute
 Insert into PROJECT_STATUS
 Values (N'Приключил')
+
+
+
+
+use ProjectManagementSystem
+go
+--Added table Clients
+/*==============================================================*/
+/* Table: CLIENTS                                           */
+/*==============================================================*/
+create table CLIENTS (
+   CLIENT_ID            numeric              identity,
+   CLIENT_NAME          nvarchar(200)          not null,
+   constraint PK_CLIENTS primary key (CLIENT_ID)
+)
+go
+
+/*==============================================================*/
+/* Index: IDX_CLIENTS_UQ                                    */
+/*==============================================================*/
+create unique index IDX_CLIENTS_UQ on CLIENTS (
+CLIENT_NAME ASC
+)
+go
+
+--before this clear your TASKS AND PROJECTS tables!
+ALTER TABLE PROJECTS
+ADD CLIENT_ID numeric not null;
+
+alter table PROJECTS
+   add constraint FK_PROJECT__REFERENCE_CLIENTS foreign key (CLIENT_ID)
+      references CLIENTS (CLIENT_ID)
+go
+
+
+--if you fail:
+DROP INDEX IDX_CLIENTS_UQ on CLIENTS
+GO
+DROP TABLE CLIENTS
+
