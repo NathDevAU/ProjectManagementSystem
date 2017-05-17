@@ -242,8 +242,7 @@ Insert into PROJECT_STATUS
 Values (N'Приключил')
 
 
-
-
+--NEW!!
 use ProjectManagementSystem
 go
 --Added table Clients
@@ -265,6 +264,10 @@ CLIENT_NAME ASC
 )
 go
 
+Insert into CLIENTS
+Values (N'Петър Петров')
+GO
+
 --before this clear your TASKS AND PROJECTS tables!
 ALTER TABLE PROJECTS
 ADD CLIENT_ID numeric not null;
@@ -274,9 +277,11 @@ alter table PROJECTS
       references CLIENTS (CLIENT_ID)
 go
 
+ALTER TABLE PROJECTS
+DROP COLUMN PROJECT_CLIENT;
 
 --if you fail:
-DROP INDEX IDX_CLIENTS_UQ on CLIENTS
-GO
-DROP TABLE CLIENTS
+--DROP INDEX IDX_CLIENTS_UQ on CLIENTS
+--GO
+--DROP TABLE CLIENTS
 

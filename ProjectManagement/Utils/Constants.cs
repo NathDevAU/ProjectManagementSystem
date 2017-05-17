@@ -3,11 +3,11 @@
     public static class Constants
     {
 
-        public const int ProjectStatusNewId = 1;
-        public const int ProjectStatusOngoingId = 2;
-        public const int ProjectStatusCanceledId = 3;
-        public const int ProjectStatusFrozenId = 4;
-        public const int ProjectStatusFinishedId = 10002;
+        public const decimal ProjectStatusNewId = 1;
+        public const decimal ProjectStatusOngoingId = 2;
+        public const decimal ProjectStatusCanceledId = 3;
+        public const decimal ProjectStatusFrozenId = 4;
+        public const decimal ProjectStatusFinishedId = 10002;
 
 
 

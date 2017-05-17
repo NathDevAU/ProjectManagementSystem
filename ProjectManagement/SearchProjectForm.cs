@@ -30,7 +30,7 @@ namespace ProjectManagement
         {
         }
 
-        private void SearchBtn_Click(object sender, EventArgs e)
+        public void SearchBtn_Click(object sender, EventArgs e)
         {
 
             Expression<Func<PROJECT, bool>> searchCriteria = this.GetSearchCriteria();
