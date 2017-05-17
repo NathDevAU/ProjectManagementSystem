@@ -7,22 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectManagement.Models;
+using ProjectManagement.Utils;
+using ProjectManagement.ViewModels;
 
 namespace ProjectManagement
 {
     public partial class TaskDetailsForm : Form
     {
-        private string selectedTaskId;
+        private readonly PmContext context;
+        private decimal currentTaskId;
+        private PROJECT_TASKS currentTask;
 
-        public TaskDetailsForm(string selectedTaskId)
+
+        public TaskDetailsForm(string Id)
         {
-            this.selectedTaskId = selectedTaskId;
+            this.context = new PmContext();
             InitializeComponent();
+            currentTaskId = decimal.Parse(Id);
+            currentTask = context.PROJECT_TASKS.Find(currentTaskId);
+            textBox1.Enabled = false;
 
         }
 
         private void TaskDetailsForm_Load(object sender, EventArgs e)
         {
+            TaskNameTb.Text = currentTask.TASK_NAME;
+            textBox1.Text = currentTask.PROJECT.PROJECT_NAME;
+            DescriptionRtb.Text = currentTask.TASK_DESCRIPTION;
+            ResultRtb.Text = currentTask.TAS_DELIVERABLES;
+
+            // NOT FINISH
+            //  ComentRtb.Text = "";
+            //  TaskExpertCb.SelectedValue = currentTask.EXPRET_ID;
+            //  StatusDdl.SelectedItem = currentProject.PROJECT_STATUS1.PSTATUS_NAME;
+
+            PriorityCb.Text = currentTask.TASK_PRIORITY;
+            TaskHoursTb.Text = currentTask.TASK_HOURS.ToString();
+            StatusCb.Text = currentTask.TASK_STATUS1.STATUS_NAME;
+            TaskStartDatePicker.Value = currentTask.TASK_BEGIN.Date;
+            TaskEndDatePicker.Value = currentTask.TASK_END.Date;
 
         }
 
@@ -45,12 +69,24 @@ namespace ProjectManagement
 
             EditTasks.Visible = false;
             SaveBtn.Visible = true;
-            
+
 
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+
+            currentTask.TASK_NAME = TaskNameTb.Text;
+            currentTask.TASK_DESCRIPTION = DescriptionRtb.Text;
+            currentTask.TAS_DELIVERABLES = ResultRtb.Text;
+            currentTask.TASK_PRIORITY = PriorityCb.Text;
+            currentTask.TASK_HOURS = decimal.Parse(TaskHoursTb.Text);
+            currentTask.TASK_STATUS1.STATUS_NAME = StatusCb.Text;
+            currentTask.TASK_BEGIN = TaskStartDatePicker.Value;
+            currentTask.TASK_END = TaskEndDatePicker.Value;
+
+            context.SaveChanges();
+
             TaskNameTb.Enabled = false;
             DescriptionRtb.Enabled = false;
             TaskResultRtb.Enabled = false;
@@ -78,6 +114,6 @@ namespace ProjectManagement
             this.Close();
         }
 
-   
+
     }
 }
