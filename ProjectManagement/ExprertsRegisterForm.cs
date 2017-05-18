@@ -106,7 +106,11 @@ namespace ProjectManagement
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-
+            ExpertNameTextBox.Clear();
+            ExpertMiddleNameTextBox.Clear();
+            ExpertLastNameTextBox.Clear();
+            OutsideExpert.Checked = false;
+            InsideExpert.Checked = false;
         }
     }
 }

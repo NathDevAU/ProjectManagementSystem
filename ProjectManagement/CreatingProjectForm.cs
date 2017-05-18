@@ -210,7 +210,13 @@ namespace ProjectManagement
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-
+            ProjectIdTextBox.Clear();
+            ProjectNameTextBox.Clear();
+            ProjectDescriptionTextBox.Clear();
+            NewClientTb.Clear();
+            PayPerHourTextBox.Clear();
+            ProjectStartDateDatePicker.Value = DateTime.Now;
+            ProjectEndDatePicker.Value = DateTime.Now;
         }
     }
 }
