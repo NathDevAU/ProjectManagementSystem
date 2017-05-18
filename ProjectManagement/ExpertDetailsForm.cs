@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ProjectManagement.Utils;
 using ProjectManagement.ViewModels;
+using System.Data.Entity;
 
 namespace ProjectManagement
 {
@@ -144,6 +145,28 @@ namespace ProjectManagement
                     this.Close();
                 }
             }
+        }
+
+        private void ExpertDetailsForm_Load(object sender, EventArgs e)
+        {
+            var gridData = dbContext.PROJECTS
+                               .Where(x=>x.CLIENT_ID==currentExpertId)
+                               .Include(x => x.PROJECT_STATUS1)
+                               .Include(x => x.CLIENT)
+                               .Select(x => new ProjectVM()
+                               {
+                                   Id = x.PROJECT_ID,
+                                   Name = x.PROJECT_NAME,
+                                   Client = x.CLIENT.CLIENT_NAME,
+                                   StartDate = x.PROJECT_BEGIN,
+                                   EndDate = x.PROJECT_END,
+                                   Status = x.PROJECT_STATUS1.PSTATUS_NAME,
+                                   PayPerH = x.PROJECT_PAY_PER_HOUR,
+                               })
+                               .ToList();
+
+            this.ProjectsGV.Visible = true;
+            this.projectVMBindingSource.DataSource = gridData;
         }
     }
 }

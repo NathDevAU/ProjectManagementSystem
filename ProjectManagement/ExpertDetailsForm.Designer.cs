@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,12 +38,22 @@
             this.EditBtn = new System.Windows.Forms.Button();
             this.ApplyChangesBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ProjectsGV = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.ExpertTypeDropDown = new System.Windows.Forms.ComboBox();
             this.CloseBtn = new System.Windows.Forms.Button();
+            this.projectVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payPerHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpertL = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,20 +129,30 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.ProjectsGV);
             this.panel1.Location = new System.Drawing.Point(246, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(473, 286);
+            this.panel1.Size = new System.Drawing.Size(744, 286);
             this.panel1.TabIndex = 8;
             // 
-            // dataGridView1
+            // ProjectsGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(473, 286);
-            this.dataGridView1.TabIndex = 0;
+            this.ProjectsGV.AutoGenerateColumns = false;
+            this.ProjectsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProjectsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.clientDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.endDateDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.payPerHDataGridViewTextBoxColumn});
+            this.ProjectsGV.DataSource = this.projectVMBindingSource;
+            this.ProjectsGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectsGV.Location = new System.Drawing.Point(0, 0);
+            this.ProjectsGV.Name = "ProjectsGV";
+            this.ProjectsGV.Size = new System.Drawing.Size(744, 286);
+            this.ProjectsGV.TabIndex = 0;
             // 
             // label4
             // 
@@ -162,11 +183,67 @@
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
+            // projectVMBindingSource
+            // 
+            this.projectVMBindingSource.DataSource = typeof(ProjectManagement.ViewModels.ProjectVM);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // clientDataGridViewTextBoxColumn
+            // 
+            this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
+            this.clientDataGridViewTextBoxColumn.HeaderText = "Клиент";
+            this.clientDataGridViewTextBoxColumn.Name = "clientDataGridViewTextBoxColumn";
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "Начална дата";
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.HeaderText = "Крайна дата";
+            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // payPerHDataGridViewTextBoxColumn
+            // 
+            this.payPerHDataGridViewTextBoxColumn.DataPropertyName = "PayPerH";
+            this.payPerHDataGridViewTextBoxColumn.HeaderText = "Часова ставка";
+            this.payPerHDataGridViewTextBoxColumn.Name = "payPerHDataGridViewTextBoxColumn";
+            // 
+            // ExpertL
+            // 
+            this.ExpertL.AutoSize = true;
+            this.ExpertL.Location = new System.Drawing.Point(246, 18);
+            this.ExpertL.Name = "ExpertL";
+            this.ExpertL.Size = new System.Drawing.Size(118, 13);
+            this.ExpertL.TabIndex = 12;
+            this.ExpertL.Text = "Проекти на експерта:";
+            // 
             // ExpertDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 347);
+            this.ClientSize = new System.Drawing.Size(1015, 347);
+            this.Controls.Add(this.ExpertL);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.ExpertTypeDropDown);
             this.Controls.Add(this.label4);
@@ -181,8 +258,10 @@
             this.Controls.Add(this.label1);
             this.Name = "ExpertDetailsForm";
             this.Text = "Детайли за експерт";
+            this.Load += new System.EventHandler(this.ExpertDetailsForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectsGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectVMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,9 +278,18 @@
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button ApplyChangesBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ProjectsGV;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox ExpertTypeDropDown;
         private System.Windows.Forms.Button CloseBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payPerHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource projectVMBindingSource;
+        private System.Windows.Forms.Label ExpertL;
     }
 }

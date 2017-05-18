@@ -35,12 +35,10 @@
             this.ProgressLabel = new System.Windows.Forms.Label();
             this.TaskProgressBar = new System.Windows.Forms.ProgressBar();
             this.TaskHoursLabel = new System.Windows.Forms.Label();
-            this.ComentLabel = new System.Windows.Forms.Label();
             this.EditTasks = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.TaskDescriptionLabel = new System.Windows.Forms.Label();
             this.DescriptionRtb = new System.Windows.Forms.RichTextBox();
-            this.ComentRtb = new System.Windows.Forms.RichTextBox();
             this.ResultRtb = new System.Windows.Forms.RichTextBox();
             this.TaskResultRtb = new System.Windows.Forms.Label();
             this.TaskHoursTb = new System.Windows.Forms.MaskedTextBox();
@@ -79,7 +77,7 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(448, 57);
+            this.StatusLabel.Location = new System.Drawing.Point(24, 299);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(94, 13);
             this.StatusLabel.TabIndex = 22;
@@ -97,15 +95,15 @@
             "В изпълнение",
             "Отказана",
             "Изпълнена"});
-            this.StatusCb.Location = new System.Drawing.Point(575, 57);
+            this.StatusCb.Location = new System.Drawing.Point(135, 299);
             this.StatusCb.Name = "StatusCb";
-            this.StatusCb.Size = new System.Drawing.Size(141, 21);
+            this.StatusCb.Size = new System.Drawing.Size(256, 21);
             this.StatusCb.TabIndex = 23;
             // 
             // ProgressLabel
             // 
             this.ProgressLabel.AutoSize = true;
-            this.ProgressLabel.Location = new System.Drawing.Point(17, 454);
+            this.ProgressLabel.Location = new System.Drawing.Point(17, 419);
             this.ProgressLabel.Name = "ProgressLabel";
             this.ProgressLabel.Size = new System.Drawing.Size(112, 13);
             this.ProgressLabel.TabIndex = 24;
@@ -113,7 +111,7 @@
             // 
             // TaskProgressBar
             // 
-            this.TaskProgressBar.Location = new System.Drawing.Point(135, 454);
+            this.TaskProgressBar.Location = new System.Drawing.Point(135, 419);
             this.TaskProgressBar.Name = "TaskProgressBar";
             this.TaskProgressBar.Size = new System.Drawing.Size(581, 23);
             this.TaskProgressBar.TabIndex = 26;
@@ -121,24 +119,15 @@
             // TaskHoursLabel
             // 
             this.TaskHoursLabel.AutoSize = true;
-            this.TaskHoursLabel.Location = new System.Drawing.Point(448, 23);
+            this.TaskHoursLabel.Location = new System.Drawing.Point(24, 265);
             this.TaskHoursLabel.Name = "TaskHoursLabel";
             this.TaskHoursLabel.Size = new System.Drawing.Size(105, 13);
             this.TaskHoursLabel.TabIndex = 27;
             this.TaskHoursLabel.Text = "Отработени часове";
             // 
-            // ComentLabel
-            // 
-            this.ComentLabel.AutoSize = true;
-            this.ComentLabel.Location = new System.Drawing.Point(24, 258);
-            this.ComentLabel.Name = "ComentLabel";
-            this.ComentLabel.Size = new System.Drawing.Size(57, 13);
-            this.ComentLabel.TabIndex = 29;
-            this.ComentLabel.Text = "Коментар";
-            // 
             // EditTasks
             // 
-            this.EditTasks.Location = new System.Drawing.Point(548, 496);
+            this.EditTasks.Location = new System.Drawing.Point(548, 461);
             this.EditTasks.Name = "EditTasks";
             this.EditTasks.Size = new System.Drawing.Size(75, 37);
             this.EditTasks.TabIndex = 31;
@@ -148,7 +137,7 @@
             // 
             // CloseBtn
             // 
-            this.CloseBtn.Location = new System.Drawing.Point(641, 496);
+            this.CloseBtn.Location = new System.Drawing.Point(641, 461);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(75, 37);
             this.CloseBtn.TabIndex = 32;
@@ -174,15 +163,6 @@
             this.DescriptionRtb.TabIndex = 34;
             this.DescriptionRtb.Text = "";
             // 
-            // ComentRtb
-            // 
-            this.ComentRtb.Enabled = false;
-            this.ComentRtb.Location = new System.Drawing.Point(135, 258);
-            this.ComentRtb.Name = "ComentRtb";
-            this.ComentRtb.Size = new System.Drawing.Size(256, 66);
-            this.ComentRtb.TabIndex = 35;
-            this.ComentRtb.Text = "";
-            // 
             // ResultRtb
             // 
             this.ResultRtb.Enabled = false;
@@ -204,10 +184,10 @@
             // TaskHoursTb
             // 
             this.TaskHoursTb.Enabled = false;
-            this.TaskHoursTb.Location = new System.Drawing.Point(575, 20);
+            this.TaskHoursTb.Location = new System.Drawing.Point(135, 262);
             this.TaskHoursTb.Mask = "00000";
             this.TaskHoursTb.Name = "TaskHoursTb";
-            this.TaskHoursTb.Size = new System.Drawing.Size(141, 20);
+            this.TaskHoursTb.Size = new System.Drawing.Size(256, 20);
             this.TaskHoursTb.TabIndex = 38;
             this.TaskHoursTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TaskHoursTb.ValidatingType = typeof(int);
@@ -215,7 +195,7 @@
             // TaskStartDatePicker
             // 
             this.TaskStartDatePicker.Enabled = false;
-            this.TaskStartDatePicker.Location = new System.Drawing.Point(575, 93);
+            this.TaskStartDatePicker.Location = new System.Drawing.Point(572, 20);
             this.TaskStartDatePicker.Name = "TaskStartDatePicker";
             this.TaskStartDatePicker.Size = new System.Drawing.Size(141, 20);
             this.TaskStartDatePicker.TabIndex = 39;
@@ -223,7 +203,7 @@
             // TaskEndDatePicker
             // 
             this.TaskEndDatePicker.Enabled = false;
-            this.TaskEndDatePicker.Location = new System.Drawing.Point(575, 269);
+            this.TaskEndDatePicker.Location = new System.Drawing.Point(575, 175);
             this.TaskEndDatePicker.Name = "TaskEndDatePicker";
             this.TaskEndDatePicker.Size = new System.Drawing.Size(141, 20);
             this.TaskEndDatePicker.TabIndex = 40;
@@ -231,7 +211,7 @@
             // TaskStartDateLabel
             // 
             this.TaskStartDateLabel.AutoSize = true;
-            this.TaskStartDateLabel.Location = new System.Drawing.Point(448, 93);
+            this.TaskStartDateLabel.Location = new System.Drawing.Point(445, 20);
             this.TaskStartDateLabel.Name = "TaskStartDateLabel";
             this.TaskStartDateLabel.Size = new System.Drawing.Size(108, 13);
             this.TaskStartDateLabel.TabIndex = 41;
@@ -240,7 +220,7 @@
             // TaskEndDateLabel
             // 
             this.TaskEndDateLabel.AutoSize = true;
-            this.TaskEndDateLabel.Location = new System.Drawing.Point(457, 275);
+            this.TaskEndDateLabel.Location = new System.Drawing.Point(457, 175);
             this.TaskEndDateLabel.Name = "TaskEndDateLabel";
             this.TaskEndDateLabel.Size = new System.Drawing.Size(96, 13);
             this.TaskEndDateLabel.TabIndex = 42;
@@ -268,18 +248,18 @@
             // NewExpertBnt
             // 
             this.NewExpertBnt.Enabled = false;
-            this.NewExpertBnt.Location = new System.Drawing.Point(226, 368);
+            this.NewExpertBnt.Location = new System.Drawing.Point(397, 341);
             this.NewExpertBnt.Name = "NewExpertBnt";
-            this.NewExpertBnt.Size = new System.Drawing.Size(165, 25);
+            this.NewExpertBnt.Size = new System.Drawing.Size(103, 21);
             this.NewExpertBnt.TabIndex = 45;
-            this.NewExpertBnt.Text = "Добавяне на нов изпълнител";
+            this.NewExpertBnt.Text = "Добавяне на нов";
             this.NewExpertBnt.UseVisualStyleBackColor = true;
             this.NewExpertBnt.Visible = false;
             this.NewExpertBnt.Click += new System.EventHandler(this.NewExpertBnt_Click);
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(460, 496);
+            this.SaveBtn.Location = new System.Drawing.Point(460, 461);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 37);
             this.SaveBtn.TabIndex = 46;
@@ -308,7 +288,7 @@
             // PriorityLabel
             // 
             this.PriorityLabel.AutoSize = true;
-            this.PriorityLabel.Location = new System.Drawing.Point(24, 407);
+            this.PriorityLabel.Location = new System.Drawing.Point(24, 381);
             this.PriorityLabel.Name = "PriorityLabel";
             this.PriorityLabel.Size = new System.Drawing.Size(61, 13);
             this.PriorityLabel.TabIndex = 49;
@@ -319,14 +299,14 @@
             this.PriorityCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PriorityCb.Enabled = false;
             this.PriorityCb.FormattingEnabled = true;
-            this.PriorityCb.Location = new System.Drawing.Point(135, 407);
+            this.PriorityCb.Location = new System.Drawing.Point(135, 381);
             this.PriorityCb.Name = "PriorityCb";
             this.PriorityCb.Size = new System.Drawing.Size(256, 21);
             this.PriorityCb.TabIndex = 50;
             // 
             // StepBtn
             // 
-            this.StepBtn.Location = new System.Drawing.Point(722, 454);
+            this.StepBtn.Location = new System.Drawing.Point(722, 419);
             this.StepBtn.Name = "StepBtn";
             this.StepBtn.Size = new System.Drawing.Size(75, 23);
             this.StepBtn.TabIndex = 51;
@@ -339,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 545);
+            this.ClientSize = new System.Drawing.Size(797, 503);
             this.Controls.Add(this.StepBtn);
             this.Controls.Add(this.PriorityCb);
             this.Controls.Add(this.PriorityLabel);
@@ -356,12 +336,10 @@
             this.Controls.Add(this.TaskHoursTb);
             this.Controls.Add(this.ResultRtb);
             this.Controls.Add(this.TaskResultRtb);
-            this.Controls.Add(this.ComentRtb);
             this.Controls.Add(this.DescriptionRtb);
             this.Controls.Add(this.TaskDescriptionLabel);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.EditTasks);
-            this.Controls.Add(this.ComentLabel);
             this.Controls.Add(this.TaskHoursLabel);
             this.Controls.Add(this.TaskProgressBar);
             this.Controls.Add(this.ProgressLabel);
@@ -386,12 +364,10 @@
         private System.Windows.Forms.Label ProgressLabel;
         private System.Windows.Forms.ProgressBar TaskProgressBar;
         private System.Windows.Forms.Label TaskHoursLabel;
-        private System.Windows.Forms.Label ComentLabel;
         private System.Windows.Forms.Button EditTasks;
         private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Label TaskDescriptionLabel;
         private System.Windows.Forms.RichTextBox DescriptionRtb;
-        private System.Windows.Forms.RichTextBox ComentRtb;
         private System.Windows.Forms.RichTextBox ResultRtb;
         private System.Windows.Forms.Label TaskResultRtb;
         private System.Windows.Forms.MaskedTextBox TaskHoursTb;
