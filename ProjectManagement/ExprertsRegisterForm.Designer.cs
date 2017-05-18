@@ -39,6 +39,7 @@
             this.InsideExpert = new System.Windows.Forms.RadioButton();
             this.CreateExpertBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExpertNameLabel
@@ -140,11 +141,22 @@
             this.CloseBtn.UseVisualStyleBackColor = true;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(30, 211);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "Изчисти";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // ExprertsRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 246);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.CreateExpertBtn);
             this.Controls.Add(this.InsideExpert);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.RadioButton InsideExpert;
         private System.Windows.Forms.Button CreateExpertBtn;
         private System.Windows.Forms.Button CloseBtn;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

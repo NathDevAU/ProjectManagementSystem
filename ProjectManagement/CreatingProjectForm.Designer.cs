@@ -48,6 +48,7 @@
             this.CurrencyLabel = new System.Windows.Forms.Label();
             this.NewClientTb = new System.Windows.Forms.TextBox();
             this.CancelRegisterClient = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ProjectIdLabel
@@ -221,11 +222,22 @@
             this.CancelRegisterClient.UseVisualStyleBackColor = true;
             this.CancelRegisterClient.Click += new System.EventHandler(this.CancelRegisterClient_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(413, 357);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 23;
+            this.buttonClear.Text = "Изчисти";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // CreatingProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 392);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.CancelRegisterClient);
             this.Controls.Add(this.NewClientTb);
             this.Controls.Add(this.CurrencyLabel);
@@ -276,5 +288,6 @@
         private System.Windows.Forms.Label CurrencyLabel;
         private System.Windows.Forms.TextBox NewClientTb;
         private System.Windows.Forms.Button CancelRegisterClient;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

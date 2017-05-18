@@ -72,8 +72,16 @@ namespace ProjectManagement
             this.ProjectClientComboBox.ValueMember = "Key";
         }
 
-        private void PopulateControls()
+        public void PopulateControls()
         {
+            decimal? countHours=0;
+            decimal? pay = currentProject.PROJECT_PAY_PER_HOUR;
+            foreach (var task in currentProject.PROJECT_TASKS)
+            {
+                countHours += task.TASK_HOURS;
+            }
+
+
             ProjectIdTextBox.Text = currentProject.PROJECT_ID.ToString();
             ProjectNameTextBox.Text = currentProject.PROJECT_NAME;
             ProjectDescriptionTextBox.Text = currentProject.PROJECT_DESCRIPTION;
@@ -83,8 +91,8 @@ namespace ProjectManagement
             ProjectEndDatePicker.Value = currentProject.PROJECT_END.Date;
             PayPerHourTextBox.Text = currentProject.PROJECT_PAY_PER_HOUR.ToString();
             TaskCountTb.Text = currentProject.PROJECT_TASKS.Count.ToString();
-            HoursCountTb.Text = "99:99"; //TODO: sum of each task hours
-            CostSoFarTb.Text = "NotImplemented"; //TODO : project cost formula?
+            HoursCountTb.Text = countHours.ToString();
+            CostSoFarTb.Text = (countHours*pay).ToString();
         }
 
         public void PopulateTasksGV()

@@ -38,17 +38,16 @@
             this.task_end = new System.Windows.Forms.Label();
             this.taskEndDate = new System.Windows.Forms.DateTimePicker();
             this.task_Priority_CB = new System.Windows.Forms.ComboBox();
-            this.task_comment = new System.Windows.Forms.Label();
             this.Create = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
             this.task_Description_RTB = new System.Windows.Forms.RichTextBox();
             this.TaskForProjectLabel = new System.Windows.Forms.Label();
             this.task_Project_TB = new System.Windows.Forms.TextBox();
             this.task_Result_RTB = new System.Windows.Forms.RichTextBox();
-            this.task_comment_RTB = new System.Windows.Forms.RichTextBox();
             this.ExpertLabel = new System.Windows.Forms.Label();
             this.ExpertsCb = new System.Windows.Forms.ComboBox();
             this.RegisterExpertBtn = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // task_name
@@ -88,7 +87,7 @@
             // task_begin
             // 
             this.task_begin.AutoSize = true;
-            this.task_begin.Location = new System.Drawing.Point(25, 434);
+            this.task_begin.Location = new System.Drawing.Point(29, 343);
             this.task_begin.Name = "task_begin";
             this.task_begin.Size = new System.Drawing.Size(97, 13);
             this.task_begin.TabIndex = 4;
@@ -105,7 +104,7 @@
             // 
             // taskStartDate
             // 
-            this.taskStartDate.Location = new System.Drawing.Point(28, 459);
+            this.taskStartDate.Location = new System.Drawing.Point(32, 368);
             this.taskStartDate.Name = "taskStartDate";
             this.taskStartDate.Size = new System.Drawing.Size(172, 20);
             this.taskStartDate.TabIndex = 17;
@@ -113,7 +112,7 @@
             // task_end
             // 
             this.task_end.AutoSize = true;
-            this.task_end.Location = new System.Drawing.Point(431, 434);
+            this.task_end.Location = new System.Drawing.Point(446, 343);
             this.task_end.Name = "task_end";
             this.task_end.Size = new System.Drawing.Size(85, 13);
             this.task_end.TabIndex = 18;
@@ -121,7 +120,7 @@
             // 
             // taskEndDate
             // 
-            this.taskEndDate.Location = new System.Drawing.Point(344, 459);
+            this.taskEndDate.Location = new System.Drawing.Point(359, 368);
             this.taskEndDate.Name = "taskEndDate";
             this.taskEndDate.Size = new System.Drawing.Size(172, 20);
             this.taskEndDate.TabIndex = 19;
@@ -139,18 +138,9 @@
             this.task_Priority_CB.Size = new System.Drawing.Size(215, 21);
             this.task_Priority_CB.TabIndex = 20;
             // 
-            // task_comment
-            // 
-            this.task_comment.AutoSize = true;
-            this.task_comment.Location = new System.Drawing.Point(29, 338);
-            this.task_comment.Name = "task_comment";
-            this.task_comment.Size = new System.Drawing.Size(57, 13);
-            this.task_comment.TabIndex = 28;
-            this.task_comment.Text = "Коментар";
-            // 
             // Create
             // 
-            this.Create.Location = new System.Drawing.Point(371, 499);
+            this.Create.Location = new System.Drawing.Point(386, 408);
             this.Create.Name = "Create";
             this.Create.Size = new System.Drawing.Size(64, 28);
             this.Create.TabIndex = 30;
@@ -160,7 +150,7 @@
             // 
             // Close
             // 
-            this.Close.Location = new System.Drawing.Point(452, 499);
+            this.Close.Location = new System.Drawing.Point(467, 408);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(64, 28);
             this.Close.TabIndex = 31;
@@ -201,14 +191,6 @@
             this.task_Result_RTB.TabIndex = 37;
             this.task_Result_RTB.Text = "";
             // 
-            // task_comment_RTB
-            // 
-            this.task_comment_RTB.Location = new System.Drawing.Point(227, 338);
-            this.task_comment_RTB.Name = "task_comment_RTB";
-            this.task_comment_RTB.Size = new System.Drawing.Size(304, 83);
-            this.task_comment_RTB.TabIndex = 38;
-            this.task_comment_RTB.Text = "";
-            // 
             // ExpertLabel
             // 
             this.ExpertLabel.AutoSize = true;
@@ -237,22 +219,31 @@
             this.RegisterExpertBtn.UseVisualStyleBackColor = true;
             this.RegisterExpertBtn.Click += new System.EventHandler(this.RegisterExpertBtn_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(294, 408);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 28);
+            this.buttonClear.TabIndex = 42;
+            this.buttonClear.Text = "Изчисти";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // CreatingTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 535);
+            this.ClientSize = new System.Drawing.Size(543, 444);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.RegisterExpertBtn);
             this.Controls.Add(this.ExpertsCb);
             this.Controls.Add(this.ExpertLabel);
-            this.Controls.Add(this.task_comment_RTB);
             this.Controls.Add(this.task_Result_RTB);
             this.Controls.Add(this.task_Project_TB);
             this.Controls.Add(this.TaskForProjectLabel);
             this.Controls.Add(this.task_Description_RTB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Create);
-            this.Controls.Add(this.task_comment);
             this.Controls.Add(this.task_Priority_CB);
             this.Controls.Add(this.taskEndDate);
             this.Controls.Add(this.task_end);
@@ -283,16 +274,15 @@
         private System.Windows.Forms.Label task_end;
         private System.Windows.Forms.DateTimePicker taskEndDate;
         private System.Windows.Forms.ComboBox task_Priority_CB;
-        private System.Windows.Forms.Label task_comment;
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.RichTextBox task_Description_RTB;
         private System.Windows.Forms.Label TaskForProjectLabel;
         private System.Windows.Forms.TextBox task_Project_TB;
         private System.Windows.Forms.RichTextBox task_Result_RTB;
-        private System.Windows.Forms.RichTextBox task_comment_RTB;
         private System.Windows.Forms.Label ExpertLabel;
         private System.Windows.Forms.ComboBox ExpertsCb;
         private System.Windows.Forms.Button RegisterExpertBtn;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

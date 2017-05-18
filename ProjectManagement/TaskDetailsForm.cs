@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjectManagement.Models;
-using ProjectManagement.Utils;
-using ProjectManagement.ViewModels;
 
 namespace ProjectManagement
 {
@@ -40,7 +32,6 @@ namespace ProjectManagement
             ProjectNameTb.Text = currentTask.PROJECT.PROJECT_NAME;
             DescriptionRtb.Text = currentTask.TASK_DESCRIPTION;
             ResultRtb.Text = currentTask.TAS_DELIVERABLES;
-            ComentRtb.Text = "Няма такова нещо";
             ExpertsCb.SelectedValue = currentTask.EXPRET_ID;
             PriorityCb.SelectedValue = currentTask.TASK_PRIORITY;
             StatusCb.SelectedValue = currentTask.TASK_STATUS;
@@ -122,12 +113,16 @@ namespace ProjectManagement
             TaskNameTb.Enabled = true;
             DescriptionRtb.Enabled = true;
             TaskResultRtb.Enabled = true;
-            ComentRtb.Enabled = true;
             ExpertsCb.Enabled = true;
             NewExpertBnt.Enabled = true;
             ResultRtb.Enabled = true;
             StatusCb.Enabled = true;
+
+            if (currentTask.TASK_STATUS==Utils.TaskStatus.TaskStatusCompleatedId)
+            {
             TaskHoursTb.Enabled = true;
+            }
+
             TaskStartDatePicker.Enabled = true;
             TaskEndDatePicker.Enabled = true;
             PriorityCb.Enabled = true;
@@ -143,7 +138,33 @@ namespace ProjectManagement
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            if (TaskNameTb.Text=="")
+            {
+                MessageBox.Show("Въведете име на задачата!");
+                return;
+            }
+            if (DescriptionRtb.Text == "")
+            {
+                MessageBox.Show("Въведете описание на задачата!");
+                return;
+            }
+            if (ResultRtb.Text == "")
+            {
+                MessageBox.Show("Въведете oчакван резултат!");
+                return;
+            }
+            if (true)
+            {
 
+            }
+
+
+
+            if (decimal.Parse(TaskHoursTb.Text.ToString()) < currentTask.TASK_HOURS)
+            {
+                MessageBox.Show($"Въведете число по-голямо от {currentTask.TASK_HOURS}");
+                return;
+            }
             currentTask.TASK_NAME = TaskNameTb.Text;
             currentTask.TASK_DESCRIPTION = DescriptionRtb.Text;
             currentTask.TAS_DELIVERABLES = ResultRtb.Text;
@@ -159,7 +180,6 @@ namespace ProjectManagement
             TaskNameTb.Enabled = false;
             DescriptionRtb.Enabled = false;
             TaskResultRtb.Enabled = false;
-            ComentRtb.Enabled = false;
             ExpertsCb.Enabled = false;
             NewExpertBnt.Enabled = false;
             ResultRtb.Enabled = false;
@@ -175,7 +195,19 @@ namespace ProjectManagement
             EditTasks.Visible = true;
             SaveBtn.Visible = false;
 
-
+            //if form is open from Create Tast Form:
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name.Equals("ProjectDetailsForm"))
+                {
+                    ProjectDetailsForm form = Application.OpenForms.OfType<ProjectDetailsForm>().FirstOrDefault();
+                    if (form != null)
+                    {
+                        form.PopulateTasksGV();
+                        form.PopulateControls();
+                    }
+                }
+            }
 
         }
 

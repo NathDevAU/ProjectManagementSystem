@@ -103,5 +103,10 @@ namespace ProjectManagement
         {
             this.Close();
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

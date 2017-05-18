@@ -207,5 +207,10 @@ namespace ProjectManagement
             CancelRegisterClient.Visible = false;
 
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

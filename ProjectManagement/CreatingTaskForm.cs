@@ -28,7 +28,6 @@ namespace ProjectManagement
         private void CreatingTaskForm_Load(object sender, EventArgs e)
         {
             task_Project_TB.Text = currentProject.PROJECT_NAME;
-            task_comment_RTB.Text = "такова нещо в базата няма!";
 
             PopulateExpertCb();
         }
@@ -147,6 +146,18 @@ namespace ProjectManagement
             this.ExpertsCb.ValueMember = "Value";
             ExpertsCb.Refresh();
             cbData.Clear();
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            task_Name_TB.Clear();
+            task_Project_TB.Clear();
+            task_Priority_CB.SelectedIndex = -1;
+            ExpertsCb.SelectedIndex = -1;
+            task_Description_RTB.ResetText();
+            task_Result_RTB.ResetText();
+            taskStartDate.Value = DateTime.Now;
+            taskEndDate.Value = DateTime.Now;
         }
     }
 }
