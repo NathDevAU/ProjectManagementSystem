@@ -53,6 +53,7 @@ namespace ProjectManagement
 
             this.ProjectsGV.Visible = true;
             this.projectsBindingSource.DataSource = gridData;
+
         }
 
         private Expression<Func<PROJECT, bool>> GetSearchCriteria()

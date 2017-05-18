@@ -149,24 +149,26 @@ namespace ProjectManagement
 
         private void ExpertDetailsForm_Load(object sender, EventArgs e)
         {
-            var gridData = dbContext.PROJECTS
-                               .Where(x=>x.CLIENT_ID==currentExpertId)
-                               .Include(x => x.PROJECT_STATUS1)
-                               .Include(x => x.CLIENT)
+            var gridData = dbContext.PROJECT_TASKS
+                               .Where(x=>x.EXPRET_ID==currentExpertId)
+                               .Include(x => x.PROJECT.PROJECT_STATUS1)
+                               .Include(x => x.EXPERT)
                                .Select(x => new ProjectVM()
                                {
-                                   Id = x.PROJECT_ID,
-                                   Name = x.PROJECT_NAME,
-                                   Client = x.CLIENT.CLIENT_NAME,
-                                   StartDate = x.PROJECT_BEGIN,
-                                   EndDate = x.PROJECT_END,
-                                   Status = x.PROJECT_STATUS1.PSTATUS_NAME,
-                                   PayPerH = x.PROJECT_PAY_PER_HOUR,
+                                   Id = x.PROJECT.PROJECT_ID,
+                                   Name = x.PROJECT.PROJECT_NAME,
+                                   Client = x.PROJECT.CLIENT.CLIENT_NAME,
+                                   StartDate = x.PROJECT.PROJECT_BEGIN,
+                                   EndDate = x.PROJECT.PROJECT_END,
+                                   Status = x.PROJECT.PROJECT_STATUS1.PSTATUS_NAME,
+                                   PayPerH = x.PROJECT.PROJECT_PAY_PER_HOUR,
                                })
                                .ToList();
 
             this.ProjectsGV.Visible = true;
             this.projectVMBindingSource.DataSource = gridData;
+            ProjectsGV.DataSource = this.projectVMBindingSource;
+
         }
     }
 }
