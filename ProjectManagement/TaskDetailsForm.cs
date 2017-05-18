@@ -26,28 +26,95 @@ namespace ProjectManagement
             InitializeComponent();
             currentTaskId = decimal.Parse(Id);
             currentTask = context.PROJECT_TASKS.Find(currentTaskId);
-            textBox1.Enabled = false;
+            ProjectNameTb.Enabled = false;
 
         }
 
         private void TaskDetailsForm_Load(object sender, EventArgs e)
         {
+            PopulateExpertCb();
+            PopulatePriorityCb();
+            PopulateStatusCb();
+
             TaskNameTb.Text = currentTask.TASK_NAME;
-            textBox1.Text = currentTask.PROJECT.PROJECT_NAME;
+            ProjectNameTb.Text = currentTask.PROJECT.PROJECT_NAME;
             DescriptionRtb.Text = currentTask.TASK_DESCRIPTION;
             ResultRtb.Text = currentTask.TAS_DELIVERABLES;
+            ComentRtb.Text = "Няма такова нещо";
+            ExpertsCb.SelectedValue = currentTask.EXPRET_ID;
+            PriorityCb.SelectedValue = currentTask.TASK_PRIORITY;
+            StatusCb.SelectedValue = currentTask.TASK_STATUS;
 
             // NOT FINISH
             //  ComentRtb.Text = "";
             //  TaskExpertCb.SelectedValue = currentTask.EXPRET_ID;
             //  StatusDdl.SelectedItem = currentProject.PROJECT_STATUS1.PSTATUS_NAME;
 
-            PriorityCb.Text = currentTask.TASK_PRIORITY;
             TaskHoursTb.Text = currentTask.TASK_HOURS.ToString();
             StatusCb.Text = currentTask.TASK_STATUS1.STATUS_NAME;
             TaskStartDatePicker.Value = currentTask.TASK_BEGIN.Date;
             TaskEndDatePicker.Value = currentTask.TASK_END.Date;
 
+            for (int i = 1; i <= currentTask.TASK_READY; i++)
+            {
+                TaskProgressBar.PerformStep();
+            }
+        }
+
+        private void PopulateStatusCb()
+        {
+            Dictionary<string, decimal> cbData = new Dictionary<string, decimal>();
+
+            var taskStatuses = context.TASK_STATUS.ToList();
+            foreach (var stat in taskStatuses)
+            {
+                cbData.Add(stat.STATUS_NAME, stat.STATUS_ID);
+            }
+            this.StatusCb.DataSource = new BindingSource(cbData, null);
+            this.StatusCb.DisplayMember = "Key";
+            this.StatusCb.ValueMember = "Value";
+            StatusCb.Refresh();
+            cbData.Clear();
+        }
+
+        private void PopulatePriorityCb()
+        {
+            Dictionary<string, string> cbData = new Dictionary<string, string>();
+
+            var experts = context.EXPERTS.ToList();
+
+            cbData.Add("Висок", "H");
+            cbData.Add("Среден", "M");
+            cbData.Add("Нисък", "L");
+
+            this.PriorityCb.DataSource = new BindingSource(cbData, null);
+            this.PriorityCb.DisplayMember = "Key";
+            this.PriorityCb.ValueMember = "Value";
+            PriorityCb.Refresh();
+            cbData.Clear();
+        }
+
+        public void PopulateExpertCb()
+        {
+            Dictionary<string, decimal> cbData = new Dictionary<string, decimal>();
+
+            var experts = context.EXPERTS.ToList();
+            foreach (var expert in experts)
+            {
+                cbData.Add(
+                 string.Concat(
+                     expert.EXPERT_NAME, " ",
+                     expert.EXPERT_SURNAME, " ",
+                     expert.EXPERT_LASTNAME),
+                 expert.EXPRET_ID);
+            }
+
+
+            this.ExpertsCb.DataSource = new BindingSource(cbData, null);
+            this.ExpertsCb.DisplayMember = "Key";
+            this.ExpertsCb.ValueMember = "Value";
+            ExpertsCb.Refresh();
+            cbData.Clear();
         }
 
         private void EditTasks_Click(object sender, EventArgs e)
@@ -56,7 +123,7 @@ namespace ProjectManagement
             DescriptionRtb.Enabled = true;
             TaskResultRtb.Enabled = true;
             ComentRtb.Enabled = true;
-            TaskExpertCb.Enabled = true;
+            ExpertsCb.Enabled = true;
             NewExpertBnt.Enabled = true;
             ResultRtb.Enabled = true;
             StatusCb.Enabled = true;
@@ -69,6 +136,7 @@ namespace ProjectManagement
 
             EditTasks.Visible = false;
             SaveBtn.Visible = true;
+            StepBtn.Visible = true;
 
 
         }
@@ -79,9 +147,10 @@ namespace ProjectManagement
             currentTask.TASK_NAME = TaskNameTb.Text;
             currentTask.TASK_DESCRIPTION = DescriptionRtb.Text;
             currentTask.TAS_DELIVERABLES = ResultRtb.Text;
-            currentTask.TASK_PRIORITY = PriorityCb.Text;
+            currentTask.TASK_PRIORITY = PriorityCb.SelectedValue.ToString();//?
+            currentTask.EXPRET_ID = decimal.Parse(ExpertsCb.SelectedValue.ToString());
             currentTask.TASK_HOURS = decimal.Parse(TaskHoursTb.Text);
-            currentTask.TASK_STATUS1.STATUS_NAME = StatusCb.Text;
+            currentTask.TASK_STATUS = decimal.Parse(StatusCb.SelectedValue.ToString());
             currentTask.TASK_BEGIN = TaskStartDatePicker.Value;
             currentTask.TASK_END = TaskEndDatePicker.Value;
 
@@ -91,7 +160,7 @@ namespace ProjectManagement
             DescriptionRtb.Enabled = false;
             TaskResultRtb.Enabled = false;
             ComentRtb.Enabled = false;
-            TaskExpertCb.Enabled = false;
+            ExpertsCb.Enabled = false;
             NewExpertBnt.Enabled = false;
             ResultRtb.Enabled = false;
             StatusCb.Enabled = false;
@@ -100,6 +169,7 @@ namespace ProjectManagement
             TaskEndDatePicker.Enabled = false;
             PriorityCb.Enabled = false;
             NewExpertBnt.Visible = false;
+            StepBtn.Visible = false;
 
 
             EditTasks.Visible = true;
@@ -114,6 +184,20 @@ namespace ProjectManagement
             this.Close();
         }
 
+        private void NewExpertBnt_Click(object sender, EventArgs e)
+        {
+            var registerForm = new ExprertsRegisterForm();
+            registerForm.ShowDialog();
+        }
 
+        private void StepBtn_Click(object sender, EventArgs e)
+        {
+            if (currentTask.TASK_READY < 10)
+            {
+                TaskProgressBar.PerformStep();
+                currentTask.TASK_READY++;
+                context.SaveChanges();
+            }
+        }
     }
 }

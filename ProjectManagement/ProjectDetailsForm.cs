@@ -30,8 +30,6 @@ namespace ProjectManagement
             ProjectClientComboBox.Visible = false;
             RegisterNewClientBtn.Visible = false;
             CancelNewClientBtn.Visible = false;
-
-
         }
 
         public ProjectDetailsForm()
@@ -45,21 +43,19 @@ namespace ProjectManagement
             PopulateTasksGV();
             PopulateClientsCb();
             StatusDdl.SelectedValue = currentProject.PROJECT_STATUS;
-
         }
 
         private void PopulateStatusDdl()
         {
-
             var statuses = new Dictionary<decimal, string>();
 
             foreach (var st in context.PROJECT_STATUS)
             {
                 statuses.Add(st.PSTATUS_ID, st.PSTATUS_NAME);
             }
-            this.ProjectClientComboBox.DataSource = new BindingSource(statuses, null);
-            this.ProjectClientComboBox.DisplayMember = "Value";
-            this.ProjectClientComboBox.ValueMember = "Key";
+            this.StatusDdl.DataSource = new BindingSource(statuses, null);
+            this.StatusDdl.DisplayMember = "Value";
+            this.StatusDdl.ValueMember = "Key";
 
         }
 
@@ -153,7 +149,6 @@ namespace ProjectManagement
             currentProject.PROJECT_PAY_PER_HOUR = decimal.Parse(PayPerHourTextBox.Text);
             context.SaveChanges();
 
-
             RegisterNewClientBtn.Visible = false;
             ProjectIdTextBox.Enabled = false;
             ProjectNameTextBox.Enabled = false;
@@ -183,19 +178,11 @@ namespace ProjectManagement
                     }
                 }
             }
-
-
-
-
-
         }
-
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-
-
         }
 
         private void AddTaskBtn_Click(object sender, EventArgs e)
@@ -216,7 +203,7 @@ namespace ProjectManagement
             {
                 switch (StatusDdl.SelectedIndex)
                 {
-                    case 0:
+                    case 2:
                         if (currentProject.PROJECT_STATUS != Constants.ProjectStatusNewId)
                         {
                             MessageBox.Show("Проектът не може да премине в статус Нов");
@@ -224,7 +211,7 @@ namespace ProjectManagement
                             return;
                         }
                         break;
-                    case 1:
+                    case 0:
                         if (currentProject.PROJECT_STATUS != Constants.ProjectStatusNewId &&
                             currentProject.PROJECT_STATUS != Constants.ProjectStatusCanceledId &&
                             currentProject.PROJECT_STATUS != Constants.ProjectStatusFrozenId)
@@ -234,7 +221,7 @@ namespace ProjectManagement
                             return;
                         }
                         break;
-                    case 2:
+                    case 1:
                         if (currentProject.PROJECT_STATUS != Constants.ProjectStatusNewId &&
                             currentProject.PROJECT_STATUS != Constants.ProjectStatusOngoingId)
                         {

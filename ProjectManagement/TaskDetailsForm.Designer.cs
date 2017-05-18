@@ -49,13 +49,14 @@
             this.TaskStartDateLabel = new System.Windows.Forms.Label();
             this.TaskEndDateLabel = new System.Windows.Forms.Label();
             this.TaskExpertLabel = new System.Windows.Forms.Label();
-            this.TaskExpertCb = new System.Windows.Forms.ComboBox();
+            this.ExpertsCb = new System.Windows.Forms.ComboBox();
             this.NewExpertBnt = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.TaskForProjectLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProjectNameTb = new System.Windows.Forms.TextBox();
             this.PriorityLabel = new System.Windows.Forms.Label();
             this.PriorityCb = new System.Windows.Forms.ComboBox();
+            this.StepBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TaskNameLabel
@@ -86,6 +87,7 @@
             // 
             // StatusCb
             // 
+            this.StatusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StatusCb.Enabled = false;
             this.StatusCb.FormattingEnabled = true;
             this.StatusCb.Items.AddRange(new object[] {
@@ -203,12 +205,12 @@
             // 
             this.TaskHoursTb.Enabled = false;
             this.TaskHoursTb.Location = new System.Drawing.Point(575, 20);
-            this.TaskHoursTb.Mask = "00:00";
+            this.TaskHoursTb.Mask = "00000";
             this.TaskHoursTb.Name = "TaskHoursTb";
             this.TaskHoursTb.Size = new System.Drawing.Size(141, 20);
             this.TaskHoursTb.TabIndex = 38;
             this.TaskHoursTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TaskHoursTb.ValidatingType = typeof(System.DateTime);
+            this.TaskHoursTb.ValidatingType = typeof(int);
             // 
             // TaskStartDatePicker
             // 
@@ -253,14 +255,15 @@
             this.TaskExpertLabel.TabIndex = 43;
             this.TaskExpertLabel.Text = "Изпълнител";
             // 
-            // TaskExpertCb
+            // ExpertsCb
             // 
-            this.TaskExpertCb.Enabled = false;
-            this.TaskExpertCb.FormattingEnabled = true;
-            this.TaskExpertCb.Location = new System.Drawing.Point(135, 341);
-            this.TaskExpertCb.Name = "TaskExpertCb";
-            this.TaskExpertCb.Size = new System.Drawing.Size(256, 21);
-            this.TaskExpertCb.TabIndex = 44;
+            this.ExpertsCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ExpertsCb.Enabled = false;
+            this.ExpertsCb.FormattingEnabled = true;
+            this.ExpertsCb.Location = new System.Drawing.Point(135, 341);
+            this.ExpertsCb.Name = "ExpertsCb";
+            this.ExpertsCb.Size = new System.Drawing.Size(256, 21);
+            this.ExpertsCb.TabIndex = 44;
             // 
             // NewExpertBnt
             // 
@@ -272,6 +275,7 @@
             this.NewExpertBnt.Text = "Добавяне на нов изпълнител";
             this.NewExpertBnt.UseVisualStyleBackColor = true;
             this.NewExpertBnt.Visible = false;
+            this.NewExpertBnt.Click += new System.EventHandler(this.NewExpertBnt_Click);
             // 
             // SaveBtn
             // 
@@ -293,13 +297,13 @@
             this.TaskForProjectLabel.TabIndex = 47;
             this.TaskForProjectLabel.Text = "Към проект";
             // 
-            // textBox1
+            // ProjectNameTb
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(135, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 20);
-            this.textBox1.TabIndex = 48;
+            this.ProjectNameTb.Enabled = false;
+            this.ProjectNameTb.Location = new System.Drawing.Point(135, 56);
+            this.ProjectNameTb.Name = "ProjectNameTb";
+            this.ProjectNameTb.Size = new System.Drawing.Size(256, 20);
+            this.ProjectNameTb.TabIndex = 48;
             // 
             // PriorityLabel
             // 
@@ -312,29 +316,38 @@
             // 
             // PriorityCb
             // 
+            this.PriorityCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PriorityCb.Enabled = false;
             this.PriorityCb.FormattingEnabled = true;
-            this.PriorityCb.Items.AddRange(new object[] {
-            "Висок",
-            "Среден",
-            "Нисък"});
             this.PriorityCb.Location = new System.Drawing.Point(135, 407);
             this.PriorityCb.Name = "PriorityCb";
             this.PriorityCb.Size = new System.Drawing.Size(256, 21);
             this.PriorityCb.TabIndex = 50;
+            // 
+            // StepBtn
+            // 
+            this.StepBtn.Location = new System.Drawing.Point(722, 454);
+            this.StepBtn.Name = "StepBtn";
+            this.StepBtn.Size = new System.Drawing.Size(75, 23);
+            this.StepBtn.TabIndex = 51;
+            this.StepBtn.Text = "Отчети";
+            this.StepBtn.UseVisualStyleBackColor = true;
+            this.StepBtn.Visible = false;
+            this.StepBtn.Click += new System.EventHandler(this.StepBtn_Click);
             // 
             // TaskDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 545);
+            this.Controls.Add(this.StepBtn);
             this.Controls.Add(this.PriorityCb);
             this.Controls.Add(this.PriorityLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ProjectNameTb);
             this.Controls.Add(this.TaskForProjectLabel);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.NewExpertBnt);
-            this.Controls.Add(this.TaskExpertCb);
+            this.Controls.Add(this.ExpertsCb);
             this.Controls.Add(this.TaskExpertLabel);
             this.Controls.Add(this.TaskEndDateLabel);
             this.Controls.Add(this.TaskStartDateLabel);
@@ -387,12 +400,13 @@
         private System.Windows.Forms.Label TaskStartDateLabel;
         private System.Windows.Forms.Label TaskEndDateLabel;
         private System.Windows.Forms.Label TaskExpertLabel;
-        private System.Windows.Forms.ComboBox TaskExpertCb;
+        private System.Windows.Forms.ComboBox ExpertsCb;
         private System.Windows.Forms.Button NewExpertBnt;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Label TaskForProjectLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProjectNameTb;
         private System.Windows.Forms.Label PriorityLabel;
         private System.Windows.Forms.ComboBox PriorityCb;
+        private System.Windows.Forms.Button StepBtn;
     }
 }

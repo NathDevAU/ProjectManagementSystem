@@ -65,12 +65,20 @@ namespace ProjectManagement
                         this.Close();
                     }
                 }
+                else if (f.Name.Equals("TaskDetailsForm"))
+                {
+                    TaskDetailsForm form = Application.OpenForms.OfType<TaskDetailsForm>().FirstOrDefault();
+                    if (form != null)
+                    {
+                        form.PopulateExpertCb();
+                        var cb = (ComboBox)form.Controls.Find("ExpertsCb", true).FirstOrDefault();
+                        cb.SelectedValue = expert.EXPRET_ID;
+                        this.Close();
+                    }
+                }
             }
-
-
-
-
         }
+
         private bool IsValidInput(TextBox tb)
         {
             string tbName = "";
